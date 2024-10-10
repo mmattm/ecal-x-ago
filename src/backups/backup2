@@ -1,0 +1,133 @@
+import { useRef, useState, useEffect } from "react";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+
+// import * as THREE from "three";
+
+import { Canvas, useLoader, extend } from "@react-three/fiber";
+import {
+  useGLTF,
+  OrbitControls,
+  Splat,
+  Environment,
+  SoftShadows,
+  Shadow,
+  Float,
+  Plane,
+  Effects,
+  Sphere,
+} from "@react-three/drei";
+
+import {
+  EffectComposer,
+  TiltShift2,
+  HueSaturation,
+  DotScreen,
+  DepthOfField,
+  Bloom,
+  SelectiveBloom,
+} from "@react-three/postprocessing";
+
+import FakeGlowMaterial from "./FakeGlowMaterial";
+
+import "./App.css";
+
+// import { SplatTest } from "./splat-object";
+
+function Scene() {
+  const lightRef1 = useRef();
+  const lightRef2 = useRef();
+
+  const gltf = useLoader(GLTFLoader, "/models/ORIANA_FLAVIA_03.gltf");
+
+  // Traverse the GLTF model and enable shadows
+  useEffect(() => {
+    if (gltf) {
+      gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true; // Enable casting shadows
+          child.receiveShadow = true; // Enable receiving shadows (if needed)
+        }
+      });
+    }
+  }, [gltf]);
+
+  return (
+    <>
+      <OrbitControls />
+      <SoftShadows size={8} samples={40} focus={1} />
+      {/* <pointLight
+        ref={lightRef1}
+        intensity={4}
+        position={[1.1, 2, 0.1]}
+        castShadow
+        shadow-mapSize-width={1024} // Increase resolution
+        shadow-mapSize-height={1024} // Increase resolution
+      /> */}
+
+      <directionalLight
+        castShadow
+        position={[1.5, 10, 5]}
+        intensity={2}
+        shadow-mapSize={1024}
+      >
+        <orthographicCamera
+          attach="shadow-camera"
+          args={[-10, 10, -10, 10, 0.1, 60]}
+        />
+      </directionalLight>
+      {/* <orthographicCamera
+        attach="shadow-camera"
+        args={[-10, 10, -10, 10, 0.1, 50]}
+      /> */}
+      {/* <ambientLight ref={lightRef2} intensity={2} /> */}
+      {/* Transparent Floor with ShadowMaterial */}
+
+      <Splat
+        src={
+          "https://huggingface.co/datasets/mmattm/gaussian_test/resolve/main/YounhyunMaterialLibrary-%20sculpturev1?download=true"
+        }
+        // position={[-1, 0.58, 0.1]}
+        rotation={[0.09, -0.1, 0.02]} // Example rotation
+        chunkSize={25000}
+        toneMapped={true}
+        alphaTest={0}
+        alphaHash={false}
+      />
+
+      <group position={[-2.5, 0.2, 2]} scale={0.5}>
+        <mesh
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[0, -0.29, 0]}
+          receiveShadow
+        >
+          <planeGeometry args={[100, 100]} />
+          <shadowMaterial opacity={1} depthWrite={false} />
+        </mesh>
+        <Sphere args={[0.1, 160, 160]} position={[-0.0, 0.64, 0.01]}>
+          <FakeGlowMaterial
+            falloff={4}
+            glowInternalRadius={2}
+            glowColor={"#fff"}
+            glowSharpness={4}
+            opacity={1.0}
+            toneMapped={false}
+          />
+        </Sphere>
+        <primitive object={gltf.scene} position={[0, -0.3, 0]} scale={0.5} />
+      </group>
+
+      <Environment preset="apartment" />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Canvas shadows camera={{ position: [-5, 2, 10], fov: 60 }}>
+      <Scene />
+    </Canvas>
+  );
+}
+
+export default App;
