@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-import EnhancedSpotlight from "../EnhancedSpotlight";
-
 import Scene from "../Scene";
 import CustomDirectionalLight from "../CustomDirectionalLight"; // Import the new component
 import MozziBar from "../lights/MozziBar/MozziBar";
@@ -21,14 +19,6 @@ export default function Scene01() {
       <group position={[0, 0, 0]}>
         <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
         <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
-
-        {/* <EnhancedSpotlight
-          position={[1, 1, 0]}
-          castShadow={false}
-          attenuation={2}
-          distance={4}
-          angle={0.1}
-        /> */}
 
         <MozziBar position={[0, 0, 0]} scale={0.5} />
         {/* <Quilt position={[0, 0, 0]} scale={0.5} /> */}
