@@ -7,7 +7,7 @@ export function SplatsView({
   options,
 }: {
   sources: Array<string>;
-  options?: Array<any>;
+  options?: { splat3D?: boolean }[];
 }) {
   const [scene] = useState(() => new THREE.Scene());
 
@@ -15,15 +15,19 @@ export function SplatsView({
     console.log("Creating splats viewer with sources:", sources);
 
     const viewer = new GaussianSplats3D.DropInViewer({
-      sceneRevealMode: GaussianSplats3D.SceneRevealMode.Gradual,
-      sceneFadeInRateMultiplier: 1,
+      sceneRevealMode: GaussianSplats3D.SceneRevealMode.Instant,
+      // sceneFadeInRateMultiplier: 0.1,
+      splatRenderMode:
+        options && options[0]?.splat3D
+          ? GaussianSplats3D.SplatRenderMode.ThreeD
+          : GaussianSplats3D.SplatRenderMode.TwoD,
 
       // splatRenderMode: GaussianSplats3D.SplatRenderMode.ThreeD,
       // sharedMemoryForWorkers: false,
-
       // format: GaussianSplats3D.SceneFormat.Ply,
       // gpuAcceleratedSort: false,
-       splatRenderMode: GaussianSplats3D.SplatRenderMode.ThreeD,
+      // splatRenderMode: GaussianSplats3D.SplatRenderMode.TwoD,
+      // renderMode: GaussianSplats3D.RenderMode.OnChange,
     });
 
     const addParams: Array<any> = sources.map(

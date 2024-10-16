@@ -1,29 +1,20 @@
 /* eslint-disable react/prop-types */
-import { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
+import { useGLTF, Gltf } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-export default function GltfLoader({ modelPath, position, scale }) {
+export default function GltfLoader({ modelPath, ...props }) {
+  const groupRef = useRef();
   const gltf = useLoader(GLTFLoader, modelPath);
 
-  // Traverse the GLTF model and enable shadows
-  useEffect(() => {
-    if (gltf) {
-      gltf.scene.traverse((child) => {
-        if (child.isMesh) {
-          child.castShadow = true; // Enable casting shadows
-          child.receiveShadow = true; // Enable receiving shadows (if needed)
-        }
-      });
-    }
-  }, [gltf]);
+  const { nodes, materials } = useGLTF(modelPath);
+  // const { scale } = props;
 
   return (
-    <primitive
-      object={gltf.scene}
-      position={position}
-      castShadow
-      scale={scale}
-    />
+    <>
+      <primitive object={gltf.scene} position={[0, 0, 0]} />
+      <Gltf src={gltf.scene} position={[0, 6, 0]} scale={1} />
+    </>
   );
 }

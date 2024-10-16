@@ -1,15 +1,25 @@
 /* eslint-disable react/prop-types */
-import { SoftShadows, Sky, Environment, Grid } from "@react-three/drei";
+import { SoftShadows, Sky, Environment, Grid, Stats } from "@react-three/drei";
 import CameraPathAnimator from "./CameraPathAnimator";
 import { SplatsView } from "./SplatsView";
 
-import { globalStore, sceneStore, cameraPathsStore } from "./store";
+import { globalStore, cameraPathsStore } from "./store";
 
-export default function Scene({ splatPosition }) {
+import { Effect } from "postprocessing";
+
+export default function Scene({
+  splat,
+  splatPosition,
+  splatRotation,
+  splatScale,
+}) {
   const { gaussianVisible } = globalStore((state) => state);
   const grid = globalStore((state) => state.grid);
-
-  const { selectedScene } = sceneStore((state) => state);
+  const sky = globalStore((state) => state.sky);
+  const splatAlphaRemovalThreshold = globalStore(
+    (state) => state.splatAlphaRemovalThreshold
+  );
+  const splat3D = globalStore((state) => state.splat3D);
 
   const cameraPaths = cameraPathsStore((state) => state.cameraPaths);
 
@@ -23,17 +33,28 @@ export default function Scene({ splatPosition }) {
   return (
     <>
       {grid && <Grid args={[50, 50]} position={[0, 0, 0]} />}
+      <Stats showPanel={0} className="stats" />
+
       <fog attach="fog" args={["white", 0, 40]} />
-      <CameraPathAnimator points={selectedPath.points} loop={true} />
+
+      <CameraPathAnimator
+        points={selectedPath.points}
+        loop={true}
+        target={selectedPath.target}
+        duration={selectedPath.duration}
+        easing={selectedPath.easing}
+      />
       <SoftShadows size={12} samples={42} focus={1} />
       <Environment preset="sunset" />
       <ambientLight intensity={1} />
-      <Sky
-        distance={450000}
-        sunPosition={[1, 1, 11]}
-        inclination={1}
-        azimuth={0.25}
-      />
+      {sky && (
+        <Sky
+          distance={450000}
+          sunPosition={[1, 1, 11]}
+          inclination={1}
+          azimuth={0.25}
+        />
+      )}
 
       {/* Floor */}
       <mesh
@@ -47,23 +68,21 @@ export default function Scene({ splatPosition }) {
       </mesh>
       {gaussianVisible && (
         <group
-          rotation={[-Math.PI + 0.1, -Math.PI / 2, 0]}
-          // position={[1.5, -0.3, -0.8]}
-          scale={5}
+          rotation={splatRotation}
+          position={splatPosition}
+          scale={splatScale}
         >
           <SplatsView
-            sources={["/splats/tank.splat"]}
+            key={`${splat3D}-${splatAlphaRemovalThreshold}`}
+            sources={[splat]}
             // sources={[
             //   "https://huggingface.co/datasets/runes/coolsplats/resolve/main/output.splat",
             // ]}
             options={[
               {
-                position: splatPosition,
-                scale: [1, 1, 1],
-                rotation: [0, 0, 0, 0],
-                showLoadingUI: false,
-                splatAlphaRemovalThreshold: 100,
+                splatAlphaRemovalThreshold: splatAlphaRemovalThreshold,
                 progressiveLoad: false,
+                splat3D: splat3D,
               },
             ]}
           ></SplatsView>

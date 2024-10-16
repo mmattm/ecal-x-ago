@@ -8,17 +8,21 @@ import { useAnimationStore, cameraPathsStore, fovStore } from "./store";
 
 export default function CameraPathAnimator({
   points, // Receiving points from parent
-  duration = 16,
-  target = [0, 0, 0],
-  easing = "power1.inOut",
+  duration,
+  target,
+  easing,
   loop = true,
 }) {
   // get store state
   const playAnimation = useAnimationStore((state) => state.playAnimation);
-  const fov = fovStore((state) => state.fov);
   const selectedCameraPath = cameraPathsStore(
     (state) => state.selectedCameraPath
   );
+
+  const cameraPaths = cameraPathsStore((state) => state.cameraPaths);
+
+  const fov = fovStore((state) => state.fov);
+  const setFov = fovStore((state) => state.setFov);
 
   const cameraControlsRef = useRef();
   const animationProgress = useRef({ value: 0 });
@@ -30,16 +34,20 @@ export default function CameraPathAnimator({
   // Generate 50 interpolated points for smooth curve
   const interpolatedPoints = curve.getPoints(50);
 
-  // update camera fov
-  useEffect(() => {
-    if (cameraControlsRef.current) cameraControlsRef.current.zoomTo(fov);
-  }, [fov]);
-
   useEffect(() => {
     stopAnimation();
   }, [selectedCameraPath]);
 
+  // update camera fov
+  useEffect(() => {
+    //console.log("Updating camera fov to: ", fov);
+
+    if (cameraControlsRef.current) cameraControlsRef.current.zoomTo(fov);
+  }, [fov]);
+
   const startAnimation = () => {
+    console.log(easing);
+
     gsap.fromTo(
       animationProgress.current,
       { value: 0 },
@@ -91,8 +99,13 @@ export default function CameraPathAnimator({
   const stopAnimation = () => {
     gsap.killTweensOf(animationProgress.current);
     animationProgress.current.value = 0;
+    updateCameraFov();
     moveToStartPoint();
     cameraControlsRef.current.enabled = true;
+  };
+
+  const updateCameraFov = () => {
+    cameraControlsRef.current.zoomTo(fov);
   };
 
   useFrame((_, delta) => {
