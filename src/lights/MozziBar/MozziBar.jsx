@@ -2,7 +2,7 @@
 import { Sphere } from "@react-three/drei";
 import FakeGlowMaterial from "../../FakeGlowMaterial";
 import { Model } from "./ORIANA_FLAVIA_03.jsx";
-import EnhancedSpotlight from "../EnhancedSpotlight";
+import EnhancedSpotlight from "../../EnhancedSpotlight";
 
 export default function MozziBar({ position, scale }) {
   return (
