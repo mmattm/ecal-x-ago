@@ -32,6 +32,9 @@ export const cameraPaths = [
 ];
 
 export const scenes = [
-  { label: "scene 01", value: "scene_01" },
-  { label: "scene 02", value: "scene_02" },
+  { label: "Oil Tank", value: "OilTank" },
+  { label: "Post Archive Faction", value: "PostArchiveFaction" },
+  { label: "Simulghwan Botanic Garden", value: "SimulghwanBotanicGarden" },
+  { label: "Swiss Embassy Outside", value: "SwissEmbassyOutside" },
+  { label: "Younhyoun Material Library", value: "YounhyounMaterialLibrary" },
 ];

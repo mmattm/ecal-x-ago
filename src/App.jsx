@@ -3,8 +3,13 @@ import "./App.css";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useSceneControls } from "./controls"; // Import the controls
 import { sceneStore } from "./store";
-import Scene01 from "./scenes/scene01";
-import Scene02 from "./scenes/scene02";
+
+// Import scenes
+import OilTank from "./scenes/OilTank";
+import YounhyounMaterialLibrary from "./scenes/YounhyounMaterialLibrary";
+import PostArchiveFaction from "./scenes/PostArchiveFaction";
+import SimulghwanBotanicGarden from "./scenes/SimulghwanBotanicGarden";
+import SwissEmbassyOutside from "./scenes/SwissEmbassyOutside";
 
 export default function App() {
   return (
@@ -15,16 +20,31 @@ export default function App() {
     </>
   );
 }
-
 function Stage() {
-  useSceneControls(); // This hook now handles both scene control and recording
+  useSceneControls();
   const selectedScene = sceneStore((state) => state.selectedScene);
+
+  const renderScene = () => {
+    switch (selectedScene) {
+      case "OilTank":
+        return <OilTank />;
+      case "YounhyounMaterialLibrary":
+        return <YounhyounMaterialLibrary />;
+      case "PostArchiveFaction":
+        return <PostArchiveFaction />;
+      case "SimulghwanBotanicGarden":
+        return <SimulghwanBotanicGarden />;
+      case "SwissEmbassyOutside":
+        return <SwissEmbassyOutside />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
-      {selectedScene === "scene_01" && <Scene01 />}
-      {selectedScene === "scene_02" && <Scene02 />}
-      <CustomRenderLoop /> {/* Custom render loop component */}
+      {renderScene()}
+      {/* <CustomRenderLoop /> */}
     </>
   );
 }

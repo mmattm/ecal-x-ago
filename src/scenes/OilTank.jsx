@@ -6,7 +6,7 @@ import Quilt from "../lights/Quilt/Quilt";
 
 const splat = "/splats/tank.splat";
 
-export default function Scene01() {
+export default function SceneContainer() {
   return (
     <>
       <Scene
@@ -20,8 +20,8 @@ export default function Scene01() {
         <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
         <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
 
-        <MozziBar position={[0, 0, 0]} scale={0.5} />
-        {/* <Quilt position={[0, 0, 0]} scale={0.5} /> */}
+        <MozziBar position={[0, 0, 0]} scale={0.5} rotation={[0, 0, 0]} />
+        {/* <Quilt position={[0, 0, 0]} scale={0.5} rotation={[0, 0, 0]} /> */}
       </group>
     </>
   );

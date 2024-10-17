@@ -4,10 +4,10 @@ import FakeGlowMaterial from "../../FakeGlowMaterial";
 import { Model } from "./ORIANA_FLAVIA_03.jsx";
 import EnhancedSpotlight from "../../EnhancedSpotlight";
 
-export default function MozziBar({ position, scale }) {
+export default function MozziBar({ position, scale, rotation }) {
   return (
     <>
-      <group position={position} scale={scale}>
+      <group position={position} scale={scale} rotation={rotation}>
         <Sphere args={[0.4, 32, 32]} position={[0, 1.9, 0.01]} renderOrder={1}>
           <FakeGlowMaterial
             falloff={4}

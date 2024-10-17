@@ -1,8 +1,8 @@
 import { useControls, button } from "leva";
 import { useState, useRef, useEffect } from "react";
-import { useThree } from "@react-three/fiber";
+import { useThree, useFrame } from "@react-three/fiber";
 import { Recorder, RecorderStatus, Encoders } from "canvas-record";
-import { AVC, HEVC } from "media-codecs";
+import { AVC } from "media-codecs";
 import { scenes } from "./config";
 
 import {
@@ -43,11 +43,20 @@ export function useSceneControls() {
   const grid = globalStore((state) => state.grid);
   const sky = globalStore((state) => state.sky);
 
+  // Camera controls and state
+  const { gl, size, camera } = useThree(); // Access the WebGL renderer and size
+
+  const [cameraCurrentPosition, setCameraCurrentPosition] = useState({
+    x: camera.position.x,
+    y: camera.position.y,
+    z: camera.position.z,
+  });
+
   // Start functions for recording
   // –––––--------------------------------------------–––––
   const canvasRecorder = useRef(null);
   const [isRecording, setIsRecording] = useState(false);
-  const { gl, size, camera } = useThree(); // Access the WebGL renderer and size
+  const [isRendering, setIsRendering] = useState(false);
 
   // Function to initialize the WebGL canvas recorder at 1920x1080
   const startRecording = async () => {
@@ -58,8 +67,11 @@ export function useSceneControls() {
     // const fullHDHeight = 1080;
 
     // set size for 4k
-    const fullHDWidth = 3840;
-    const fullHDHeight = 2160;
+    // const fullHDWidth = 1280;
+    // const fullHDHeight = 720;
+
+    const fullHDWidth = 1920;
+    const fullHDHeight = 1080;
 
     // Resize the renderer to match Full HD resolution for recording
     gl.setSize(fullHDWidth, fullHDHeight, true);
@@ -88,7 +100,7 @@ export function useSceneControls() {
       encoderOptions: {
         codec: AVC.getCodec({ profile: "Main", level: "5.2" }),
         // kbps: 20000000, // 10 Mbps, adjust to your needs
-        // frameRate: 60,
+        frameRate: 60,
         width: fullHDWidth,
         height: fullHDHeight,
       },
@@ -96,17 +108,23 @@ export function useSceneControls() {
 
     await canvasRecorder.current.start();
     setIsRecording(true);
+    console.log("startRecording");
     requestAnimationFrame(tick);
   };
 
   // Function to stop the recording
   const stopRecording = async () => {
+    console.log("stopRecording");
+
+    setIsRendering(true);
     if (
       canvasRecorder.current &&
       canvasRecorder.current.status === RecorderStatus.Recording
     ) {
       await canvasRecorder.current.stop();
       setIsRecording(false);
+      setIsRendering(false);
+      console.log("Rendering complete");
 
       // Restore the canvas size back to its original size
       gl.setSize(size.width, size.height, true);
@@ -117,6 +135,8 @@ export function useSceneControls() {
 
   // Animation tick function to capture each frame
   const tick = async () => {
+    console.log("tick");
+
     if (
       canvasRecorder.current &&
       canvasRecorder.current.status === RecorderStatus.Recording
@@ -125,6 +145,17 @@ export function useSceneControls() {
       requestAnimationFrame(tick);
     }
   };
+
+  // // Update camera position in real-time
+  // useFrame(() => {
+  //   console.log(camera.position.x);
+
+  //   setCameraCurrentPosition({
+  //     x: camera.position.x.toFixed(2),
+  //     y: camera.position.y.toFixed(2),
+  //     z: camera.position.z.toFixed(2),
+  //   });
+  // });
 
   // Use Leva controls for all the previous logic + recording functionality
   const [, set] = useControls(
@@ -207,6 +238,11 @@ export function useSceneControls() {
           globalStore.setState({ grid: value });
         },
       },
+      cameraPosition: {
+        label: "Camera Position",
+        value: `${cameraCurrentPosition.x}, ${cameraCurrentPosition.y}, ${cameraCurrentPosition.z}`,
+        disabled: true, // Make it read-only
+      },
       // Use a static key and dynamically change the label inside the button
       Record: button(
         () => {
@@ -217,6 +253,7 @@ export function useSceneControls() {
           }
         },
         {
+          disabled: isRendering,
           label: isRecording ? "Stop Recording" : "Start Recording",
         }
       ), // Static key `recordingButton` ensures it doesn't move
@@ -232,7 +269,7 @@ export function useSceneControls() {
       //   toggleAnimation();
       // }),
     }),
-    [playAnimation, isRecording] // Include playAnimation and isRecording in the dependency array
+    [playAnimation, isRecording, isRendering, cameraCurrentPosition] // Include playAnimation and isRecording in the dependency array
   );
 
   // Sync the control values with store changes

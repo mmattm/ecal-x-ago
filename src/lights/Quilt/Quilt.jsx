@@ -3,7 +3,7 @@ import { Sphere } from "@react-three/drei";
 import FakeGlowMaterial from "../../FakeGlowMaterial";
 import { Model } from "./AGO_off.jsx";
 
-export default function Quilt({ position, scale }) {
+export default function Quilt({ position, scale, rotation }) {
   return (
     <>
       <group position={position} scale={scale}>
