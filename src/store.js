@@ -37,6 +37,8 @@ export const cameraPathsStore = create((set) => ({
   cameraPaths: cameraPaths,
   selectedCameraPath: cameraPaths[0].id,
   setCameraPath: (id) => set({ selectedCameraPath: id }),
+  cameraPosition: [{ x: 0, y: 0, z: 0 }],
+  setCameraPosition: (position) => set({ cameraPosition: position }),
 }));
 
 // Create a separate fovStore

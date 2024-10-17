@@ -1,24 +1,14 @@
 /* eslint-disable react/prop-types */
 import { Sphere } from "@react-three/drei";
 import FakeGlowMaterial from "../../FakeGlowMaterial";
-import { Model } from "./AGO_off.jsx";
+import { Model } from "./Long_serpent.jsx";
 
-export default function Quilt({ position, scale, rotation }) {
+export default function Light({ position, scale, rotation }) {
   return (
     <>
       <group position={position} scale={scale}>
-        {/* <Sphere args={[0.4, 32, 32]} position={[0, 1.9, 0.01]} renderOrder={1}>
-          <FakeGlowMaterial
-            falloff={4}
-            glowInternalRadius={10}
-            glowColor={"#fff"}
-            // glowSharpness={1}
-            opacity={0.5}
-            toneMapped={true}
-            depthTest={true}
-          />
-        </Sphere> */}
-        <Model position={[0, 0, 0]} />
+        {/* Put lights here */}
+        <Model position={[1, 0, 1]} />
       </group>
     </>
   );

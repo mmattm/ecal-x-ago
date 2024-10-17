@@ -21,6 +21,11 @@ export default function CameraPathAnimator({
 
   const cameraPaths = cameraPathsStore((state) => state.cameraPaths);
 
+  const cameraPosition = cameraPathsStore((state) => state.cameraPosition);
+  const setCameraPosition = cameraPathsStore(
+    (state) => state.setCameraPosition
+  );
+
   const fov = fovStore((state) => state.fov);
   const setFov = fovStore((state) => state.setFov);
 
@@ -109,7 +114,15 @@ export default function CameraPathAnimator({
   };
 
   useFrame((_, delta) => {
-    if (cameraControlsRef.current) cameraControlsRef.current.update(delta);
+    if (cameraControlsRef.current) {
+      cameraControlsRef.current.update(delta);
+
+      // setCameraPosition([
+      //   cameraControlsRef.current.object.position.x,
+      //   cameraControlsRef.current.object.position.y,
+      //   cameraControlsRef.current.object.position.z,
+      // ]);
+    }
   });
 
   // Trigger animation when playAnimation changes

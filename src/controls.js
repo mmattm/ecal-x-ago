@@ -1,6 +1,6 @@
 import { useControls, button } from "leva";
 import { useState, useRef, useEffect } from "react";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { Recorder, RecorderStatus, Encoders } from "canvas-record";
 import { AVC } from "media-codecs";
 import { scenes } from "./config";
@@ -43,20 +43,22 @@ export function useSceneControls() {
   const grid = globalStore((state) => state.grid);
   const sky = globalStore((state) => state.sky);
 
-  // Camera controls and state
-  const { gl, size, camera } = useThree(); // Access the WebGL renderer and size
-
-  const [cameraCurrentPosition, setCameraCurrentPosition] = useState({
-    x: camera.position.x,
-    y: camera.position.y,
-    z: camera.position.z,
-  });
-
   // Start functions for recording
   // –––––--------------------------------------------–––––
   const canvasRecorder = useRef(null);
   const [isRecording, setIsRecording] = useState(false);
   const [isRendering, setIsRendering] = useState(false);
+  const { gl, size, camera } = useThree(); // Access the WebGL renderer and size
+
+  // Use `useFrame` to log the camera position on every frame
+  useFrame(() => {
+    console.log(
+      "camera position: ",
+      camera.position.x.toFixed(2),
+      camera.position.y.toFixed(2),
+      camera.position.z.toFixed(2)
+    );
+  });
 
   // Function to initialize the WebGL canvas recorder at 1920x1080
   const startRecording = async () => {
@@ -146,17 +148,6 @@ export function useSceneControls() {
     }
   };
 
-  // // Update camera position in real-time
-  // useFrame(() => {
-  //   console.log(camera.position.x);
-
-  //   setCameraCurrentPosition({
-  //     x: camera.position.x.toFixed(2),
-  //     y: camera.position.y.toFixed(2),
-  //     z: camera.position.z.toFixed(2),
-  //   });
-  // });
-
   // Use Leva controls for all the previous logic + recording functionality
   const [, set] = useControls(
     () => ({
@@ -238,11 +229,7 @@ export function useSceneControls() {
           globalStore.setState({ grid: value });
         },
       },
-      cameraPosition: {
-        label: "Camera Position",
-        value: `${cameraCurrentPosition.x}, ${cameraCurrentPosition.y}, ${cameraCurrentPosition.z}`,
-        disabled: true, // Make it read-only
-      },
+
       // Use a static key and dynamically change the label inside the button
       Record: button(
         () => {
@@ -269,7 +256,7 @@ export function useSceneControls() {
       //   toggleAnimation();
       // }),
     }),
-    [playAnimation, isRecording, isRendering, cameraCurrentPosition] // Include playAnimation and isRecording in the dependency array
+    [playAnimation, isRecording, isRendering]
   );
 
   // Sync the control values with store changes
