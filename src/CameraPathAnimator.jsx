@@ -7,9 +7,9 @@ import { CatmullRomCurve3, Vector3 } from "three";
 import { useAnimationStore, cameraPathsStore, fovStore } from "./store";
 
 export default function CameraPathAnimator({
-  points, // Receiving points from parent
+  points, // Receiving points from parent for the camera path
+  targetPoints, // Receiving points from parent for the target path
   duration,
-  target,
   easing,
   loop = true,
 }) {
@@ -32,12 +32,19 @@ export default function CameraPathAnimator({
   const cameraControlsRef = useRef();
   const animationProgress = useRef({ value: 0 });
   const tempVec = new Vector3();
+  const tempTargetVec = new Vector3();
 
-  // Define the CatmullRomCurve3 using the passed points from the parent
-  const curve = new CatmullRomCurve3(points.map((p) => new Vector3(...p)));
+  // Define the CatmullRomCurve3 using the passed points for camera and target paths
+  const cameraCurve = new CatmullRomCurve3(
+    points.map((p) => new Vector3(...p))
+  );
+  const targetCurve = new CatmullRomCurve3(
+    targetPoints.map((p) => new Vector3(...p))
+  );
 
-  // Generate 50 interpolated points for smooth curve
-  const interpolatedPoints = curve.getPoints(50);
+  // Generate 50 interpolated points for smooth curve for camera and target paths
+  const interpolatedCameraPoints = cameraCurve.getPoints(50);
+  const interpolatedTargetPoints = targetCurve.getPoints(50);
 
   useEffect(() => {
     stopAnimation();
@@ -45,14 +52,10 @@ export default function CameraPathAnimator({
 
   // update camera fov
   useEffect(() => {
-    //console.log("Updating camera fov to: ", fov);
-
     if (cameraControlsRef.current) cameraControlsRef.current.zoomTo(fov);
   }, [fov]);
 
   const startAnimation = () => {
-    console.log(easing);
-
     gsap.fromTo(
       animationProgress.current,
       { value: 0 },
@@ -61,17 +64,20 @@ export default function CameraPathAnimator({
         duration: duration,
         ease: easing,
         onUpdate: () => {
-          // Get the current point along the curve
-          curve.getPoint(animationProgress.current.value, tempVec);
+          // Get the current point along the camera curve
+          cameraCurve.getPoint(animationProgress.current.value, tempVec);
+
+          // Get the current point along the target curve
+          targetCurve.getPoint(animationProgress.current.value, tempTargetVec);
 
           // Use CameraControls to set the camera position and target (lookAt)
           cameraControlsRef.current.setLookAt(
             tempVec.x,
             tempVec.y,
             tempVec.z,
-            target[0],
-            target[1],
-            target[2],
+            tempTargetVec.x,
+            tempTargetVec.y,
+            tempTargetVec.z,
             false
           );
         },
@@ -89,14 +95,15 @@ export default function CameraPathAnimator({
   };
 
   const moveToStartPoint = () => {
-    curve.getPoint(0, tempVec);
+    cameraCurve.getPoint(0, tempVec);
+    targetCurve.getPoint(0, tempTargetVec);
     cameraControlsRef.current.setLookAt(
       tempVec.x,
       tempVec.y,
       tempVec.z,
-      target[0],
-      target[1],
-      target[2],
+      tempTargetVec.x,
+      tempTargetVec.y,
+      tempTargetVec.z,
       true
     );
   };
@@ -116,19 +123,11 @@ export default function CameraPathAnimator({
   useFrame((_, delta) => {
     if (cameraControlsRef.current) {
       cameraControlsRef.current.update(delta);
-
-      // setCameraPosition([
-      //   cameraControlsRef.current.object.position.x,
-      //   cameraControlsRef.current.object.position.y,
-      //   cameraControlsRef.current.object.position.z,
-      // ]);
     }
   });
 
   // Trigger animation when playAnimation changes
   useEffect(() => {
-    //console.log("playAnimation changed to: ", playAnimation);
-
     if (playAnimation) {
       startAnimation();
     } else {
@@ -138,9 +137,12 @@ export default function CameraPathAnimator({
 
   return (
     <>
-      {/* Render the curve as a Line */}
+      {/* Render the camera and target curves as Lines in red */}
       {!playAnimation && (
-        <Line points={interpolatedPoints} color={0x00ffff} lineWidth={1} />
+        <>
+          <Line points={interpolatedCameraPoints} color="white" lineWidth={1} />
+          <Line points={interpolatedTargetPoints} color="red" lineWidth={1} />
+        </>
       )}
       {/* Camera controls to animate the camera along the curve */}
       <CameraControls ref={cameraControlsRef} />

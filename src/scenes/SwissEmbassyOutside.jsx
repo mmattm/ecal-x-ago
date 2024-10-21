@@ -21,16 +21,9 @@ export default function SceneContainer() {
         <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
         <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
 
-        <Pole position={[0, 0, 0]} scale={0.5} rotation={[0, 0, 0]} />
-
-        <EnhancedSpotlight
-          position={[2, 1, -2]}
-          castShadow={false}
-          attenuation={6}
-          distance={5}
-          angle={0.1}
-          targetPosition={[1, 2, 0]}
-        />
+        <Pole position={[3, 0, -0.2]} scale={0.35} rotation={[0, 1.5, 0]} />
+        <Pole position={[1, 0, -0.8]} scale={0.35} rotation={[0, 3.5, 0]} />
+        {/* <Pole position={[2, 0, 2]} scale={0.35} rotation={[0, -3, 0]} /> */}
       </group>
     </>
   );

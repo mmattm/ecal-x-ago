@@ -41,6 +41,7 @@ export default function Scene({
         points={selectedPath.points}
         loop={true}
         target={selectedPath.target}
+        targetPoints={selectedPath.targetPoints}
         duration={selectedPath.duration}
         easing={selectedPath.easing}
       />
