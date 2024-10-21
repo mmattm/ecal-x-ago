@@ -5,6 +5,7 @@ Command: npx gltfjsx@6.5.2 JOAB_CHARLOTTE.gltf
 
 import React from "react";
 import { useGLTF, PerspectiveCamera } from "@react-three/drei";
+import EnhancedSpotlight from "../../EnhancedSpotlight";
 
 export function Model(props) {
   const { nodes, materials } = useGLTF(
@@ -12,6 +13,17 @@ export function Model(props) {
   );
   return (
     <group {...props} dispose={null}>
+      <group position={[-9.6, 39, 24.1]}>
+        <EnhancedSpotlight
+          position={[0, 1, 0]}
+          castShadow={false}
+          scale={38}
+          attenuation={0.7}
+          distance={6}
+          opacity={1}
+          angle={1}
+        />
+      </group>
       <group scale={0.01}>
         <group position={[1132.62, 1035.436, 4336.4]} scale={10}>
           <group
