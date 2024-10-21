@@ -21,13 +21,13 @@ export default function Light({ position, scale, rotation }) {
           />
         </Sphere>
 
-        <EnhancedSpotlight
+        {/* <EnhancedSpotlight
           position={[1, 1, 0]}
           castShadow={true}
           attenuation={2}
           distance={4}
           angle={0.5}
-        />
+        /> */}
 
         <Model position={[0, 0, 0]} />
       </group>
