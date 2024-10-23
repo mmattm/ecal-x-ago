@@ -2,10 +2,12 @@
 import { SoftShadows, Sky, Environment, Grid, Stats } from "@react-three/drei";
 import CameraPathAnimator from "./CameraPathAnimator";
 import { SplatsView } from "./SplatsView";
+import { videoMode } from "./config";
 
 import { globalStore, cameraPathsStore } from "./store";
 
-import { Effect } from "postprocessing";
+//import { Effect } from "postprocessing";
+import { useSceneControls } from "./controls";
 
 export default function Scene({
   splat,
@@ -30,12 +32,14 @@ export default function Scene({
     (path) => path.id === selectedCameraPath
   );
 
+  useSceneControls();
+
   return (
     <>
       {grid && <Grid args={[50, 50]} position={[0, 0, 0]} />}
-      <Stats showPanel={0} className="stats" />
+      {!videoMode && <Stats showPanel={0} className="stats" />}
 
-      <fog attach="fog" args={["white", 0, 40]} />
+      {/* <fog attach="fog" args={["white", 0, 40]} /> */}
 
       <CameraPathAnimator
         points={selectedPath.points}
