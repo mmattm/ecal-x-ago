@@ -54,9 +54,11 @@ export function useSceneControls() {
   useFrame(() => {
     console.log(
       "camera position: ",
-      camera.position.x.toFixed(2),
-      camera.position.y.toFixed(2),
+      "[" +
+      camera.position.x.toFixed(2) + "," +
+      camera.position.y.toFixed(2) + "," +
       camera.position.z.toFixed(2)
+      + "]"
     );
   });
 

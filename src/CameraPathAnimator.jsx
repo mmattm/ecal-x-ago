@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { CameraControls, Line } from "@react-three/drei";
@@ -10,7 +9,6 @@ export default function CameraPathAnimator({
   points, // Receiving points from parent for the camera path
   targetPoints, // Receiving points from parent for the target path
   duration,
-  easing,
   loop = true,
 }) {
   // get store state
@@ -20,15 +18,7 @@ export default function CameraPathAnimator({
   );
 
   const cameraPaths = cameraPathsStore((state) => state.cameraPaths);
-
-  const cameraPosition = cameraPathsStore((state) => state.cameraPosition);
-  const setCameraPosition = cameraPathsStore(
-    (state) => state.setCameraPosition
-  );
-
   const fov = fovStore((state) => state.fov);
-  const setFov = fovStore((state) => state.setFov);
-
   const cameraControlsRef = useRef();
   const animationProgress = useRef({ value: 0 });
   const tempVec = new Vector3();
@@ -36,13 +26,20 @@ export default function CameraPathAnimator({
 
   // Define the CatmullRomCurve3 using the passed points for camera and target paths
   const cameraCurve = new CatmullRomCurve3(
-    points.map((p) => new Vector3(...p))
+    points.map((p) => new Vector3(...p)),
+    false, // not a closed loop
+    "catmullrom", // type of the curve
+    0.2 // tension parameter for smoothness of the curve
   );
+  
   const targetCurve = new CatmullRomCurve3(
-    targetPoints.map((p) => new Vector3(...p))
+    targetPoints.map((p) => new Vector3(...p)),
+    false,
+    "catmullrom",
+    0.2 // same tension for target curve
   );
 
-  // Generate 50 interpolated points for smooth curve for camera and target paths
+  // Generate interpolated points for smooth curves
   const interpolatedCameraPoints = cameraCurve.getPoints(50);
   const interpolatedTargetPoints = targetCurve.getPoints(50);
 
@@ -60,9 +57,9 @@ export default function CameraPathAnimator({
       animationProgress.current,
       { value: 0 },
       {
-        value: 1,
+        value: 1, // Move from start (0) to end (1)
         duration: duration,
-        ease: easing,
+        ease: "none", // Linear easing for constant speed
         onUpdate: () => {
           // Get the current point along the camera curve
           cameraCurve.getPoint(animationProgress.current.value, tempVec);
@@ -78,14 +75,14 @@ export default function CameraPathAnimator({
             tempTargetVec.x,
             tempTargetVec.y,
             tempTargetVec.z,
-            false
+            false // instant change, no smoothing between updates
           );
         },
         onStart: () => {
-          cameraControlsRef.current.enabled = false;
+          cameraControlsRef.current.enabled = false; // Disable controls during animation
         },
         onComplete: () => {
-          cameraControlsRef.current.enabled = true;
+          cameraControlsRef.current.enabled = true; // Re-enable controls after animation
           if (loop) {
             startAnimation(); // Loop the animation if needed
           }
@@ -104,16 +101,16 @@ export default function CameraPathAnimator({
       tempTargetVec.x,
       tempTargetVec.y,
       tempTargetVec.z,
-      true
+      true // smooth transition to start point
     );
   };
 
   const stopAnimation = () => {
-    gsap.killTweensOf(animationProgress.current);
-    animationProgress.current.value = 0;
-    updateCameraFov();
-    moveToStartPoint();
-    cameraControlsRef.current.enabled = true;
+    gsap.killTweensOf(animationProgress.current); // Stop any ongoing animation
+    animationProgress.current.value = 0; // Reset progress
+    updateCameraFov(); // Reset FOV
+    moveToStartPoint(); // Move camera to the start
+    cameraControlsRef.current.enabled = true; // Re-enable controls
   };
 
   const updateCameraFov = () => {
@@ -122,7 +119,7 @@ export default function CameraPathAnimator({
 
   useFrame((_, delta) => {
     if (cameraControlsRef.current) {
-      cameraControlsRef.current.update(delta);
+      cameraControlsRef.current.update(delta); // Update camera control
     }
   });
 

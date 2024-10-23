@@ -21,10 +21,10 @@ export default function SceneContainer() {
         <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
         <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
 
-        <Yellow position={[0, 0, 0]} scale={0.5} />
-        <Green position={[1, 0, 1]} scale={0.5} />
-        <Blue position={[-1, 0, 1]} scale={0.5} />
-        <Yellow position={[0.25, 0, 2.5]} scale={0.5} />
+        <Yellow position={[-0.8, 0, -0.7]} scale={0.5} />
+        <Green position={[0.8, 0, 0]} scale={0.5} />
+        <Blue position={[-0.4, 0, 0.7]} scale={0.5} />
+        <Yellow position={[1.6, 0, 0.95]} scale={0.5} />
       </group>
     </>
   );
