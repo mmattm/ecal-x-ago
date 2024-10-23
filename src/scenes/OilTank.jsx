@@ -20,10 +20,10 @@ export default function SceneContainer() {
       />
 
       <group position={[0, 0, 0]}>
-        <Environment preset="city" />
-        <ambientLight intensity={0.5} />
+        <Environment preset="warehouse" />
+        {/* <ambientLight intensity={0.2} /> */}
 
-        <CustomDirectionalLight position={[1, 10, 5]} intensity={1} />
+        <CustomDirectionalLight position={[2, 10, 5]} intensity={1} />
         <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
 
         <Yellow position={[-0.8, 0, -0.7]} scale={0.5} />

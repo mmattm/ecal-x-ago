@@ -14,15 +14,15 @@ export default function Model(props) {
   );
   return (
     <group {...props} dispose={null}>
-      <Sphere args={[0.4, 32, 32]} position={[0, 1.9, 0.01]} renderOrder={1}>
+      <Sphere args={[0.7, 32, 32]} position={[0, 1.9, 0.01]} renderOrder={1}>
         <FakeGlowMaterial
           falloff={4}
-          glowInternalRadius={10}
+          glowInternalRadius={12}
           glowColor={"#fff"}
           // glowSharpness={1}
-          opacity={0.5}
+          opacity={1}
           toneMapped={true}
-          depthTest={true}
+          depthTest={false}
         />
       </Sphere>
 

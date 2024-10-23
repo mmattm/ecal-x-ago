@@ -3,7 +3,9 @@ import Scene from "../Scene";
 import CustomDirectionalLight from "../CustomDirectionalLight";
 import { Environment } from "@react-three/drei";
 
-import Quilt from "../lights/Quilt/Quilt";
+import LongSerpent from "../lights/Quilt/Long_serpent";
+import AgoOff from "../lights/Quilt/AGO_off";
+import { PI } from "three/examples/jsm/nodes/Nodes.js";
 
 const splat = "/splats/PostArchiveFactionV2.splat";
 
@@ -16,14 +18,23 @@ export default function SceneContainer() {
         splatScale={4}
         splatRotation={[3.15, -0.06, 0.03]}
       />
-      <Environment preset="sunset" />
+      <Environment preset="warehouse" environmentIntensity={0.6} />
       <ambientLight intensity={1} />
 
       <group position={[0, 0, 0]}>
-        <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
-        <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
+        <CustomDirectionalLight position={[1, 20, 5]} intensity={4} />
+        <CustomDirectionalLight position={[2, 10, -3]} intensity={2} />
 
-        <Quilt position={[0.5, 0.75, 4.5]} scale={1} rotation={[0, 6.3, 0]} />
+        <LongSerpent
+          position={[0.5, 1, 3.5]}
+          scale={0.9}
+          rotation={[0, 6.3, 0]}
+        />
+        <AgoOff
+          position={[3, 2, -1.5]}
+          scale={0.9}
+          rotation={[0, Math.PI * 0.5, 0]}
+        />
       </group>
     </>
   );

@@ -10,10 +10,24 @@ import {
   OrthographicCamera,
 } from "@react-three/drei";
 
-export function Model(props) {
+import { Sphere } from "@react-three/drei";
+import FakeGlowMaterial from "../../FakeGlowMaterial";
+
+export default function Model(props) {
   const { nodes, materials } = useGLTF("/src/lights/Quilt/Long_serpent.gltf");
   return (
     <group {...props} dispose={null}>
+      <Sphere args={[0.75, 32, 32]} position={[-1, 1.2, -2.6]} renderOrder={1}>
+        <FakeGlowMaterial
+          falloff={5}
+          glowInternalRadius={1}
+          glowColor={"#fff"}
+          glowSharpness={1}
+          opacity={0.25}
+          depthTest={false}
+        />
+      </Sphere>
+
       <group scale={0.001}>
         <group position={[0, 1008.853, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <mesh
