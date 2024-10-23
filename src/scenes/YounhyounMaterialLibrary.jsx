@@ -19,7 +19,7 @@ export default function SceneContainer() {
         <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
         <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
 
-        <Frame position={[0, 0, 0]} scale={0.5} rotation={[0, 0, 0]} />
+        <Frame position={[-7, -0.8, 5]} scale={1.9} rotation={[0, 2.25, 0]} />
       </group>
     </>
   );
