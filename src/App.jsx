@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./App.css";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useSceneControls } from "./controls"; // Import the controls
 import { sceneStore } from "./store";
 
 // Import scenes
@@ -21,7 +20,6 @@ export default function App() {
   );
 }
 function Stage() {
-  useSceneControls();
   const selectedScene = sceneStore((state) => state.selectedScene);
 
   const renderScene = () => {

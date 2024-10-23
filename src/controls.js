@@ -1,9 +1,12 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useControls, button } from "leva";
 import { useState, useRef, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Recorder, RecorderStatus, Encoders } from "canvas-record";
 import { AVC } from "media-codecs";
 import { scenes } from "./config";
+
+import { videoMode } from "./config";
 
 import {
   useAnimationStore,
@@ -14,6 +17,11 @@ import {
 } from "./store";
 
 export function useSceneControls() {
+  // Conditionally return early if videoMode is true
+  if (videoMode) {
+    return;
+  }
+
   const playAnimation = useAnimationStore((state) => state.playAnimation);
   const toggleAnimation = useAnimationStore((state) => state.toggleAnimation);
   const gaussian = globalStore((state) => state.gaussianVisible);
@@ -55,10 +63,12 @@ export function useSceneControls() {
     console.log(
       "camera position: ",
       "[" +
-      camera.position.x.toFixed(2) + "," +
-      camera.position.y.toFixed(2) + "," +
-      camera.position.z.toFixed(2)
-      + "]"
+        camera.position.x.toFixed(2) +
+        "," +
+        camera.position.y.toFixed(2) +
+        "," +
+        camera.position.z.toFixed(2) +
+        "]"
     );
   });
 
@@ -149,6 +159,22 @@ export function useSceneControls() {
       requestAnimationFrame(tick);
     }
   };
+
+  const [controlsVisible, setControlsVisible] = useState(true); // Manage visibility state
+
+  // Toggle controls visibility on 'h' key press
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key.toLowerCase() === "h") {
+        setControlsVisible((prev) => !prev); // Toggle visibility
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown); // Clean up event listener
+    };
+  }, []);
 
   // Use Leva controls for all the previous logic + recording functionality
   const [, set] = useControls(
