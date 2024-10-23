@@ -9,7 +9,7 @@ export default function Light({ position, scale, rotation }) {
     <>
       <group position={position} scale={scale} rotation={rotation}>
         {/* Put lights here */}
-        <group position={[4.04, 1.18, -1.81]}>
+        <group position={[4.03, 1.18, -1.81]}>
           <EnhancedSpotlight
             position={[0, 1, 0]}
             castShadow={false}
@@ -20,7 +20,7 @@ export default function Light({ position, scale, rotation }) {
             // angle={0.2}
           />
         </group>
-        <group position={[3.63, 1.18, -2.55]}>
+        <group position={[3.61, 1.18, -2.55]}>
           <EnhancedSpotlight
             position={[0, 1, 0]}
             castShadow={false}
@@ -32,15 +32,15 @@ export default function Light({ position, scale, rotation }) {
           />
         </group>
 
-        <Sphere args={[1, 32, 32]} position={[0.05, 2.2, 0]} renderOrder={1}>
+        <Sphere args={[0.5, 32, 32]} position={[0.05, 2.2, 0]} renderOrder={1}>
           <FakeGlowMaterial
             falloff={5}
             glowInternalRadius={1}
             glowColor={"#fff"}
             glowSharpness={1}
             opacity={0.2}
-            toneMapped={true}
-            depthTest={true}
+            // toneMapped={true}
+            depthTest={false}
           />
         </Sphere>
 
