@@ -19,7 +19,7 @@ export default function SceneContainer() {
         <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
         <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
 
-        <Quilt position={[0, 0.7, 0.6]} scale={1} rotation={[0, Math.PI, 0]} />
+        <Quilt position={[0.5, 0.75, 4.5]} scale={1} rotation={[0, 6.3, 0]} />
       </group>
     </>
   );
