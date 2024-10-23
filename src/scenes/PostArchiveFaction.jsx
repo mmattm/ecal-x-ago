@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Scene from "../Scene";
 import CustomDirectionalLight from "../CustomDirectionalLight";
+import { Environment } from "@react-three/drei";
 
 import Quilt from "../lights/Quilt/Quilt";
 
@@ -15,6 +16,9 @@ export default function SceneContainer() {
         splatScale={4}
         splatRotation={[3.15, -0.06, 0.03]}
       />
+      <Environment preset="sunset" />
+      <ambientLight intensity={1} />
+
       <group position={[0, 0, 0]}>
         <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
         <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />

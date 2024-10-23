@@ -4,6 +4,7 @@ import CustomDirectionalLight from "../CustomDirectionalLight";
 
 import Pole from "../lights/Pole/Pole";
 import EnhancedSpotlight from "../EnhancedSpotlight";
+import { Environment } from "@react-three/drei";
 
 const splat = "/splats/SwissEmbacyAll.splat";
 
@@ -16,6 +17,9 @@ export default function SceneContainer() {
         splatRotation={[3.161, 1.97, -0.015]}
         splatScale={3}
       />
+
+      <Environment preset="sunset" />
+      <ambientLight intensity={1} />
 
       <group position={[0, 0, 0]}>
         <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
