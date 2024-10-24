@@ -1,5 +1,12 @@
 /* eslint-disable react/prop-types */
-import { SoftShadows, Sky, Environment, Grid, Stats } from "@react-three/drei";
+import {
+  SoftShadows,
+  Sky,
+  Environment,
+  Grid,
+  Stats,
+  MeshReflectorMaterial,
+} from "@react-three/drei";
 import CameraPathAnimator from "./CameraPathAnimator";
 import { SplatsView } from "./SplatsView";
 import { videoMode } from "./config";
@@ -61,6 +68,12 @@ export default function Scene({
         />
       )}
 
+      {!sky && !gaussianVisible && (
+        <>
+          <color attach="background" args={["#191920"]} />
+          <fog attach="fog" args={["#191920", 0, 130]} />
+        </>
+      )}
       {/* Floor */}
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
@@ -68,8 +81,23 @@ export default function Scene({
         receiveShadow
         renderOrder={1}
       >
-        <planeGeometry args={[100, 100]} />
-        <shadowMaterial transparent opacity={0.4} />
+        <planeGeometry args={[200, 200]} />
+        <shadowMaterial transparent opacity={!gaussianVisible ? 0.2 : 0.5} />
+        {!sky && !gaussianVisible && (
+          <MeshReflectorMaterial
+            blur={[300, 100]}
+            resolution={1024}
+            mixBlur={1.5}
+            mixStrength={80}
+            mixContrast={1}
+            roughness={1.5}
+            depthScale={1.3}
+            minDepthThreshold={0.4}
+            maxDepthThreshold={1.6}
+            color="#050505"
+            metalness={0.7}
+          />
+        )}
       </mesh>
       {gaussianVisible && (
         <group

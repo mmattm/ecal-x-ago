@@ -17,10 +17,10 @@ export default function SceneContainer() {
         splatScale={3}
       />
 
-      <Environment preset="city" environmentIntensity={2} />
+      <Environment preset="city" environmentIntensity={1} />
       <SoftShadows size={8} samples={16} focus={1} />
 
-      {/* <ambientLight intensity={1} /> */}
+      <ambientLight intensity={1} />
 
       <group position={[0, 0, 0]}>
         <CustomDirectionalLight position={[1, 10, 5]} intensity={3} />

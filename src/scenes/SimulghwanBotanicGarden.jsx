@@ -22,7 +22,7 @@ export default function SceneContainer() {
 
       <Environment preset="forest" environmentIntensity={1} />
       <ambientLight intensity={0.5} />
-      <SoftShadows size={17} samples={16} focus={1} />
+      <SoftShadows size={20} samples={18} focus={1} />
 
       <group position={[0, 0, 0]}>
         <CustomDirectionalLight position={[1, 30, 5]} intensity={1} />
