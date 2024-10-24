@@ -1,5 +1,5 @@
 // other easing options: https://greensock.com/docs/v3/Eases
-const time = 20;
+const time = 85;
 
 export const videoMode = false;
 
@@ -14,12 +14,12 @@ export const cameraPaths = [
       [1.39, 1.33, 2.98], //2
 
       [0.58, 1.4, 1.19], //3
-      [0.58, 1.4, 1.19], //3
+      [2.21,1.37,0.22], //3
 
-      [4.3, 1.61, 0.69], //4
-      [4.3, 1.61, 0.69], //4
+      [3.9, 1.61, 0.69], //4
+      [3.9,1.23,0.86], //4
 
-      [1.71, 0.17, -0.94], //5
+      [2.01,0.38,-0.28], //5
       [1.71, 0.17, -0.94], //5
 
       [2.31, 0.39, 1.34], //6 Green
@@ -34,12 +34,12 @@ export const cameraPaths = [
       [-0.68, 1.08, 2.24], //10 Yellow 2
 
       [-2.85, 1.73, -0.44], //11 Yellow 2
-      [-2.85, 1.73, -0.44], //11 Yellow 2
+      [-2.55, 1.5, -0.44], //11 Yellow 2
 
-      [-1.13, 1.02, -0.47], //12 Yellow 2
-      [-1.13, 1.02, -0.47], //12 Yellow 2
+      [-1.68,1.18,-0.47], //12 Yellow 2
+      [-1.68,1,-0.47], //12 Yellow 2
 
-      [-1.28, 0.46, -0], //13 Yellow 2
+      [-1.50,0.23,0.22], //13 Yellow 2
       [-1.28, 0.46, -0], //13 Yellow 2
 
       [0.51, 10.01, -0.06], //14 dark
@@ -399,7 +399,7 @@ export const cameraPaths = [
       [4.21, 2.47, 6.6], //0 Between clothes
       [2.26,2.49,6.02], //1 Snake left
 
-      [2.33,0.42,6.52], //2 Snake left
+      [2.33,0.72,6.52], //2 Snake left
 
       [2.80,2.80,2.53], //3 Snake left
 
@@ -421,8 +421,8 @@ export const cameraPaths = [
       [-0.45,0.53,2.11], //12
       [-0.45,0.53,2.11], //12
 
-      [5.56,0.56,0.84], //13
-      [5.56,0.56,0.84], //13
+      [5.56,0.86,0.84], //13
+      [5.56,0.86,0.84], //13
 
       [4.97,2.40,-1.85], //14
 
@@ -430,10 +430,10 @@ export const cameraPaths = [
 
       [2.27,3.20,-20.66], //16
 
-      [15.68,4.64,20.38], //17
-      [15.68,4.64,20.38], //17
+      [14.76,4.21,23.37], //17
+      [14.76,4.21,23.37], //17
 
-      [-28.71,55.64,125.97], //18
+      [17.30,79.87,99.65], //18
 
 
       //end
@@ -449,42 +449,42 @@ export const cameraPaths = [
       [0.62,2.84,5.58], //0 Top left Snake
       [0.62,2.84,5.58], //1 Top left Snake
 
-      [0.59,2.03,5.11], //2 Bottom left Snake
+      [0.59,1.8,5.11], //2 Bottom left Snake
 
-      [0.57,3.10,4.39], //3 Top middle Snake
+      [0.57,2.9,4.39], //3 Top middle Snake
 
-      [0.56,2.81,3.20], //5 Top right Snake
+      [0.56,2.6,3.20], //5 Top right Snake
 
-      [0.62,2.02,3.15], //6 Bottom right Snake
+      [0.62,1.8,3.15], //6 Bottom right Snake
 
-      [0.62,2.02,3.15], //7 Bottom right Snake
-      [0.57,1.95,-0.86], //7 Center Off
+      [0.62,1.8,3.15], //7 Bottom right Snake
+      [0.57,1.5,-0.86], //7 Center Off
 
-      [0.57,1.95,-0.86], //6.5 Center Snake
+      [0.57,1.79,-0.86], //6.5 Center Snake
 
 
-      [0.57,1.95,-0.86], //9 Center Off
+      [0.57,1.79,-0.86], //9 Center Off
 
-      [0.50,2.02,-1.19], //10 Light Off
+      [0.50,1.7,-1.19], //10 Light Off
 
-      [0.51,1.10,0.12], //11 Bottom tip Off
+      [0.51,0.5,0.12], //11 Bottom tip Off
 
-      [0.51,1.10,0.12], //12 Bottom tip Off
-      [0.50,2.02,-1.19], //12 Light Off
+      [0.51,0.5,0.12], //12 Bottom tip Off
+      [0.50,1.5,-1.19], //12 Light Off
 
-      [0.50,2.02,-1.19], //13 Light Off
-      [0.51,1.10,0.12], //13 Bottom tip Off
+      [0.50,1.5,-1.19], //13 Light Off
+      [0.51,0.5,0.12], //13 Bottom tip Off
 
-      [0.57,3.10,4.39], //14 Top middle Snake
+      [0.57,2.9,4.39], //14 Top middle Snake
 
-      [0.57,3.10,4.39], //15 Top middle Snake
+      [0.57,2.9,4.39], //15 Top middle Snake
 
-      [0.57,3.10,4.39], //16 Top middle Snake
+      [0.57,2.9,4.39], //16 Top middle Snake
 
-      [0.57,3.10,4.39], //17 Top middle Snake
-      [0.57,3.10,4.39], //17 Top middle Snake
+      [0.57,2.9,4.39], //17 Top middle Snake
+      [0.57,2.9,4.39], //17 Top middle Snake
 
-      [0.57,3.10,4.39], //18 Top middle Snake
+      [0.57,2.9,4.39], //18 Top middle Snake
 
       //end
       [0.55, 2.42, 4.62], //end Center Snake
