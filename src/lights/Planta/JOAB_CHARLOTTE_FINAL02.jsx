@@ -18,7 +18,7 @@ export function Model(props) {
           position={[0, 1, 0]}
           castShadow={false}
           scale={38}
-          attenuation={0.7}
+          attenuation={0.8}
           distance={6}
           opacity={1}
           angle={1}
