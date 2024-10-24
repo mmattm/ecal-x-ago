@@ -24,14 +24,10 @@ export default function SceneContainer() {
         <CustomDirectionalLight position={[2, 20, 5]} intensity={4} />
         <CustomDirectionalLight position={[2, 10, -3]} intensity={2} />
 
-        <LongSerpent
-          position={[0.6, 1.3, 4.4]}
-          scale={0.9}
-          rotation={[0, 6.3, 0]}
-        />
+        <LongSerpent position={[0, 1, 3.8]} scale={1} rotation={[0, 6.3, 0]} />
         <VerticalSerpent
-          position={[-0.54, 0.7, -0.5]}
-          scale={0.9}
+          position={[-1.1, -0.2, -0.2]}
+          scale={1}
           rotation={[0, Math.PI * 1, 0]}
         />
       </group>

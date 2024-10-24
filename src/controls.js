@@ -26,6 +26,8 @@ export function useSceneControls() {
   const toggleAnimation = useAnimationStore((state) => state.toggleAnimation);
   const gaussian = globalStore((state) => state.gaussianVisible);
   const setGaussianVisible = globalStore((state) => state.setGaussianVisible);
+
+  const selectedScene = sceneStore((state) => state.selectedScene);
   const setSelectedScene = sceneStore((state) => state.setSelectedScene);
   const splatAlphaRemovalThreshold = globalStore(
     (state) => state.splatAlphaRemovalThreshold
@@ -180,18 +182,17 @@ export function useSceneControls() {
   const [, set] = useControls(
     () => ({
       selectedScene: {
+        value: selectedScene, // Bind to the current value of selectedScene from the store
         label: "Scene",
         options: scenes.reduce((acc, cur) => {
           acc[cur.label] = cur.value; // Mapping label to value
           return acc;
         }, {}),
         onChange: (selected) => {
-          const selectedScene = scenes.find(
-            (scene) => scene.value === selected
-          );
-          setSelectedScene(selectedScene?.value); // Use the value instead of label
+          const scene = scenes.find((scene) => scene.value === selected);
+          setSelectedScene(scene?.value); // Update the store with the new value
         },
-        disabled: playAnimation,
+        disabled: playAnimation, // Disable controls if animation is playing
       },
       cameraPath: {
         label: "Camera Path",
@@ -284,7 +285,7 @@ export function useSceneControls() {
       //   toggleAnimation();
       // }),
     }),
-    [playAnimation, isRecording, isRendering]
+    [playAnimation, isRecording, isRendering, selectedScene]
   );
 
   // Sync the control values with store changes

@@ -2,6 +2,9 @@
 import { create } from "zustand";
 import { cameraPaths, scenes } from "./config";
 
+//const firstScene = "SimulghwanBotanicGarden";
+const firstScene = scenes[0].value;
+
 export const useAnimationStore = create((set) => ({
   playAnimation: false,
   startAnimation: () => set({ playAnimation: true }),
@@ -28,7 +31,7 @@ export const globalStore = create((set) => ({
 }));
 
 export const sceneStore = create((set) => ({
-  selectedScene: scenes[0].value,
+  selectedScene: firstScene, // Set your default scene here
   setSelectedScene: (scene) => set({ selectedScene: scene }),
 }));
 

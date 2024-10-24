@@ -21,12 +21,12 @@ export default function SceneContainer() {
       />
 
       <Environment preset="apartment" />
-      <ambientLight intensity={2} />
-      <SoftShadows size={16} samples={16} focus={2} />
+      <ambientLight intensity={1} />
+      <SoftShadows size={20} samples={16} focus={2} />
 
       <group position={[0, 0, 0]}>
-        <CustomDirectionalLight position={[10, 12, 2]} intensity={3} />
-        <CustomDirectionalLight position={[2, 12, 8]} intensity={1} />
+        <CustomDirectionalLight position={[1, 18, 2]} intensity={3} />
+        <CustomDirectionalLight position={[2, 20, 2]} intensity={1} />
 
         {/* <CustomDirectionalLight position={[2, 13, -3]} intensity={1} /> */}
 
