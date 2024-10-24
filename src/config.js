@@ -1,5 +1,5 @@
 // other easing options: https://greensock.com/docs/v3/Eases
-const time = 55;
+const time = 50;
 
 export const videoMode = false;
 
@@ -300,19 +300,53 @@ export const cameraPaths = [
   {
     id: "Post Archive Faction 1",
     points: [
-      [4.55, 2.38, 27.75], //start
-      [4.55, 2.38, 27.75], //start
+      [4.39,2.38,26.82], //start
+      [4.39,2.38,26.82], //start
       //start
 
       [4.21, 2.47, 6.6], //0 Between clothes
-      [4.21, 2.47, 6.6], //0 Between clothes
+      [2.26,2.49,6.02], //1 Snake left
 
-      [2.55, 2.19, 9.07], //1 Snake left
-      [2.55, 2.19, 9.07], //1 Snake left
+      [2.33,0.42,6.52], //2 Snake left
+
+      [2.80,2.80,2.53], //3 Snake left
+
+      [1.41,2.99,1.76], //5 Snake left
+
+      [1.59,1.64,1.84], //6 Snake left
+
+      [-1.71,1.86,0.29], //7
+      [-1.33,2.51,3.67], //7
+
+      [-0.48,2.73,8.01], //6.5
+
+      [0.08,1.97,6.39], //9
+
+      [-2.56,3.21,-0.11], //10
+
+      [-1.54,2.38,-1.76], //11
+
+      [-0.45,0.53,2.11], //12
+      [-0.45,0.53,2.11], //12
+
+      [5.56,0.56,0.84], //13
+      [5.56,0.56,0.84], //13
+
+      [4.97,2.40,-1.85], //14
+
+      [1.15,2.01,-2.03], //15
+
+      [2.27,3.20,-20.66], //16
+
+      [15.68,4.64,20.38], //17
+      [15.68,4.64,20.38], //17
+
+      [-28.71,55.64,125.97], //18
+
 
       //end
-      [4.55, 2.38, 27.75], //end
-      [4.55, 2.38, 27.75], //end
+      [4.39,2.38,26.82], //end
+      [4.39,2.38,26.82], //end
     ],
     // target: [2, 1, 0.5],
     targetPoints: [
@@ -320,14 +354,51 @@ export const cameraPaths = [
       [0.55, 2.42, 4.62], //start Center Snake
       //start
 
-      [0.55, 2.42, 4.62], //start Center Snake
-      [0.55, 2.42, 4.62], //start Center Snake
+      [0.62,2.84,5.58], //0 Top left Snake
+      [0.62,2.84,5.58], //1 Top left Snake
+
+      [0.59,2.03,5.11], //2 Bottom left Snake
+
+      [0.57,3.10,4.39], //3 Top middle Snake
+
+      [0.56,2.81,3.20], //5 Top right Snake
+
+      [0.62,2.02,3.15], //6 Bottom right Snake
+
+      [0.62,2.02,3.15], //7 Bottom right Snake
+      [0.57,1.95,-0.86], //7 Center Off
+
+      [0.57,1.95,-0.86], //6.5 Center Snake
+
+
+      [0.57,1.95,-0.86], //9 Center Off
+
+      [0.50,2.02,-1.19], //10 Light Off
+
+      [0.51,1.10,0.12], //11 Bottom tip Off
+
+      [0.51,1.10,0.12], //12 Bottom tip Off
+      [0.50,2.02,-1.19], //12 Light Off
+
+      [0.50,2.02,-1.19], //13 Light Off
+      [0.51,1.10,0.12], //13 Bottom tip Off
+
+      [0.57,3.10,4.39], //14 Top middle Snake
+
+      [0.57,3.10,4.39], //15 Top middle Snake
+
+      [0.57,3.10,4.39], //16 Top middle Snake
+
+      [0.57,3.10,4.39], //17 Top middle Snake
+      [0.57,3.10,4.39], //17 Top middle Snake
+
+      [0.57,3.10,4.39], //18 Top middle Snake
 
       //end
       [0.55, 2.42, 4.62], //end Center Snake
       [0.55, 2.42, 4.62], //end Center Snake
     ],
-    fov: 3,
+    fov: 2,
     duration: time,
     easing: "none",
   },
