@@ -26,7 +26,7 @@ export default function SceneContainer() {
 
         <LongSerpent position={[0, 1, 3.8]} scale={1} rotation={[0, 6.3, 0]} />
         <VerticalSerpent
-          position={[-1, -0.2, 0]}
+          position={[-1.1, -0.2, -0.2]}
           scale={1}
           rotation={[0, Math.PI * 1, 0]}
         />
