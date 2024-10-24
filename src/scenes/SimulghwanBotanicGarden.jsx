@@ -5,8 +5,8 @@ import { Environment, SoftShadows } from "@react-three/drei";
 
 import { Model as Planta1 } from "../lights/Planta/JOAB_CHARLOTTE_FINAL01.jsx";
 import { Model as Planta2 } from "../lights/Planta/JOAB_CHARLOTTE_FINAL02.jsx";
-// import { Model as Planta3 } from "../lights/Planta/JOAB_CHARLOTTE_FINAL03.jsx";
-import { Model as Planta4 } from "../lights/Planta/JOAB_CHARLOTTE_FINAL03.jsx";
+import { Model as Planta3 } from "../lights/Planta/JOAB_CHARLOTTE_FINAL03.jsx";
+import { Model as Planta4 } from "../lights/Planta/JOAB_CHARLOTTE_FINAL04.jsx";
 
 const splat = "/splats/SimulgwanPHbotanicalGarden.splat";
 
@@ -21,7 +21,7 @@ export default function SceneContainer() {
       />
 
       <Environment preset="forest" environmentIntensity={1} />
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.3} />
       <SoftShadows size={20} samples={18} focus={1} />
 
       <group position={[0, 0, 0]}>
@@ -29,13 +29,13 @@ export default function SceneContainer() {
         <CustomDirectionalLight position={[2, 30, -3]} intensity={1} />
 
         <group>
-          <Planta1 position={[0.1, 0, 0.1]} scale={0.03} />
+          <Planta4 position={[-0.6, 0, -0.25]} scale={0.03} />
           <Planta2
-            position={[-1.2, 0, 2.4]}
+            position={[-0.5, 0, 1.9]}
             scale={0.03}
             rotation={[0, 2, 0]}
           />
-          <Planta4 position={[1, 0, -1]} scale={0.03} rotation={[0, 1, 0]} />
+          <Planta3 position={[1, 0, -1]} scale={0.03} rotation={[0, 1, 0]} />
         </group>
         {/* <Planta position={[-0.5, 0, 0.5]} scale={0.03} rotation={[0, 0, 0]} /> */}
       </group>
