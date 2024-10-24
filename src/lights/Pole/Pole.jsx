@@ -32,13 +32,12 @@ export default function Light({ position, scale, rotation }) {
           />
         </group>
 
-        <Sphere args={[0.5, 32, 32]} position={[0.05, 2.2, 0]} renderOrder={1}>
+        <Sphere args={[1.5, 32, 32]} position={[0.05, 2.2, 0]} renderOrder={1}>
           <FakeGlowMaterial
-            falloff={5}
-            glowInternalRadius={1}
+            falloff={4.5}
+            glowInternalRadius={7}
             glowColor={"#fff"}
             glowSharpness={1}
-            opacity={0.2}
             // toneMapped={true}
             depthTest={false}
           />

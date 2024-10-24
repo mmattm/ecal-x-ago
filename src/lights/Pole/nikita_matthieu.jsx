@@ -19,7 +19,6 @@ export function Model(props) {
           <group position={[0, 1910, 0]}>
             <mesh
               castShadow
-              receiveShadow
               geometry={nodes.Plane.geometry}
               material={materials["Spotlight 45 degrees 1200 Lumen Neutral #2"]}
               position={[3.764, 329.538, 119.15]}
@@ -28,7 +27,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={nodes["Plane_#1"].geometry}
               material={materials["Spotlight 45 degrees 1200 Lumen Neutral #3"]}
               position={[-97.188, 332.649, -56.488]}
@@ -37,7 +35,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={nodes["Plane_#3"].geometry}
               material={materials["Spotlight 45 degrees 1200 Lumen Neutral #3"]}
               position={[110.523, 323.314, -63.908]}
@@ -56,7 +53,6 @@ export function Model(props) {
           >
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Cut-Extrude1(C894CD29-6B4F-4125-9063-411CE31CD065)"]
                   .geometry
@@ -65,7 +61,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["CirPattern1(178A229C-9868-4FEC-8CCB-E1C1319E84AE)"]
                   .geometry
@@ -79,7 +74,6 @@ export function Model(props) {
           >
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Cut-Extrude22(45C9508D-8C03-40D9-BCEE-292D25A90928)"]
                   .geometry
@@ -88,7 +82,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["NONE(B2BFC6F6-98EB-44A8-BA8C-0FE13B4222A7)"].geometry
               }
@@ -96,7 +89,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["NONE(84CAF7E1-14DD-411C-828F-09AB95A6F813)"].geometry
               }
@@ -104,7 +96,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["NONE(0A7DA5F2-119F-4370-A0B7-9FBC5C93C290)"].geometry
               }
@@ -112,7 +103,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["NONE(FDF5C64B-3E7E-4D54-8D9C-1729465887BD)"].geometry
               }
@@ -125,7 +115,6 @@ export function Model(props) {
           >
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid3(2A132EFC-1D7D-4881-A50E-55E18C47581D)"
@@ -135,7 +124,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid4(BDEF34BE-6541-45ED-91EB-866838FB5393)"
@@ -145,7 +133,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid6(F4D663D9-C0BF-411D-A8B2-4AC5798A200B)"
@@ -155,7 +142,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid2(3771A8AB-9AC3-480D-8410-B1E2EBB12196)"
@@ -165,7 +151,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid1(7D257E27-FFA1-43DF-A00B-C0CFC9BC6FB6)"
@@ -175,7 +160,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid5(13BB321C-CE35-4D0D-A0B9-B3924F22B95A)"
@@ -185,7 +169,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid5(38EA1C43-736F-40F4-BA23-7F6BE8B5697D)"
@@ -200,7 +183,6 @@ export function Model(props) {
           >
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid3(2A132EFC-1D7D-4881-A50E-55E18C47581D)_1"
@@ -210,7 +192,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid4(BDEF34BE-6541-45ED-91EB-866838FB5393)_1"
@@ -220,7 +201,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid6(F4D663D9-C0BF-411D-A8B2-4AC5798A200B)_1"
@@ -230,7 +210,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid2(3771A8AB-9AC3-480D-8410-B1E2EBB12196)_1"
@@ -240,7 +219,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid1(7D257E27-FFA1-43DF-A00B-C0CFC9BC6FB6)_1"
@@ -250,7 +228,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid5(13BB321C-CE35-4D0D-A0B9-B3924F22B95A)_1"
@@ -260,7 +237,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid5(38EA1C43-736F-40F4-BA23-7F6BE8B5697D)_1"
@@ -275,7 +251,6 @@ export function Model(props) {
           >
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid3(2A132EFC-1D7D-4881-A50E-55E18C47581D)_2"
@@ -285,7 +260,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid4(BDEF34BE-6541-45ED-91EB-866838FB5393)_2"
@@ -295,7 +269,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid6(F4D663D9-C0BF-411D-A8B2-4AC5798A200B)_2"
@@ -305,7 +278,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid2(3771A8AB-9AC3-480D-8410-B1E2EBB12196)_2"
@@ -315,7 +287,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid1(7D257E27-FFA1-43DF-A00B-C0CFC9BC6FB6)_2"
@@ -325,7 +296,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid5(13BB321C-CE35-4D0D-A0B9-B3924F22B95A)_2"
@@ -335,7 +305,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes[
                   "AGO_DOMINO_Pendant_Single_dummy-1-solid5(38EA1C43-736F-40F4-BA23-7F6BE8B5697D)_2"
@@ -350,7 +319,6 @@ export function Model(props) {
           >
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Cut-Extrude22(45C9508D-8C03-40D9-BCEE-292D25A90928)_1"]
                   .geometry
@@ -359,7 +327,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["NONE(B2BFC6F6-98EB-44A8-BA8C-0FE13B4222A7)_1"].geometry
               }
@@ -367,7 +334,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["NONE(84CAF7E1-14DD-411C-828F-09AB95A6F813)_1"].geometry
               }
@@ -375,7 +341,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["NONE(0A7DA5F2-119F-4370-A0B7-9FBC5C93C290)_1"].geometry
               }
@@ -383,7 +348,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["NONE(FDF5C64B-3E7E-4D54-8D9C-1729465887BD)_1"].geometry
               }
@@ -392,7 +356,6 @@ export function Model(props) {
           </group>
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Standard(A3107F61-463C-48E4-A2D8-8AD6DABC68AA)"].geometry
             }
@@ -400,7 +363,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Standard(E6975528-2513-4F91-AC66-41C59A3482A1)"].geometry
             }
@@ -408,7 +370,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(31E407B1-14A5-47C5-AC17-F0444BDA3617)"].geometry
             }
@@ -418,7 +379,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(31E407B1-14A5-47C5-AC17-F0444BDA3617)_1"]
                 .geometry
@@ -429,7 +389,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(A64C728B-7C2C-4E6B-AD98-BE4D580358CB)"].geometry
             }
@@ -439,7 +398,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(A64C728B-7C2C-4E6B-AD98-BE4D580358CB)_1"]
                 .geometry
@@ -450,7 +408,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(31E407B1-14A5-47C5-AC17-F0444BDA3617)_2"]
                 .geometry
@@ -461,7 +418,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(622051FF-B5D4-43A5-A9DD-8B44AC266CF9)"].geometry
             }
@@ -471,7 +427,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(622051FF-B5D4-43A5-A9DD-8B44AC266CF9)_1"]
                 .geometry
@@ -482,7 +437,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(A64C728B-7C2C-4E6B-AD98-BE4D580358CB)_2"]
                 .geometry
@@ -493,7 +447,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(622051FF-B5D4-43A5-A9DD-8B44AC266CF9)_2"]
                 .geometry
@@ -504,7 +457,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(622051FF-B5D4-43A5-A9DD-8B44AC266CF9)_3"]
                 .geometry
@@ -515,7 +467,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Cut-Extrude1(1D40EA5E-6A01-438E-A4C3-1D7EA695369F)"]
                 .geometry
@@ -526,7 +477,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(31E407B1-14A5-47C5-AC17-F0444BDA3617)_3"]
                 .geometry
@@ -537,7 +487,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Cut-Extrude2(C0895128-D99F-47E9-9CB2-E68CFBCFE1EC)"]
                 .geometry
@@ -548,7 +497,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(622051FF-B5D4-43A5-A9DD-8B44AC266CF9)_4"]
                 .geometry
@@ -559,7 +507,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Cut-Extrude1(1D40EA5E-6A01-438E-A4C3-1D7EA695369F)_1"]
                 .geometry
@@ -570,7 +517,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Cut-Extrude1(1D40EA5E-6A01-438E-A4C3-1D7EA695369F)_2"]
                 .geometry
@@ -581,7 +527,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(622051FF-B5D4-43A5-A9DD-8B44AC266CF9)_5"]
                 .geometry
@@ -592,7 +537,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(A64C728B-7C2C-4E6B-AD98-BE4D580358CB)_3"]
                 .geometry
@@ -603,7 +547,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes[
                 "Stock-Light_support-1(07AC0565-8BB1-4B56-90EA-FF6FA2E4FC00)"
@@ -615,7 +558,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Cut-Extrude2(C0895128-D99F-47E9-9CB2-E68CFBCFE1EC)_1"]
                 .geometry
@@ -626,7 +568,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Tube(41479441-1032-42DD-BFC0-A0C9141B8F5C)"].geometry
             }
@@ -636,7 +577,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(A64C728B-7C2C-4E6B-AD98-BE4D580358CB)_4"]
                 .geometry
@@ -647,7 +587,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Imported1(622051FF-B5D4-43A5-A9DD-8B44AC266CF9)_6"]
                 .geometry
@@ -658,7 +597,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Cut-Extrude2(FF7F0BD6-307C-474E-B4D1-AB875192417B)"]
                 .geometry
@@ -674,7 +612,6 @@ export function Model(props) {
             <group position={[0, 2514, 60.5]}>
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["Cut-Extrude22(A951FB75-DAAE-40C6-B308-06544F76DF50)"]
                     .geometry
@@ -683,7 +620,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(B8A9F8C9-8118-4E18-9234-EE31098DF74C)"].geometry
                 }
@@ -691,7 +627,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(762A2DF7-83F5-4C63-88F7-3B26E260DC73)"].geometry
                 }
@@ -699,7 +634,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(A9964CCE-C56A-4AB6-8A68-3AD2652BA5BA)"].geometry
                 }
@@ -707,7 +641,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(5A91512D-9899-4B52-9FF3-430CF7DDB918)"].geometry
                 }
@@ -720,7 +653,6 @@ export function Model(props) {
             >
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(65AE3EB6-028F-4177-B2AB-B005CE3A71C9)"].geometry
                 }
@@ -728,7 +660,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(3AEC340C-4BDE-4643-A5D8-5589EB4620EE)"].geometry
                 }
@@ -736,7 +667,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(21608849-E3FB-4068-9483-32B4DE0651A5)"].geometry
                 }
@@ -744,7 +674,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(AB91D0B4-CB70-45C7-B8DB-FB21EBE86363)"].geometry
                 }
@@ -752,7 +681,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(B661564F-C50D-45E1-B936-570A835B351A)"].geometry
                 }
@@ -760,7 +688,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(07E5EC1A-A501-43BF-BF52-DD69B5200A33)"].geometry
                 }
@@ -773,7 +700,6 @@ export function Model(props) {
             >
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(65AE3EB6-028F-4177-B2AB-B005CE3A71C9)_1"].geometry
                 }
@@ -781,7 +707,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(3AEC340C-4BDE-4643-A5D8-5589EB4620EE)_1"].geometry
                 }
@@ -789,7 +714,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(21608849-E3FB-4068-9483-32B4DE0651A5)_1"].geometry
                 }
@@ -797,7 +721,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(AB91D0B4-CB70-45C7-B8DB-FB21EBE86363)_1"].geometry
                 }
@@ -805,7 +728,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(B661564F-C50D-45E1-B936-570A835B351A)_1"].geometry
                 }
@@ -813,7 +735,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(07E5EC1A-A501-43BF-BF52-DD69B5200A33)_1"].geometry
                 }
@@ -826,7 +747,6 @@ export function Model(props) {
             >
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["Cut-Extrude22(A951FB75-DAAE-40C6-B308-06544F76DF50)_1"]
                     .geometry
@@ -835,7 +755,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(B8A9F8C9-8118-4E18-9234-EE31098DF74C)_1"].geometry
                 }
@@ -843,7 +762,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(762A2DF7-83F5-4C63-88F7-3B26E260DC73)_1"].geometry
                 }
@@ -851,7 +769,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(A9964CCE-C56A-4AB6-8A68-3AD2652BA5BA)_1"].geometry
                 }
@@ -859,7 +776,6 @@ export function Model(props) {
               />
               <mesh
                 castShadow
-                receiveShadow
                 geometry={
                   nodes["NONE(5A91512D-9899-4B52-9FF3-430CF7DDB918)_1"].geometry
                 }
@@ -868,7 +784,6 @@ export function Model(props) {
             </group>
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(F53245AB-3CBE-4517-9668-5BEB3DB40960)"]
                   .geometry
@@ -879,7 +794,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(39E980E7-C333-4F49-A915-F40982C35B1A)"]
                   .geometry
@@ -890,7 +804,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(39E980E7-C333-4F49-A915-F40982C35B1A)_1"]
                   .geometry
@@ -901,7 +814,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(39E980E7-C333-4F49-A915-F40982C35B1A)_2"]
                   .geometry
@@ -912,7 +824,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Cut-Extrude1(2AB86678-E447-4AF0-A4FE-FDF8BF5E80A2)"]
                   .geometry
@@ -921,7 +832,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["CirPattern1(1D49C864-879F-4045-9E05-043F99978A6A)"]
                   .geometry
@@ -930,7 +840,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Cut-Extrude2(BF22995B-261A-4123-AAF5-2BDDFFDA9EF5)"]
                   .geometry
@@ -940,7 +849,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(39E980E7-C333-4F49-A915-F40982C35B1A)_3"]
                   .geometry
@@ -951,7 +859,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Tube(CF9BC91A-EAE5-4C98-847C-A678532AB110)"].geometry
               }
@@ -960,7 +867,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(39E980E7-C333-4F49-A915-F40982C35B1A)_4"]
                   .geometry
@@ -971,7 +877,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(F53245AB-3CBE-4517-9668-5BEB3DB40960)_1"]
                   .geometry
@@ -982,7 +887,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Cut-Extrude2(E844447A-F31D-4C5E-B97E-788433BECAB5)"]
                   .geometry
@@ -993,7 +897,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(39E980E7-C333-4F49-A915-F40982C35B1A)_5"]
                   .geometry
@@ -1004,7 +907,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(F53245AB-3CBE-4517-9668-5BEB3DB40960)_2"]
                   .geometry
@@ -1015,7 +917,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(2650FA60-4E38-4234-AACC-94010A355F23)"]
                   .geometry
@@ -1026,7 +927,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(F53245AB-3CBE-4517-9668-5BEB3DB40960)_3"]
                   .geometry
@@ -1037,7 +937,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Cut-Extrude2(BF22995B-261A-4123-AAF5-2BDDFFDA9EF5)_1"]
                   .geometry
@@ -1048,7 +947,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Cut-Extrude3(F53546FB-020B-4077-8C92-5E14421F471D)"]
                   .geometry
@@ -1058,7 +956,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(F53245AB-3CBE-4517-9668-5BEB3DB40960)_4"]
                   .geometry
@@ -1069,7 +966,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(2650FA60-4E38-4234-AACC-94010A355F23)_1"]
                   .geometry
@@ -1080,7 +976,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(2650FA60-4E38-4234-AACC-94010A355F23)_2"]
                   .geometry
@@ -1091,7 +986,6 @@ export function Model(props) {
             />
             <mesh
               castShadow
-              receiveShadow
               geometry={
                 nodes["Imported1(2650FA60-4E38-4234-AACC-94010A355F23)_3"]
                   .geometry
@@ -1102,7 +996,6 @@ export function Model(props) {
           </group>
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Ebene_01(E5E14EEC-A93F-451B-862C-4CE2A98207C6)"].geometry
             }
@@ -1110,7 +1003,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["Ebene_01(5B9CE1AD-01A1-4BAA-8FED-0DDD455050D3)"].geometry
             }
@@ -1118,7 +1010,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["AUSFORMSCHRAEGEN(9FD2C1B7-65C0-4E5C-8FEB-E0F45E42F6A7)"]
                 .geometry
@@ -1127,7 +1018,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["AUSFORMSCHRAEGEN(5AFAF1E1-3EAA-4881-9C0E-6B1C0E4AD145)"]
                 .geometry
@@ -1136,7 +1026,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["AUSFORMSCHRAEGEN(110CCA6F-9BC7-4130-9010-F2F50B5F9C6C)"]
                 .geometry
@@ -1145,7 +1034,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["AUSFORMSCHRAEGEN(F3F9C5D7-6C61-445D-925E-35050822753A)"]
                 .geometry
@@ -1154,7 +1042,6 @@ export function Model(props) {
           />
           <mesh
             castShadow
-            receiveShadow
             geometry={
               nodes["AUSFORMSCHRAEGEN(9654E1AE-7442-4478-AF64-18673D904D59)"]
                 .geometry

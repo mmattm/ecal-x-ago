@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Scene from "../Scene";
 import CustomDirectionalLight from "../CustomDirectionalLight"; // Import the new component
-import { Environment } from "@react-three/drei";
+import { Environment, SoftShadows } from "@react-three/drei";
 
 import Yellow from "../lights/Upper/Yellow";
 import Green from "../lights/Upper/Green";
@@ -18,9 +18,9 @@ export default function SceneContainer() {
         splatRotation={[-Math.PI + 0.1, -Math.PI / 2, 0]}
         splatScale={5}
       />
-
+      <SoftShadows size={13} samples={16} focus={1} />
       <group position={[0, 0, 0]}>
-        <Environment preset="warehouse" />
+        <Environment preset="warehouse" environmentIntensity={0.9} />
         {/* <ambientLight intensity={0.2} /> */}
 
         <CustomDirectionalLight position={[2, 10, 5]} intensity={1} />

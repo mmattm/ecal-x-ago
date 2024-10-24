@@ -3,8 +3,7 @@ import Scene from "../Scene";
 import CustomDirectionalLight from "../CustomDirectionalLight";
 
 import Pole from "../lights/Pole/Pole";
-import EnhancedSpotlight from "../EnhancedSpotlight";
-import { Environment } from "@react-three/drei";
+import { Environment, SoftShadows } from "@react-three/drei";
 
 const splat = "/splats/SwissEmbacyAll.splat";
 
@@ -18,12 +17,14 @@ export default function SceneContainer() {
         splatScale={3}
       />
 
-      <Environment preset="sunset" />
-      <ambientLight intensity={1} />
+      <Environment preset="city" environmentIntensity={2} />
+      <SoftShadows size={8} samples={16} focus={1} />
+
+      {/* <ambientLight intensity={1} /> */}
 
       <group position={[0, 0, 0]}>
-        <CustomDirectionalLight position={[1, 20, 5]} intensity={3} />
-        <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
+        <CustomDirectionalLight position={[1, 10, 5]} intensity={3} />
+        <CustomDirectionalLight position={[2, 10, -3]} intensity={3} />
 
         <Pole position={[2.2, 0, 4]} scale={0.42} rotation={[0, 6.6, 0]} />
         <Pole position={[-0.1, 0, 1.8]} scale={0.42} rotation={[0, 4.4, 0]} />

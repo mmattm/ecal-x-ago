@@ -49,7 +49,7 @@ export default function Scene({
         duration={selectedPath.duration}
         easing={selectedPath.easing}
       />
-      <SoftShadows size={11} samples={16} focus={1} />
+      {/* <SoftShadows size={10} samples={16} focus={1} /> */}
       {/* <Environment preset="sunset" /> */}
       {/* <ambientLight intensity={1} /> */}
       {sky && (
@@ -69,7 +69,7 @@ export default function Scene({
         renderOrder={1}
       >
         <planeGeometry args={[100, 100]} />
-        <shadowMaterial transparent opacity={0.25} />
+        <shadowMaterial transparent opacity={0.4} />
       </mesh>
       {gaussianVisible && (
         <group

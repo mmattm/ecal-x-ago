@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Scene from "../Scene";
 import CustomDirectionalLight from "../CustomDirectionalLight";
-import { Environment } from "@react-three/drei";
+import { Environment, SoftShadows } from "@react-three/drei";
 
 import Frame from "../lights/Frame/Frame";
 
@@ -17,15 +17,16 @@ export default function SceneContainer() {
       />
 
       <Environment preset="apartment" />
-      <ambientLight intensity={1} />
+      <ambientLight intensity={2} />
+      <SoftShadows size={16} samples={16} focus={2} />
 
       <group position={[0, 0, 0]}>
-        <CustomDirectionalLight position={[-2, 4, 1]} intensity={3} />
-        <CustomDirectionalLight position={[2, 5, -1]} intensity={1} />
+        <CustomDirectionalLight position={[10, 14, 2]} intensity={3} />
+        <CustomDirectionalLight position={[10, 8, 5]} intensity={1} />
 
         {/* <CustomDirectionalLight position={[2, 13, -3]} intensity={1} /> */}
 
-        <Frame position={[-7, 0, 5]} scale={1.9} rotation={[0, 2.25, 0]} />
+        <Frame position={[-6.5, 0, 5]} scale={1.9} rotation={[0, 2.25, 0]} />
       </group>
     </>
   );
