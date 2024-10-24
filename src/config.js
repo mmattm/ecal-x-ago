@@ -1,10 +1,5 @@
 // other easing options: https://greensock.com/docs/v3/Eases
-const time = 50;
-
-const offsetX_YML = 1;
-const offsetY_YML = 1;
-const offsetZ_YML = 1;
-
+const time = 20;
 
 export const videoMode = false;
 
@@ -129,9 +124,9 @@ export const cameraPaths = [
       [-1.22, 0.26, 1.21], //9
 
       [-1.14, 0.11, 2.51], //10
-      [-0.51, 0.61, 2.06], //10
+      [-0.82,0.36,2.21], //10.5
 
-      [-0.94, 0.16, 2.35], //10.5
+      [-0.82,0.36,2.21], //10.5
 
       [0.19, 0.6, 4.57], //11
       [0.19, 0.6, 4.57], //11
@@ -155,12 +150,12 @@ export const cameraPaths = [
       [2.15, 0.46, 3.98], //2
       [2.15, 0.66, 3.98], //2
 
-      [3.46, 1.19, 2.62], //3
+      [3.46, 1, 2.62], //3
 
-      [3.46, 1.19, 2.62], //4
+      [3.46, 1, 2.62], //4
 
-      [2.64, 1.07, 0.81], //5
-      [2.64, 1.07, 0.81], //5
+      [2.64, 0.85, 0.81], //5
+      [2.64, 0.85, 0.81], //5
 
       [2.52, 0.93, 0.85], //6
 
@@ -175,10 +170,10 @@ export const cameraPaths = [
       [-0.1, 0.75, 1.8], //10
       [-0.1, 1.0, 1.8], //10
 
-      [0.3, 0.66, 3.62], //10.5
+      [0.3, 0.86, 3.62], //10.5
 
-      [0.3, 0.66, 3.62], //11
-      [0.3, 0.66, 3.62], //11
+      [0.3, 0.86, 3.62], //11
+      [0.3, 0.86, 3.62], //11
 
       [2.24, 0.91, 2.75], //12 Center
       [2.24, 0.91, 2.75], //12 Center
@@ -216,10 +211,10 @@ export const cameraPaths = [
 
       [-15.78, 3.53, -1.97], //6 Entrée cuisine
 
-      [-25.22, 3.33, -5.12], //7 Fond droit bar
+      [-26.09,3.46,-2.71], //7 Fond droit bar
 
-      [-17.27, 2.72, -11.2], //8 Fond gauche bar
-      [-17.27, 2.72, -11.2], //8 Fond gauche bar
+      [-17.27, 3.32, -11.2], //8 Fond gauche bar
+      [-17.27, 3.32, -11.2], //8 Fond gauche bar
 
       [-7.9, 3.21, 0.45], //9 right
 
@@ -235,6 +230,7 @@ export const cameraPaths = [
 
       [3.04, 2.8, 15.57], //15 outside street
       [3.04, 2.8, 15.57], //15 outside street
+      [7.31,2.31,30.81], //15.5 outside street
 
       [31.82, 3.36, 48.65], //16 very outside street
       [31.82, 3.36, 48.65], //16 very outside street
@@ -257,25 +253,25 @@ export const cameraPaths = [
       [-7.09, 2.49, 4.73], //0.5 light center
       [-7.09, 2.49, 4.73], //0.5 light center
 
-      [-7.09, 2.49, 4.73], //1 light center
-      [-7.09, 2.49, 4.73], //1 light center
+      [-7.09, 2.3  , 4.73], //1 light center
+      [-7.09, 2.3, 4.73], //1 light center
 
-      [-8.03, 4.03, 3.49], //3 Top right
-      [-5.57, 3.7, 5.97], //3 Top left
+      [-7.10,3.2,3.47], //3 Top right
+      [-5.57, 3.2, 5.97], //3 Top left
 
-      [-6.88,3.88,3.16], //5 Top right
-      [-5.57, 3.5, 5.97], //5 Top left
+      [-7.10,3.64,3.47], //5 Top right
+      [-1.35,3.50,8.45], //5 Center other
 
-      [-8.03, 3.9, 3.49], //6 Top right
+      [-8.03, 3.5, 3.49], //6 Top right
 
-      [-8.03, 3.7, 3.49], //7 Top right
+      [-8.03, 3.5, 3.49], //7 Top right
 
-      [-8.03, 4.03, 3.49], //8 Top right
-      [-8.03, 4.03, 3.49], //8 Top right
+      [-8.03, 3.7, 3.49], //8 Top right
+      [-1.35,3.50,8.45], //8 Center other
 
-      [-6.68, -1.01, 4.98], //9 Milieu coussin
+      [-6.68, -0.3, 4.98], //9 Milieu coussin
 
-      [-6.68, -1.01, 4.98], //10 Milieu coussin
+      [-6.68, -0.3, 4.98], //10 Milieu coussin
 
       [-6.14,3.56,4.59], //11 Milieu light
 
@@ -285,6 +281,7 @@ export const cameraPaths = [
       [-6.14,3.86,4.59], //13 Milieu coussin
       [-6.14,3.86,4.59], //13 Milieu coussin
 
+      [-7.09, 2.49, 4.73], //15 light center
       [-7.09, 2.49, 4.73], //15 light center
       [-7.09, 2.49, 4.73], //15 light center
 
@@ -297,6 +294,96 @@ export const cameraPaths = [
       //end
       [-7.09, 1.49, 4.73], //end
       [-7.09, 1.49, 4.73], //end
+    ],
+    fov: 2,
+    duration: time,
+    easing: "none",
+  },
+  {
+    id: "Simulghwan Botanic Garden",
+    points: [
+      [-13.10,2.60,-29.25], //start
+      [-13.10,2.60,-29.25], //start
+      //start
+
+      [-1.52,0.37,-0.25], //1 plante1 close-up
+      [-1.78,0.04,0.45], //1 plante1 close-up
+
+      [-1.55,2.36,1.12], //2 plante1 close-up top
+      [-1.55,2.36,1.12], //2 plante1 close-up top
+
+      [-2.31,1.24,3.96], //3 plante1 side medium
+      [-1.86,1.49,4.64], //3 plante1 & 2 medium
+
+      [-0.88,1.09,2.75], //4 plante1 with leafs of 2
+      [-0.80,0.67,2.73], //4 plante1 with leafs of 2
+
+      [-0.79,0.18,2.23], //5
+      [-0.79,0.18,2.23], //5
+
+      [1.28,0.25,2.07], //6 Contre plongée plante 2
+      [1.28,0.25,2.07], //6 Contre plongée plante 2
+
+      [2.96,1.89,-3.81], //7 Back 3 plants shot 
+      [2.96,1.89,-3.81], //7 Back 3 plants shot 
+
+      [8.23,1.86,-9.45], //8
+      [8.23,1.86,-9.45], //8
+
+      [11.19,1.89,-6.57], //9
+
+      //end
+      [-6.39,4.26,9.15], //Wide back
+      [-6.39,4.26,9.15], //Wide back
+
+      [-37.85,-39.08,23.51], //Wide under
+      [-37.85,-39.08,23.51], //Wide under
+
+      [-13.10,2.60,-29.25], //end
+      [-13.10,2.60,-29.25], //end
+    ],
+    // target: [2, 1, 0.5],
+    targetPoints: [
+      [-0.57,1.09,2.21], //Plante1 center
+      [-0.57,1.09,2.21], //Plante1 center
+      //start
+
+      [-0.57,1.09,2.21], //1 Plante1 center
+      [-0.57,1.09,2.21], //1 Plante1 center
+
+      [0.27,1.09,1.91], //2 Plante1 center
+      [0.27,1.09,1.91], //2 Plante1 center
+
+      [-0.57,1.09,2.21], //3 Plante1 center
+      [-0.15,0.77,0.82], //3 Plante2 center
+
+      [-0.15,0.77,0.82], //4 Plante2 center
+      [-0.15,0.77,0.82], //4 Plante2 center
+
+      [-0.15,0.77,0.82], //5 Plante2 center
+      [-0.15,0.77,0.82], //5 Plante2 center
+
+      [-0.15,0.77,0.82], //6 Plante2 center
+      [-0.16, 0.9,0.84], //6 Plante2 top
+
+      [-0.57,1.09,2.21], //7 Plante1 center
+      [-0.57,1.09,2.21], //7 Plante1 center
+
+      [1.33,0.93,0.71], //8 scene center
+      [1.33,0.93,0.71], //8 scene center
+
+      [1.33,0.93,0.71], //9 scene center
+      [1.33,0.93,0.71], //9 scene center
+
+      //end
+      [-0.15,0.77,0.82], //Plante2 center
+      [-0.15,0.77,0.82], //Plante2 center
+
+      [-0.15,0.77,0.82], //Plante2 center
+      [-0.15,0.77,0.82], //Plante2 center
+
+      [-0.57,1.09,2.21], //Plante1 center
+      [-0.57,1.09,2.21], //Plante1 center
     ],
     fov: 2,
     duration: time,

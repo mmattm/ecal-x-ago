@@ -29,9 +29,9 @@ export default function SceneContainer() {
         <CustomDirectionalLight position={[2, 30, -3]} intensity={1} />
 
         <group>
-          <Planta1 position={[0.1, 0, 0.1]} scale={0.03} />
+          <Planta1 position={[-0.6, 0, -0.25]} scale={0.03} rotation={[0, 0, 0]} />
           <Planta2
-            position={[-1.2, 0, 2.4]}
+            position={[-0.5, 0, 1.9]}
             scale={0.03}
             rotation={[0, 2, 0]}
           />
