@@ -1,6 +1,11 @@
 // other easing options: https://greensock.com/docs/v3/Eases
 const time = 50;
 
+const offsetX_YML = 1;
+const offsetY_YML = 1;
+const offsetZ_YML = 1;
+
+
 export const videoMode = false;
 
 export const cameraPaths = [
@@ -195,44 +200,44 @@ export const cameraPaths = [
       [329.82, 22.3, 36.83], //start
       //start
 
-      [50.32, 6.28, 1.35], //0 wide
+      [50.32, 7.28, 1.35], //0 wide
 
-      [20.56, 3.85, -1.35], //0.5
-      [20.56, 3.85, -1.35], //0.5
+      [20.56, 4.85, -1.35], //0.5
+      [20.56, 4.85, -1.35], //0.5
 
-      [4.7, 2.07, -1.4], //1 room
-      [4.7, 2.07, -1.4], //1 room
+      [4.7, 3.07, -1.4], //1 room
+      [4.7, 3.07, -1.4], //1 room
 
-      [-2.18, 0.31, 7.04], //3 close up left
-      [-2.18, 0.31, 7.04], //3 close up left
+      [-2.18, 1.31, 7.04], //3 close up left
+      [-2.18, 1.31, 7.04], //3 close up left
 
-      [-9.17, 3.63, -2.08], //5 right
-      [-9.17, 3.63, -2.08], //5 right
+      [-9.17, 4.63, -2.08], //5 right
+      [-9.17, 4.63, -2.08], //5 right
 
-      [-15.78, 2.53, -1.97], //6 Entrée cuisine
+      [-15.78, 3.53, -1.97], //6 Entrée cuisine
 
-      [-25.22, 2.33, -5.12], //7 Fond droit bar
+      [-25.22, 3.33, -5.12], //7 Fond droit bar
 
-      [-17.27, 1.72, -11.2], //8 Fond gauche bar
-      [-17.27, 1.72, -11.2], //8 Fond gauche bar
+      [-17.27, 2.72, -11.2], //8 Fond gauche bar
+      [-17.27, 2.72, -11.2], //8 Fond gauche bar
 
-      [-7.9, 2.21, 0.45], //9 right
+      [-7.9, 3.21, 0.45], //9 right
 
-      [0.28, 3.79, 5.14], //10
+      [0.28, 4.79, 5.14], //10
 
-      [-1.6, 4.02, 0.96], //11 frontal
+      [-1.6, 5.02, 0.96], //11 frontal
 
-      [-5.53, 1.87, 3.84], //12 frontal close-up light
-      [-5.53, 1.87, 3.84], //12 frontal close-up light
+      [-4.29,1.90,3.25], //12 frontal close-up light
+      [-4.29,1.90,3.25], //12 frontal close-up light
 
-      [11.22, 3.35, -19.67], //13 frontal back right
-      [14.83, 3.35, -13.85], //13 frontal back left
+      [11.22, 4.35, -19.67], //13 frontal back right
+      [14.83, 4.35, -13.85], //13 frontal back left
 
-      [3.04, 1.8, 15.57], //15 outside street
-      [3.04, 1.8, 15.57], //15 outside street
+      [3.04, 2.8, 15.57], //15 outside street
+      [3.04, 2.8, 15.57], //15 outside street
 
-      [31.82, 2.36, 48.65], //16 very outside street
-      [31.82, 2.36, 48.65], //16 very outside street
+      [31.82, 3.36, 48.65], //16 very outside street
+      [31.82, 3.36, 48.65], //16 very outside street
 
       [81.26, 40.76, -3.31], //17 overview top
       [81.26, 40.76, -3.31], //17 overview top
@@ -247,53 +252,53 @@ export const cameraPaths = [
       [-7.09, 1.49, 4.73], //start
       //start
 
-      [-7.09, 1.49, 4.73], //0 light center
+      [-7.09, 2.49, 4.73], //0 light center
 
-      [-7.09, 1.49, 4.73], //0.5 light center
-      [-7.09, 1.49, 4.73], //0.5 light center
+      [-7.09, 2.49, 4.73], //0.5 light center
+      [-7.09, 2.49, 4.73], //0.5 light center
 
-      [-7.09, 1.49, 4.73], //1 light center
-      [-7.09, 1.49, 4.73], //1 light center
+      [-7.09, 2.49, 4.73], //1 light center
+      [-7.09, 2.49, 4.73], //1 light center
 
-      [-8.03, 3.03, 3.49], //3 Top right
-      [-5.57, 2.7, 5.97], //3 Top left
+      [-8.03, 4.03, 3.49], //3 Top right
+      [-5.57, 3.7, 5.97], //3 Top left
 
-      [-8.03, 2.5, 3.49], //5 Top right
-      [-5.57, 2.5, 5.97], //5 Top left
+      [-6.88,3.88,3.16], //5 Top right
+      [-5.57, 3.5, 5.97], //5 Top left
 
-      [-8.03, 2.9, 3.49], //6 Top right
+      [-8.03, 3.9, 3.49], //6 Top right
 
-      [-8.03, 2.7, 3.49], //7 Top right
+      [-8.03, 3.7, 3.49], //7 Top right
 
-      [-8.03, 3.03, 3.49], //8 Top right
-      [-8.03, 3.03, 3.49], //8 Top right
+      [-8.03, 4.03, 3.49], //8 Top right
+      [-8.03, 4.03, 3.49], //8 Top right
 
-      [-6.68, -0.01, 4.98], //9 Milieu coussin
+      [-6.68, -1.01, 4.98], //9 Milieu coussin
 
-      [-6.68, -0.01, 4.98], //10 Milieu coussin
+      [-6.68, -1.01, 4.98], //10 Milieu coussin
 
-      [-6.65, 2.82, 4.6], //11 Milieu light
+      [-6.14,3.56,4.59], //11 Milieu light
 
-      [-6.65, 2.82, 4.6], //12 Milieu light
-      [-6.65, 2.82, 4.6], //12 Milieu light
+      [-6.14,3.56,4.59], //12 Milieu light
+      [-6.14,3.56,4.59], //12 Milieu light
 
-      [-6.65, 2.82, 4.6], //13 Milieu coussin
-      [-6.65, 2.82, 4.6], //13 Milieu coussin
+      [-6.14,3.86,4.59], //13 Milieu coussin
+      [-6.14,3.86,4.59], //13 Milieu coussin
 
-      [-7.09, 1.49, 4.73], //15 light center
-      [-7.09, 1.49, 4.73], //15 light center
+      [-7.09, 2.49, 4.73], //15 light center
+      [-7.09, 2.49, 4.73], //15 light center
 
-      [-7.09, 1.49, 4.73], //16 light center
-      [-7.09, 1.49, 4.73], //16 light center
+      [-7.09, 2.49, 4.73], //16 light center
+      [-7.09, 2.49, 4.73], //16 light center
 
-      [-7.09, 1.49, 4.73], //17 light center
-      [-7.09, 1.49, 4.73], //17 light center
+      [-7.09, 2.49, 4.73], //17 light center
+      [-7.09, 2.49, 4.73], //17 light center
 
       //end
       [-7.09, 1.49, 4.73], //end
       [-7.09, 1.49, 4.73], //end
     ],
-    fov: 3,
+    fov: 2,
     duration: time,
     easing: "none",
   },

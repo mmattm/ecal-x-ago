@@ -25,12 +25,12 @@ export default function SceneContainer() {
         <CustomDirectionalLight position={[2, 10, -3]} intensity={2} />
 
         <LongSerpent
-          position={[1.5, 1, 5.5]}
+          position={[0.6, 1.3, 4.4]}
           scale={0.9}
           rotation={[0, 6.3, 0]}
         />
         <VerticalSerpent
-          position={[-0.45, 2, -1.2]}
+          position={[-0.54, 0.7, -0.5]}
           scale={0.9}
           rotation={[0, Math.PI * 1, 0]}
         />

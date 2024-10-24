@@ -7,6 +7,9 @@ import Frame from "../lights/Frame/Frame";
 
 const splat = "/splats/MaterialLibraryAll.splat";
 
+const offsetX = 1;
+const offsetY = 1;
+
 export default function SceneContainer() {
   return (
     <>
