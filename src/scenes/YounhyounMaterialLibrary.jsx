@@ -30,7 +30,7 @@ export default function SceneContainer() {
 
         {/* <CustomDirectionalLight position={[2, 13, -3]} intensity={1} /> */}
 
-        <Frame position={[-6.5, 0, 5]} scale={1.8} rotation={[0, 2.25, 0]} />
+        <Frame position={[-6.5, 0, 5.1]} scale={1.8} rotation={[0, 2.25, 0]} />
         <Frame2
           position={[-1, 0, 8.7]}
           scale={1.8}
