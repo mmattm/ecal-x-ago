@@ -1,5 +1,5 @@
 // other easing options: https://greensock.com/docs/v3/Eases
-const time = 85;
+const time = 25;
 
 export const videoMode = false;
 
@@ -302,35 +302,39 @@ export const cameraPaths = [
   {
     id: "Simulghwan Botanic Garden",
     points: [
-      [-13.10,2.60,-29.25], //start
-      [-13.10,2.60,-29.25], //start
+      [-13.66,2.88,-31.73], //start
+      [-13.66,2.88,-31.73], //start
       //start
+      [-5.67,2.18,-9.75], //0 behind frame
+      [-5.67,2.18,-9.75], //0 behind frame
 
-      [-1.52,0.37,-0.25], //1 plante1 close-up
-      [-1.78,0.04,0.45], //1 plante1 close-up
+      [-2.03,1.1,-1.97], //1 behind plants two lamps
+      [-4.16,1.28,-0.87], //1 two lamps 1 & 2
 
-      [-1.55,2.36,1.12], //2 plante1 close-up top
-      [-1.55,2.36,1.12], //2 plante1 close-up top
+      [-3.83,1.44,2.90], //2 Plante1 alone slightly on right side
+      [-4.51,1.28,2.91], //2 Plante1 alone slightly on right side
 
-      [-2.31,1.24,3.96], //3 plante1 side medium
-      [-1.86,1.49,4.64], //3 plante1 & 2 medium
+      [-0.04,0.92,4.67], //3 Plante 2 alone
+      [-0.04,0.92,4.67], //3 Plante 2 alone
 
-      [-0.88,1.09,2.75], //4 plante1 with leafs of 2
-      [-0.80,0.67,2.73], //4 plante1 with leafs of 2
+      [0.34,1.18,3.17], //4 Plante1 window behind
+      [0.34,1.18,3.17], //4 Plante1 window behind
 
-      [-0.79,0.18,2.23], //5
-      [-0.79,0.18,2.23], //5
+      [-1.26,0.97,1.97], //4.5 Plante1 plants behind
+      [-1.26,0.97,1.97], //4.5 Plante1 plants behind
 
-      [1.28,0.25,2.07], //6 Contre plongée plante 2
-      [1.28,0.25,2.07], //6 Contre plongée plante 2
+      [1.74,0.34,1.79], //5 Plante1 kitchen behind
+      [1.74,0.64,1.79], //5 Plante1 kitchen behind
 
-      [2.96,1.89,-3.81], //7 Back 3 plants shot 
-      [2.96,1.89,-3.81], //7 Back 3 plants shot 
+      [3.12,0.13,2.79], //6 Plante1 kitchen behind framed by plants
+      [3.12,0.13,2.79], //6 Plante1 kitchen behind framed by plants
+      [3.12,0.13,2.79], //6 Plante1 kitchen behind framed by plants
 
-      [8.23,1.86,-9.45], //8
-      [8.23,1.86,-9.45], //8
+      [5.93,2.41,3.82], //7 Plante3 surrounded by plants
+      [5.93,2.41,3.82], //7 Plante3 surrounded by plants
 
-      [11.19,1.89,-6.57], //9
+      [2.78,1.90,-8.28], //8 Plante2&3 framed by window
+      [3.25,2.06,-10.54], //8 Plante2&3 framed by window
 
       //end
       [-6.39,4.26,9.15], //Wide back
@@ -339,55 +343,56 @@ export const cameraPaths = [
       [-37.85,-39.08,23.51], //Wide under
       [-37.85,-39.08,23.51], //Wide under
 
-      [-13.10,2.60,-29.25], //end
-      [-13.10,2.60,-29.25], //end
+      [-13.66,2.88,-31.73], //end
+      [-13.66,2.88,-31.73], //end
     ],
     // target: [2, 1, 0.5],
     targetPoints: [
-      [-0.57,1.09,2.21], //Plante1 center
-      [-0.57,1.09,2.21], //Plante1 center
+      [-0.57,1.09,2.21], //Center front window
+      [-0.57,1.09,2.21], //Center front window
       //start
+      [-0.39,0.99,1.27], //0 Between plante1 & 2
+      [-0.39,0.99,1.27], //0 Between plante1 & 2
 
-      [-0.57,1.09,2.21], //1 Plante1 center
-      [-0.57,1.09,2.21], //1 Plante1 center
+      [-0.39,0.69,1.27], //1 Between plante1 & 2
+      [0.20,0.93,1.73], //3 Plante2 center
 
-      [0.27,1.09,1.91], //2 Plante1 center
-      [0.27,1.09,1.91], //2 Plante1 center
+      [0.20,0.93,1.73], //3 Plante2 center
+      [0.20,0.93,1.73], //3 Plante2 center
 
-      [-0.57,1.09,2.21], //3 Plante1 center
-      [-0.15,0.77,0.82], //3 Plante2 center
+      [-0.87,0.51,0.41], //4 Plante 1 center
+      [-0.87,0.51,0.41], //4 Plante 1 center
 
-      [-0.15,0.77,0.82], //4 Plante2 center
-      [-0.15,0.77,0.82], //4 Plante2 center
+      [-0.87,0.51,0.41], //4.5 Plante 1 center
+      [-0.87,0.91,0.41], //4.5 Plante 1 center
 
-      [-0.15,0.77,0.82], //5 Plante2 center
-      [-0.15,0.77,0.82], //5 Plante2 center
+      [-0.87,0.51,0.41], //5 Plante 1 center
+      [-0.87,0.51,0.41], //5 Plante 1 center
 
-      [-0.15,0.77,0.82], //6 Plante2 center
-      [-0.16, 0.9,0.84], //6 Plante2 top
 
-      [-0.57,1.09,2.21], //7 Plante1 center
-      [-0.57,1.09,2.21], //7 Plante1 center
+      [-0.87,0.51,0.41], //6 Plante 1 center
+      [-0.87,0.51,0.41], //6 Plante 1 center
+      [1.62,0.99,-0.13], //6 Plante 3 center
 
-      [1.33,0.93,0.71], //8 scene center
-      [1.33,0.93,0.71], //8 scene center
+      [1.62,0.99,-0.13], //7 Plante 3 center
+      [1.62,0.99,-0.13], //7 Plante 3 center
 
-      [1.33,0.93,0.71], //9 scene center
-      [1.33,0.93,0.71], //9 scene center
+      [0.93,1.13,0.56], //8 Between plante2&3
+      [0.93,1.13,0.56], //8 Between plante2&3
 
       //end
-      [-0.15,0.77,0.82], //Plante2 center
-      [-0.15,0.77,0.82], //Plante2 center
+      [-0.15,0.77,0.82], //Plante1 center
+      [-0.15,0.77,0.82], //Plante1 center
 
-      [-0.15,0.77,0.82], //Plante2 center
-      [-0.15,0.77,0.82], //Plante2 center
+      [-0.15,3.77,0.82], //Plante1 center
+      [-0.15,3.77,0.82], //Plante1 center
 
-      [-0.57,1.09,2.21], //Plante1 center
-      [-0.57,1.09,2.21], //Plante1 center
+      [-0.57,1.09,2.21], //Center front window
+      [-0.57,1.09,2.21], //Center front window
     ],
     fov: 2,
     duration: time,
-    easing: "none",
+    easing: "power1.inOut",
   },
   {
     id: "Post Archive Faction 1",

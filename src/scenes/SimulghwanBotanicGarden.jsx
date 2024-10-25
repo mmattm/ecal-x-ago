@@ -35,7 +35,7 @@ export default function SceneContainer() {
             scale={0.03}
             rotation={[0, 2, 0]}
           />
-          <Planta3 position={[1, 0, -1]} scale={0.03} rotation={[0, 1, 0]} />
+          <Planta3 position={[2.05, 0, 0.45]} scale={0.03} rotation={[0, 4.3, 0]} />
         </group>
         {/* <Planta position={[-0.5, 0, 0.5]} scale={0.03} rotation={[0, 0, 0]} /> */}
       </group>
