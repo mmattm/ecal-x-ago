@@ -16,7 +16,7 @@ export default function Light({ position, scale, rotation }) {
             scale={0.8}
             attenuation={3}
             distance={30}
-            opacity={0.4}
+            opacity={0.3}
             angle={3}
           />
         </group>
@@ -27,7 +27,7 @@ export default function Light({ position, scale, rotation }) {
             scale={0.8}
             attenuation={3}
             distance={30}
-            opacity={0.4}
+            opacity={0.3}
             angle={3}
           />
         </group>
@@ -38,7 +38,7 @@ export default function Light({ position, scale, rotation }) {
             scale={0.8}
             attenuation={3}
             distance={30}
-            opacity={0.4}
+            opacity={0.3}
             angle={3}
           />
         </group>
