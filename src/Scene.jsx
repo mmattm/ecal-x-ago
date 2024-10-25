@@ -70,7 +70,7 @@ export default function Scene({
 
       {!sky && !gaussianVisible && (
         <>
-          <color attach="background" args={["#191920"]} />
+          <color attach="background" args={["#000"]} />
           <fog attach="fog" args={["#191920", 0, 130]} />
         </>
       )}
@@ -81,7 +81,7 @@ export default function Scene({
         receiveShadow
         renderOrder={1}
       >
-        <planeGeometry args={[200, 200]} />
+        <planeGeometry args={[400, 400]} />
         <shadowMaterial transparent opacity={!gaussianVisible ? 0.2 : 0.5} />
         {!sky && !gaussianVisible && (
           <MeshReflectorMaterial

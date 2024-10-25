@@ -4,7 +4,7 @@ import CustomDirectionalLight from "../CustomDirectionalLight";
 import { Environment, SoftShadows } from "@react-three/drei";
 
 import Frame from "../lights/Frame/Frame";
-import FrameOnly from "../lights/Frame/MAEL_ALEXANDRE_FINAL_FRAME";
+import Frame2 from "../lights/Frame/ALEX_LI";
 
 const splat = "/splats/MaterialLibraryAll.splat";
 
@@ -31,7 +31,7 @@ export default function SceneContainer() {
         {/* <CustomDirectionalLight position={[2, 13, -3]} intensity={1} /> */}
 
         <Frame position={[-6.5, 0, 5]} scale={1.8} rotation={[0, 2.25, 0]} />
-        <FrameOnly
+        <Frame2
           position={[-1, 0, 8.7]}
           scale={1.8}
           rotation={[0, 2.25 + Math.PI / 2, 0]}
