@@ -1,5 +1,5 @@
 // other easing options: https://greensock.com/docs/v3/Eases
-const time = 25;
+const time = 20;
 
 export const videoMode = false;
 
@@ -499,6 +499,66 @@ export const cameraPaths = [
     duration: time,
     easing: "none",
   },
+  {
+  id: "Street Market 1",
+  points: [
+    [0.92,-0.17,-2.86], //-1 exterieur
+
+    [0.10,0.07,-1.98], //0 entrée gauche
+
+    [-0.02,0.09,-1.63], //1 milieu couloir
+
+    [-0.02,0.08,1.14], //2 bout hors couloir
+
+    [0.00,0.36,5.36], //3 bout hors couloir
+    [0.00,0.36,5.36], //3 bout hors couloir
+
+    [-0.02,0.10,-1.97], //entrée milieu
+  ],
+  // target: [1, 1, 0],
+  targetPoints: [
+    [-0.01,0.08,-1.62], //-1
+
+    [-0.01,0.08,-1.62], //0
+
+    [-0.01,0.18,0.81], //1 bout couloir
+
+    [-0.20,-0.20,2.12], //2 bout hors couloir
+
+    [-0.01,0.08,-1.62], //3 bout hors couloir
+    [-0.02,0.12,-4.07], //3 bout hors couloir
+
+    [-0.02,0.12,-4.07], //4 bout hors couloir
+  ],
+  fov: 2.5,
+  duration: time,
+  easing: "none",
+},
+{
+id: "Street Seoul 1",
+points: [
+  [-4.41,0.05,-4.89],
+  
+  [-2.77,0.84,-7.17], //ext1
+  [-0.46,0.42,-5.64], //ext2
+  [-0.29,0.36,-1.27],   //street 1
+  [2.25,0.54,3.45],   //street 2
+  [10.49,1.07,12.72], //street 4
+],
+// target: [1, 1, 0],
+targetPoints: [
+  [0.48,0.33,0.18],   //street 1
+
+  [0.48,0.33,0.18],   //street 1
+  [-0.29,0.36,-1.27],  //street 1
+  [2.25,0.54,3.45],   //street 2
+  [22.81,1.95,26.54],   //street 5
+
+],
+fov: 2.5,
+duration: time,
+easing: "none",
+},
 ];
 
 export const scenes = [
@@ -507,4 +567,6 @@ export const scenes = [
   { label: "Simulghwan Botanic Garden", value: "SimulghwanBotanicGarden" },
   { label: "Swiss Embassy Outside", value: "SwissEmbassyOutside" },
   { label: "Younhyoun Material Library", value: "YounhyounMaterialLibrary" },
+  { label: "Street Market", value: "StreetMarket" },
+  { label: "StreetSeoul", value: "StreetSeoul" },
 ];

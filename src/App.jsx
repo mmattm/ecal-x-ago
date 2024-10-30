@@ -9,6 +9,8 @@ import YounhyounMaterialLibrary from "./scenes/YounhyounMaterialLibrary";
 import PostArchiveFaction from "./scenes/PostArchiveFaction";
 import SimulghwanBotanicGarden from "./scenes/SimulghwanBotanicGarden";
 import SwissEmbassyOutside from "./scenes/SwissEmbassyOutside";
+import StreetMarket from "./scenes/StreetMarket";
+import StreetSeoul from "./scenes/StreetSeoul";
 
 export default function App() {
   return (
@@ -34,6 +36,10 @@ function Stage() {
         return <SimulghwanBotanicGarden />;
       case "SwissEmbassyOutside":
         return <SwissEmbassyOutside />;
+        case "StreetMarket":
+          return <StreetMarket />;
+          case "StreetSeoul":
+            return <StreetSeoul />;
       default:
         return null;
     }
