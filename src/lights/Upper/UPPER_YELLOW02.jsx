@@ -10,7 +10,7 @@ import FakeGlowMaterial from "../../FakeGlowMaterial";
 import { Sphere } from "@react-three/drei";
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF("/src/lights/Upper/UPPER_YELLOW02.gltf");
+  const { nodes, materials } = useGLTF("/lights/Upper/UPPER_YELLOW02.gltf");
 
   const map = (value, x1, y1, x2, y2) =>
     ((value - x1) * (y2 - x2)) / (y1 - x1) + x2;
