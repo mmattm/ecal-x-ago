@@ -23,6 +23,8 @@ import YounhyounMaterialLibrary from "./scenes/YounhyounMaterialLibrary";
 import PostArchiveFaction from "./scenes/PostArchiveFaction";
 import SimulghwanBotanicGarden from "./scenes/SimulghwanBotanicGarden";
 import SwissEmbassyOutside from "./scenes/SwissEmbassyOutside";
+import StreetMarket from "./scenes/StreetMarket";
+import StreetSeoul from "./scenes/StreetSeoul";
 
 export default function App() {
   const focusMode = cameraPathsStore((state) => state.focusMode);
@@ -109,6 +111,10 @@ function Stage() {
         return <SimulghwanBotanicGarden />;
       case "swiss-embassy-outside":
         return <SwissEmbassyOutside />;
+        case "StreetMarket":
+          return <StreetMarket />;
+          case "StreetSeoul":
+            return <StreetSeoul />;
       default:
         return null;
     }

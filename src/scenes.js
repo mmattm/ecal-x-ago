@@ -42,4 +42,6 @@ located in prime Gangnam District. With AGO’s Alley lamp as its foundation, PL
     svg: "frame",
     defaultCameraPath: "Oil Tank apparition",
   },
+  { label: "Street Market", value: "StreetMarket" },
+  { label: "StreetSeoul", value: "StreetSeoul" },
 ];
