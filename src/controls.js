@@ -2,11 +2,12 @@
 import { useControls, button } from "leva";
 import { useState, useRef, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
+
 import { Recorder, RecorderStatus, Encoders } from "canvas-record";
 import { AVC } from "media-codecs";
-import { scenes } from "./config";
+import { scenes } from "./scenes";
 
-import { videoMode } from "./config";
+import { editorMode } from "./config";
 
 import {
   useAnimationStore,
@@ -17,8 +18,7 @@ import {
 } from "./store";
 
 export function useSceneControls() {
-  // Conditionally return early if videoMode is true
-  if (videoMode) {
+  if (!editorMode) {
     return;
   }
 
@@ -29,6 +29,7 @@ export function useSceneControls() {
 
   const selectedScene = sceneStore((state) => state.selectedScene);
   const setSelectedScene = sceneStore((state) => state.setSelectedScene);
+
   const splatAlphaRemovalThreshold = globalStore(
     (state) => state.splatAlphaRemovalThreshold
   );
@@ -45,10 +46,10 @@ export function useSceneControls() {
 
   // Access cameraPathsStore
   const cameraPaths = cameraPathsStore((state) => state.cameraPaths);
-  const selectedCameraPath = cameraPathsStore(
-    (state) => state.selectedCameraPath
+  const selectedCameraPathId = cameraPathsStore(
+    (state) => state.selectedCameraPathId
   );
-  const setCameraPath = cameraPathsStore((state) => state.setCameraPath);
+  const setCameraPathId = cameraPathsStore((state) => state.setCameraPathId);
 
   const grid = globalStore((state) => state.grid);
   const sky = globalStore((state) => state.sky);
@@ -61,18 +62,18 @@ export function useSceneControls() {
   const { gl, size, camera } = useThree(); // Access the WebGL renderer and size
 
   // Use `useFrame` to log the camera position on every frame
-  useFrame(() => {
-    console.log(
-      "camera position: ",
-      "[" +
-        camera.position.x.toFixed(2) +
-        "," +
-        camera.position.y.toFixed(2) +
-        "," +
-        camera.position.z.toFixed(2) +
-        "]"
-    );
-  });
+  // useFrame(() => {
+  //   console.log(
+  //     "camera position: ",
+  //     "[" +
+  //       camera.position.x.toFixed(2) +
+  //       "," +
+  //       camera.position.y.toFixed(2) +
+  //       "," +
+  //       camera.position.z.toFixed(2) +
+  //       "]"
+  //   );
+  // });
 
   // Function to initialize the WebGL canvas recorder at 1920x1080
   const startRecording = async () => {
@@ -162,22 +163,6 @@ export function useSceneControls() {
     }
   };
 
-  const [controlsVisible, setControlsVisible] = useState(true); // Manage visibility state
-
-  // Toggle controls visibility on 'h' key press
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key.toLowerCase() === "h") {
-        setControlsVisible((prev) => !prev); // Toggle visibility
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown); // Clean up event listener
-    };
-  }, []);
-
   // Use Leva controls for all the previous logic + recording functionality
   const [, set] = useControls(
     () => ({
@@ -190,6 +175,8 @@ export function useSceneControls() {
         }, {}),
         onChange: (selected) => {
           const scene = scenes.find((scene) => scene.value === selected);
+          //console.log("scene", scene);
+
           setSelectedScene(scene?.value); // Update the store with the new value
         },
         disabled: playAnimation, // Disable controls if animation is playing
@@ -200,12 +187,14 @@ export function useSceneControls() {
           acc[path.id] = path.id;
           return acc;
         }, {}),
-        value: selectedCameraPath,
+        value: selectedCameraPathId,
         onChange: (value) => {
-          setCameraPath(value);
+          setCameraPathId(value);
           const selectedPath = cameraPaths.find((path) => path.id === value);
 
           if (selectedPath) {
+            console.log(selectedPath.fov);
+
             setFov(selectedPath.fov);
           }
         },

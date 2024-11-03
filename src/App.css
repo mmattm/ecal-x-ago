@@ -1,4 +1,18 @@
 /* App.css */
+@font-face {
+  font-family: "ABC";
+  src: url("/fonts/ABCFavoritHangul-Regular-Trial.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ABC";
+  src: url("/fonts/ABCFavoritHangul-Bold-Trial.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
 body,
 html {
   margin: 0;
@@ -6,7 +20,8 @@ html {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: black;
+  font-family: "ABC", sans-serif;
+  @apply bg-cream text-purple;
 }
 
 #root {
@@ -14,6 +29,130 @@ html {
   height: 100vh;
 }
 
+p {
+  @apply text-xl;
+}
 canvas {
   display: block;
+}
+
+.spinnerOuterContainer0 {
+  display: none !important;
+}
+
+b {
+  font-weight: 700;
+}
+
+/* .progressBarOuterContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.progressBarBox {
+  z-index: 99999;
+  background-color: none !important;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  height: 10px;
+  pointer-events: auto;
+  background-color: transparent !important;
+  border: 0 !important;
+  bottom: 0 !important;
+  translate: 0 !important;
+}
+
+.progressBarBackground {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: transparent !important ;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+}
+
+.progressBar {
+  height: 100%;
+  width: 0;
+  background-color: black !important;
+  border-radius: 0 !important;
+  transition: width 0.2s ease;
+} */
+
+/* .progressBarOuterContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.progressBarBox {
+  z-index: 99999;
+  padding: 7px 9px 5px 7px;
+  background-color: rgba(190, 190, 190, 0.75);
+  border: #555555 1px solid;
+  border-radius: 15px;
+  margin: 0;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 180px;
+  height: 30px;
+  pointer-events: auto;
+}
+
+.progressBarBackground {
+  width: 100%;
+  height: 25px;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.75);
+  border: #444444 1px solid;
+  box-shadow: inset 0 0 10px #333333;
+}
+
+.progressBar {
+  height: 25px;
+  width: 0px;
+  border-radius: 10px;
+  background-color: rgba(0, 200, 0, 0.75);
+  box-shadow: inset 0 0 10px #003300;
+} */
+
+/* Apply transparent scrollbar styling globally */
+* {
+  scrollbar-width: thin; /* Firefox: Thin scrollbar */
+  scrollbar-color: rgba(128, 128, 128, 0.5) transparent; /* Firefox: thumb and track color */
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track background */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.5); /* Semi-transparent thumb */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Optional: Hover effect on scrollbar thumb */
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(128, 128, 128, 0.7); /* Darker on hover */
 }

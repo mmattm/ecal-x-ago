@@ -9,7 +9,7 @@ import {
 } from "@react-three/drei";
 import CameraPathAnimator from "./CameraPathAnimator";
 import { SplatsView } from "./SplatsView";
-import { videoMode } from "./config";
+import { editorMode } from "./config";
 
 import { globalStore, cameraPathsStore } from "./store";
 
@@ -32,25 +32,24 @@ export default function Scene({
 
   const cameraPaths = cameraPathsStore((state) => state.cameraPaths);
 
-  const selectedCameraPath = cameraPathsStore(
-    (state) => state.selectedCameraPath
+  const selectedCameraPathId = cameraPathsStore(
+    (state) => state.selectedCameraPathId
   );
   const selectedPath = cameraPaths.find(
-    (path) => path.id === selectedCameraPath
+    (path) => path.id === selectedCameraPathId
   );
 
   useSceneControls();
 
   return (
     <>
-      {grid && <Grid args={[50, 50]} position={[0, 0, 0]} />}
-      {!videoMode && <Stats showPanel={0} className="stats" />}
+      {grid && editorMode && <Grid args={[50, 50]} position={[0, 0, 0]} />}
+      {editorMode && <Stats showPanel={0} className="stats" />}
 
       {/* <fog attach="fog" args={["white", 0, 40]} /> */}
 
       <CameraPathAnimator
         points={selectedPath.points}
-        loop={true}
         target={selectedPath.target}
         targetPoints={selectedPath.targetPoints}
         duration={selectedPath.duration}
@@ -60,12 +59,15 @@ export default function Scene({
       {/* <Environment preset="sunset" /> */}
       {/* <ambientLight intensity={1} /> */}
       {sky && (
-        <Sky
+        <>
+          {/* <Sky
           distance={450000}
           sunPosition={[5, 1, 11]}
           inclination={1}
           azimuth={3}
-        />
+        /> */}
+          <color attach="background" args={["#EFECD9"]} />
+        </>
       )}
 
       {!sky && !gaussianVisible && (
@@ -106,18 +108,22 @@ export default function Scene({
           scale={splatScale}
         >
           <SplatsView
-            key={`${splat3D}-${splatAlphaRemovalThreshold}`}
-            sources={[splat]}
+            path={splat}
+            //key={`${splat3D}-${splatAlphaRemovalThreshold}`}
+            // sources={[splat]}
             // sources={[
             //   "https://huggingface.co/datasets/runes/coolsplats/resolve/main/output.splat",
             // ]}
-            options={[
-              {
-                splatAlphaRemovalThreshold: splatAlphaRemovalThreshold,
-                progressiveLoad: false,
-                splat3D: splat3D,
-              },
-            ]}
+            // options={[
+            //   {
+            //     // splatAlphaRemovalThreshold: splatAlphaRemovalThreshold,
+            //     // progressiveLoad: true,
+            //     // splat3D: splat3D,
+            //     showLoadingUI: true,
+            //     // focalAdjustment: 1,
+            //     // selfDrivenMode: false,
+            //   },
+            // ]}
           ></SplatsView>
         </group>
       )}

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import Scene from "../Scene";
 import CustomDirectionalLight from "../CustomDirectionalLight";
 import { Environment } from "@react-three/drei";
@@ -6,9 +7,33 @@ import { Environment } from "@react-three/drei";
 import LongSerpent from "../lights/Quilt/BOLASSI_SERPENT_FINAL";
 import VerticalSerpent from "../lights/Quilt/BOLASSI_VERTICAL_FINAL";
 
-const splat = "/splats/PostArchiveFactionV2.splat";
+import LightWrapper from "../lights/LightWrapper"; // Import the LightWrapper component
+import { lightStore } from "../store"; // Import the lightStore
+
+const splat = "/splats/PostArchiveFaction_compressed.ksplat";
 
 export default function SceneContainer() {
+  const { lights, addLights, resetLights } = lightStore();
+
+  useEffect(() => {
+    resetLights();
+
+    addLights({
+      long_serpent: {
+        Component: LongSerpent,
+        position: [0.4, 1, 4.25],
+        scale: 1,
+        rotation: [0, 6.3, 0],
+      },
+      vertical_serpent: {
+        Component: VerticalSerpent,
+        position: [-0.83, -0.3, -0.2],
+        scale: 1,
+        rotation: [0, Math.PI * 1, 0],
+      },
+    });
+  }, [addLights, resetLights]);
+
   return (
     <>
       <Scene
@@ -18,19 +43,22 @@ export default function SceneContainer() {
         splatRotation={[3.15, -0.06, 0.03]}
       />
       <Environment preset="warehouse" environmentIntensity={0.7} />
-      {/* <ambientLight intensity={4} /> */}
 
-      <group position={[0, 0, 0]}>
-        <CustomDirectionalLight position={[2, 20, 5]} intensity={4} />
-        <CustomDirectionalLight position={[2, 10, -3]} intensity={2} />
+      <CustomDirectionalLight position={[2, 20, 5]} intensity={4} />
+      <CustomDirectionalLight position={[2, 10, -3]} intensity={2} />
 
-        <LongSerpent position={[0.4, 1, 4.25]} scale={1} rotation={[0, 6.3, 0]} />
-        <VerticalSerpent
-          position={[-0.83, -0.3, -0.2]}
-          scale={1}
-          rotation={[0, Math.PI * 1, 0]}
-        />
-      </group>
+      {Object.entries(lights).map(
+        ([id, { Component, position, scale, rotation }]) => (
+          <LightWrapper
+            key={id}
+            id={id}
+            Component={Component}
+            position={position}
+            scale={scale}
+            rotation={rotation}
+          />
+        )
+      )}
     </>
   );
 }

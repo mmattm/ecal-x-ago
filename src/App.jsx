@@ -1,7 +1,21 @@
 /* eslint-disable react/prop-types */
 import "./App.css";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useParams,
+  useNavigate,
+} from "react-router-dom";
+import React, { Suspense, useEffect } from "react";
+
 import { Canvas, useFrame } from "@react-three/fiber";
-import { sceneStore } from "./store";
+import { globalStore, sceneStore, cameraPathsStore } from "./store";
+import { scenes } from "./scenes";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import Loading from "./components/Loading";
+import About from "./pages/About";
 
 // Import scenes
 import OilTank from "./scenes/OilTank";
@@ -11,28 +25,89 @@ import SimulghwanBotanicGarden from "./scenes/SimulghwanBotanicGarden";
 import SwissEmbassyOutside from "./scenes/SwissEmbassyOutside";
 
 export default function App() {
+  const focusMode = cameraPathsStore((state) => state.focusMode);
+  const setFocusMode = cameraPathsStore((state) => state.setFocusMode);
+  const splatLoaded = globalStore((state) => state.splatLoaded);
+  const gaussianVisible = globalStore((state) => state.gaussianVisible);
+
   return (
-    <>
-      <Canvas id="main" shadows>
-        <Stage />
-      </Canvas>
-    </>
+    <BrowserRouter>
+      <>
+        <Header />
+        <Routes>
+          <Route
+            path="/:sceneName"
+            element={
+              <div className="h-dvh">
+                <div
+                  className={`overflow-hidden  w-full transition-all duration-500 overflow-hidden ${
+                    focusMode ? "h-2/3" : "h-full"
+                  }`}
+                >
+                  {/* <Loading /> */}
+                  <Suspense fallback={<Loading />}>
+                    {!splatLoaded && gaussianVisible && <Loading />}
+                    <Canvas
+                      id="main"
+                      resize={{ debounce: 0 }}
+                      shadows
+                      onClick={() => {
+                        // if (focusMode) setFocusMode(false);
+                        //console.log("click");
+                      }}
+                    >
+                      <Stage />
+                    </Canvas>
+                  </Suspense>
+                </div>
+                <Sidebar />
+              </div>
+            }
+          />
+          <Route path="/about" element={<About />} />
+          {/* <Route
+            path="/"
+            element={
+              <Canvas id="main" shadows>
+                <Stage />
+              </Canvas>
+            }
+          /> */}
+        </Routes>
+      </>
+    </BrowserRouter>
   );
 }
+
 function Stage() {
+  const navigate = useNavigate();
+  const { sceneName } = useParams();
+
   const selectedScene = sceneStore((state) => state.selectedScene);
+  const setSelectedScene = sceneStore((state) => state.setSelectedScene);
+
+  // Initialiser `selectedScene` selon `sceneName` ou la scène par défaut
+  useEffect(() => {
+    if (selectedScene) {
+      navigate(`/${selectedScene}`, { replace: true });
+    } else if (sceneName) {
+      setSelectedScene(sceneName);
+    } else {
+      setSelectedScene(scenes[0].value);
+    }
+  }, [sceneName, selectedScene, setSelectedScene, navigate]);
 
   const renderScene = () => {
     switch (selectedScene) {
-      case "OilTank":
+      case "oil-tank":
         return <OilTank />;
-      case "YounhyounMaterialLibrary":
+      case "younhyoun-material-library":
         return <YounhyounMaterialLibrary />;
-      case "PostArchiveFaction":
+      case "post-archive-faction":
         return <PostArchiveFaction />;
-      case "SimulghwanBotanicGarden":
+      case "simulghwan-botanic-garden":
         return <SimulghwanBotanicGarden />;
-      case "SwissEmbassyOutside":
+      case "swiss-embassy-outside":
         return <SwissEmbassyOutside />;
       default:
         return null;
