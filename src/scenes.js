@@ -84,7 +84,7 @@ export const scenes = [
     value: "younhyoun-material-library",
     projectName: "FRAME",
     svg: "frame",
-    defaultCameraPath: "Oil Tank apparition",
+    defaultCameraPath: "Younhyoun Matterial Library Apparition",
     menu: true,
     shortDescription: `
       <p><b>by Alexandre Li & Mael Sandoz</b></p>

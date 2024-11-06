@@ -27,17 +27,19 @@ export default function SceneContainer() {
         Component: FRAME_SOFA,
         position: [-6.5, 0, 5.1],
         scale: 1.8,
-        distance: [1, 1, 1],
-        origin: [0.5, 0.5, -0.5],
+        distance: [4.7, 1.8, 4.7],
+        origin: [0, 1.7, 0],
         rotation: [0, 2.25, 0],
+        fov: 1.8,
       },
       frame_chair: {
         Component: FRAME_CHAIR,
         position: [-1, 0, 8.7],
         scale: 1.8,
-        distance: [1, 1, 1],
-        origin: [0.5, 0.5, -0.5],
+        distance: [1.7, 2.8, 1.7],
+        origin: [0, 3.2, -0],
         rotation: [0, 2.25 + Math.PI / 2, 0],
+        fov: 1,
       },
     });
   }, [addLights, resetLights]);

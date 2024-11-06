@@ -344,6 +344,29 @@ export const cameraPaths = [
     easing: "none",
   },
   {
+    id: "Younhyoun Matterial Library Apparition",
+    points: [
+      [58.57, 8.40, -0.67], //start
+      [58.57, 8.40, -0.67], //start
+
+      [17.03, 4.40, -0.50],
+      //start
+      [-5.71, 2.57, -0.13],
+    ],
+    // target: [2, 1, 0.5],
+    targetPoints: [
+      [-0.57, 1.09, 2.21], //Center front window
+      [-0.57, 1.09, 2.21], //Center front window
+      //start
+      [-5.08, 2.56, 7.04], //0 Between plante1 & 2
+
+      [-5.08, 2.56, 7.04], //0 Between plante1 & 2
+    ],
+    fov: 1,
+    duration: timeShort+1,
+    easing: "power1.inOut",
+  },
+  {
     id: "Simulghwan Botanic Garden",
     points: [
       [-13.66, 2.88, -31.73], //start
