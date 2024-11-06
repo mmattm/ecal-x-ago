@@ -12,7 +12,7 @@ import EnhancedSpotlight from "../../EnhancedSpotlight";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/gltf/Frame/FRAME_SOFA_01.3.gltf");
-  const dimmingValue = map(props.dimmingValue, 0, 1, 0, 3);
+  const dimmingValue = map(props.dimmingValue, 0, 1, 0, 0.5);
 
   return (
     <group {...props} dispose={null}>
@@ -22,9 +22,9 @@ export default function Model(props) {
             position={[0, 1, 0]}
             castShadow={false}
             scale={0.7}
-            attenuation={dimmingValue}
+            attenuation={5}
             distance={30}
-            opacity={0.3}
+            opacity={dimmingValue}
             angle={3}
           />
         </group>
@@ -33,9 +33,9 @@ export default function Model(props) {
             position={[0, 1, 0]}
             castShadow={false}
             scale={0.8}
-            attenuation={dimmingValue}
+            attenuation={5}
             distance={30}
-            opacity={0.3}
+            opacity={dimmingValue}
             angle={3}
           />
         </group>
@@ -44,9 +44,9 @@ export default function Model(props) {
             position={[0, 1, 0]}
             castShadow={false}
             scale={0.8}
-            attenuation={dimmingValue}
+            attenuation={5}
             distance={30}
-            opacity={0.3}
+            opacity={dimmingValue}
             angle={3}
           />
         </group>

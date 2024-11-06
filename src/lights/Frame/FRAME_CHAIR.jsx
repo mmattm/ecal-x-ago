@@ -24,7 +24,7 @@ export default function Model(props) {
             scale={0.7}
             attenuation={dimmingValue}
             distance={30}
-            opacity={0.3}
+            opacity={1}
             angle={3}
           />
         </group>
@@ -35,7 +35,7 @@ export default function Model(props) {
             scale={0.8}
             attenuation={dimmingValue}
             distance={30}
-            opacity={0.3}
+            opacity={1}
             angle={3}
           />
         </group>
@@ -46,7 +46,7 @@ export default function Model(props) {
             scale={0.8}
             attenuation={dimmingValue}
             distance={30}
-            opacity={0.3}
+            opacity={1}
             angle={3}
           />
         </group>

@@ -7,7 +7,9 @@ import Loading from "./components/Loading";
 import { globalStore, cameraPathsStore, sceneStore } from "./store";
 import { rootScene } from "./config";
 
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+import { isMobile } from "react-device-detect";
 
 // Import scenes
 import OilTank from "./scenes/OilTank";
@@ -34,7 +36,11 @@ export default function SceneLayout() {
         >
           <Suspense fallback={<Loading />}>
             {!splatLoaded && gaussianVisible && <Loading />}
-            <Canvas id="main" resize={{ debounce: 0 }} shadows>
+            <Canvas
+              id="main"
+              resize={{ debounce: 0 }}
+              shadows={isMobile ? false : true}
+            >
               <Stage />
             </Canvas>
           </Suspense>
