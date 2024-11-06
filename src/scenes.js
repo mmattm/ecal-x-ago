@@ -44,7 +44,7 @@ export const scenes = [
     value: "simulghwan-botanic-garden",
     projectName: "PLANTA",
     svg: "planta",
-    defaultCameraPath: "Oil Tank apparition",
+    defaultCameraPath: "Simulghwan Botanic Garden Apparition",
     menu: true,
     shortDescription: `
       <p><b>by Charlotte Jobin & Joab Schneiter</b></p>

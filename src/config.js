@@ -351,16 +351,16 @@ export const cameraPaths = [
 
       [17.03, 4.40, -0.50],
       //start
-      [-5.71, 2.57, -0.13],
+      [-5.73, 2.57, -0.39],
     ],
     // target: [2, 1, 0.5],
     targetPoints: [
       [-0.57, 1.09, 2.21], //Center front window
       [-0.57, 1.09, 2.21], //Center front window
       //start
-      [-5.08, 2.56, 7.04], //0 Between plante1 & 2
+      [-5.08, 2.06, 7.04], //0 Between plante1 & 2
 
-      [-5.08, 2.56, 7.04], //0 Between plante1 & 2
+      [-5.08, 2.06, 7.04], //0 Between plante1 & 2
     ],
     fov: 1,
     duration: timeShort+1,
@@ -466,20 +466,14 @@ export const cameraPaths = [
       [-13.66, 2.88, -31.73], //start
       [-13.66, 2.88, -31.73], //start
       //start
-      [-5.67, 2.18, -9.75], //0 behind frame
-      [-5.67, 2.18, -9.75], //0 behind frame
-      [-2.03, 1.1, -1.97], //1 behind plants two lamps
-      [-4.16, 1.28, -0.87], //1 two lamps 1 & 2
+      [-1.84, 0.93, 1.90], //0 behind frame
     ],
     // target: [2, 1, 0.5],
     targetPoints: [
       [-0.57, 1.09, 2.21], //Center front window
       [-0.57, 1.09, 2.21], //Center front window
       //start
-      [-0.39, 0.99, 1.27], //0 Between plante1 & 2
-      [-0.39, 0.99, 1.27], //0 Between plante1 & 2
-      [-0.39, 0.69, 1.27], //1 Between plante1 & 2
-      [0.2, 0.93, 1.73], //3 Plante2 center
+      [1.47, 0.55, -0.36], //0 Between plante1 & 2
     ],
     fov: 1,
     duration: timeShort,
