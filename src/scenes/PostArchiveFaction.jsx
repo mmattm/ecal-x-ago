@@ -9,10 +9,10 @@ import { Environment } from "@react-three/drei";
 import QUILT_01 from "../lights/Quilt/QUILT_01";
 import QUILT_02 from "../lights/Quilt/QUILT_02";
 
-import LightWrapper from "../lights/LightWrapper"; // Import the LightWrapper component
 import { lightStore } from "../store"; // Import the lightStore
 
 const splat = "/splats/PostArchiveFaction_compressed.ksplat";
+const splatMobile = "/splats/PostArchiveFaction_compressed_mobile.ksplat";
 
 export default function SceneContainer() {
   const { lights, addLights, resetLights } = lightStore();
@@ -46,6 +46,8 @@ export default function SceneContainer() {
     <>
       <Scene
         splat={splat}
+        splatMobile={splatMobile}
+        lights={lights}
         splatPosition={[0.5, -3.35, 0]}
         splatScale={4}
         splatRotation={[3.15, -0.06, 0.03]}
@@ -54,19 +56,6 @@ export default function SceneContainer() {
 
       <CustomDirectionalLight position={[2, 20, 5]} intensity={4} />
       <CustomDirectionalLight position={[2, 10, -3]} intensity={2} />
-
-      {Object.entries(lights).map(
-        ([id, { Component, position, scale, rotation }]) => (
-          <LightWrapper
-            key={id}
-            id={id}
-            Component={Component}
-            position={position}
-            scale={scale}
-            rotation={rotation}
-          />
-        )
-      )}
     </>
   );
 }

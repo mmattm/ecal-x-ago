@@ -13,14 +13,19 @@ import { SplatsView } from "./SplatsView";
 import { editorMode } from "./config";
 
 import { globalStore, cameraPathsStore } from "./store";
+import LightWrapper from "./lights/LightWrapper"; // Import the LightWrapper component
+
+import { isMobile } from "react-device-detect";
 
 import { useSceneControls } from "./controls";
 
 export default function Scene({
   splat,
+  splatMobile,
   splatPosition,
   splatRotation,
   splatScale,
+  lights,
 }) {
   const { gaussianVisible } = globalStore((state) => state);
   const grid = globalStore((state) => state.grid);
@@ -58,6 +63,20 @@ export default function Scene({
 
       {/* <fog attach="fog" args={["white", 0, 40]} /> */}
 
+      {lights &&
+        Object.entries(lights).map(
+          ([id, { Component, position, scale, rotation }]) => (
+            <LightWrapper
+              key={id}
+              id={id}
+              Component={Component}
+              position={position}
+              scale={scale}
+              rotation={rotation}
+            />
+          )
+        )}
+
       <CameraPathAnimator
         points={selectedPath.points}
         target={selectedPath.target}
@@ -70,12 +89,14 @@ export default function Scene({
       {/* <ambientLight intensity={1} /> */}
       {sky && (
         <>
-          {/* <Sky
-          distance={450000}
-          sunPosition={[5, 1, 11]}
-          inclination={1}
-          azimuth={3}
-        /> */}
+          <Sky
+            distance={450000}
+            sunPosition={[10, 0.5, -10]} // Low and horizontal for a sunset effect
+            inclination={0.49} // Adjusted inclination for soft lighting
+            azimuth={0.25} // Position sun closer to the horizon
+            mieCoefficient={0.004} // Lower for a more diffused light
+            mieDirectionalG={0.7} // Smoothens the light scattering
+          />
           {/* <color attach="background" args={["#EFECD9"]} /> */}
           <color attach="background" args={["#000000"]} />
         </>
@@ -112,15 +133,17 @@ export default function Scene({
           />
         )}
       </mesh>
+
       {gaussianVisible && (
         <>
           <group
             rotation={splatRotation}
             position={splatPosition}
             scale={splatScale}
+            opacity={0.5}
           >
             <SplatsView
-              path={splat}
+              path={isMobile ? splatMobile : splat}
               //key={`${splat3D}-${splatAlphaRemovalThreshold}`}
               // sources={[splat]}
               // sources={[

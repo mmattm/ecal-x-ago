@@ -3,12 +3,14 @@ import Scene from "../Scene";
 import { Environment, SoftShadows } from "@react-three/drei";
 
 const splat = "/splats/StreetSeoul.ksplat";
+const splatMobile = "/splats/StreetSeoul_mobile.ksplat";
 
 export default function SceneContainer() {
   return (
     <>
       <Scene
         splat={splat}
+        splatMobile={splatMobile}
         splatRotation={[0, 0, 3.15]}
         splatPosition={[0, 0, 0]}
       />

@@ -6,10 +6,10 @@ import CustomDirectionalLight from "../CustomDirectionalLight";
 import Pole from "../lights/Pole/Pole";
 import { Environment, SoftShadows } from "@react-three/drei";
 
-import LightWrapper from "../lights/LightWrapper"; // Import the LightWrapper component
 import { lightStore } from "../store";
 
 const splat = "/splats/SwissEmbassyOutside_compressed.ksplat";
+const splatMobile = "/splats/SwissEmbassyOutside_compressed_mobile.ksplat";
 
 export default function SceneContainer() {
   const { lights, addLights, resetLights } = lightStore();
@@ -52,6 +52,8 @@ export default function SceneContainer() {
     <>
       <Scene
         splat={splat}
+        splatMobile={splatMobile}
+        lights={lights}
         splatPosition={[1, -0.21, 2]}
         splatRotation={[3.161, 1.97, -0.015]}
         splatScale={3}
@@ -65,18 +67,6 @@ export default function SceneContainer() {
       <CustomDirectionalLight position={[1, 10, 5]} intensity={3} />
       <CustomDirectionalLight position={[2, 10, -3]} intensity={3} />
 
-      {Object.entries(lights).map(
-        ([id, { Component, position, rotation, scale }]) => (
-          <LightWrapper
-            key={id}
-            id={id}
-            Component={Component}
-            position={position}
-            scale={scale}
-            rotation={rotation}
-          />
-        )
-      )}
       {/* <LightWrapper
         id="pole-1"
         Component={Pole}

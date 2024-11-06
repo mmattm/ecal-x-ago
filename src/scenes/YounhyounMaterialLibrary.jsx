@@ -5,7 +5,6 @@ import Scene from "../Scene";
 import CustomDirectionalLight from "../CustomDirectionalLight";
 import { Environment, SoftShadows } from "@react-three/drei";
 
-import LightWrapper from "../lights/LightWrapper"; // Import the LightWrapper component
 import { lightStore } from "../store";
 
 import FRAME_SOFA from "../lights/Frame/FRAME_SOFA";
@@ -15,6 +14,7 @@ import FRAME_CHAIR from "../lights/Frame/FRAME_CHAIR";
 // import Frame2 from "../lights/Frame/ALEX_LI";
 
 const splat = "/splats/YounhyounMaterialLibrary_compressed.ksplat";
+const splatMobile = "/splats/YounhyounMaterialLibrary_compressed_mobile.ksplat";
 
 export default function SceneContainer() {
   const { lights, addLights, resetLights } = lightStore();
@@ -48,6 +48,8 @@ export default function SceneContainer() {
     <>
       <Scene
         splat={splat}
+        splatMobile={splatMobile}
+        lights={lights}
         splatRotation={[3.32, 0.9, -0.122]}
         splatPosition={[2, 2.6, 0]}
       />
@@ -58,19 +60,6 @@ export default function SceneContainer() {
 
       <CustomDirectionalLight position={[1, 18, 2]} intensity={3} />
       <CustomDirectionalLight position={[2, 20, 2]} intensity={1} />
-
-      {Object.entries(lights).map(
-        ([id, { Component, position, rotation, scale }]) => (
-          <LightWrapper
-            key={id}
-            id={id}
-            Component={Component}
-            position={position}
-            scale={scale}
-            rotation={rotation}
-          />
-        )
-      )}
 
       {/* <CustomDirectionalLight position={[2, 13, -3]} intensity={1} /> */}
 

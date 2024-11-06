@@ -12,7 +12,7 @@ import { map } from "../../utils/utils";
 export function Model(props) {
   const { nodes, materials } = useGLTF("/gltf/Planta/PLANTA_02.3.gltf");
 
-  const dimmingValue = map(props.dimmingValue, 0, 1, 0, 1);
+  const dimmingValue = map(props.dimmingValue, 0, 1, 0, 2);
 
   return (
     <group {...props} dispose={null}>

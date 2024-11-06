@@ -8,11 +8,12 @@ import UPPER_YELLOW from "../lights/Upper/UPPER_YELLOW";
 import UPPER_GREEN from "../lights/Upper/UPPER_GREEN";
 import UPPER_BLUE from "../lights/Upper/UPPER_BLUE";
 
-import LightWrapper from "../lights/LightWrapper"; // Import the LightWrapper component
+// import LightWrapper from "../lights/LightWrapper"; // Import the LightWrapper component
 
 import { lightStore } from "../store";
 
 const splat = "/splats/OilTank_compressed.ksplat";
+const splatMobile = "/splats/OilTank_compressed_mobile.ksplat";
 
 export default function SceneContainer() {
   const { lights, addLights, resetLights } = lightStore();
@@ -60,27 +61,19 @@ export default function SceneContainer() {
     <>
       <Scene
         splat={splat}
+        splatMobile={splatMobile}
         splatPosition={[0.5, -0.29, -1]}
         splatRotation={[-Math.PI + 0.1, -Math.PI / 2, 0]}
         splatScale={5}
+        lights={lights}
       />
       <SoftShadows size={13} samples={16} focus={1} />
 
       <Environment preset="warehouse" environmentIntensity={0.9} />
-      {/* <ambientLight intensity={0.2} /> */}
+      <ambientLight intensity={0.2} />
 
       <CustomDirectionalLight position={[2, 10, 5]} intensity={1} />
       <CustomDirectionalLight position={[2, 10, -3]} intensity={1} />
-
-      {Object.entries(lights).map(([id, { Component, position, scale }]) => (
-        <LightWrapper
-          key={id}
-          id={id}
-          Component={Component}
-          position={position}
-          scale={scale}
-        />
-      ))}
     </>
   );
 }
