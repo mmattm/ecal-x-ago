@@ -65,7 +65,7 @@ export default function Header() {
 
     setMenuOpen(false);
     navigate(`/${sceneValue}`);
-    window.location.href = `/${sceneValue}`;
+    //window.location.href = `/${sceneValue}`;
   };
 
   const handleMouseEnter = (sceneValue) => {

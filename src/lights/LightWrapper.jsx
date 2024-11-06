@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState, useRef } from "react";
-import { lightStore } from "../store";
+import { globalStore, lightStore } from "../store";
 import { cameraPathsStore } from "../store";
 import { animated, useSpring } from "@react-spring/web";
 
@@ -14,6 +14,8 @@ export default function LightWrapper({
 }) {
   const setFocusMode = cameraPathsStore((state) => state.setFocusMode);
   const focusMode = cameraPathsStore((state) => state.focusMode);
+
+  const gaussianVisible = globalStore((state) => state.gaussianVisible);
 
   const lights = lightStore((state) => state.lights);
   const setSelectedLightIndex = lightStore(
@@ -45,7 +47,7 @@ export default function LightWrapper({
     const lightKeys = Object.keys(lights);
     const selectedIndex = lightKeys.indexOf(id);
 
-    if (animationComplete) {
+    if (animationComplete || !gaussianVisible) {
       setFocusMode(true);
       setSelectedLightIndex(selectedIndex); // Définir l'index de la lumière sélectionnée
     }
