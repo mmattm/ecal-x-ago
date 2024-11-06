@@ -8,7 +8,9 @@ import { Environment, SoftShadows } from "@react-three/drei";
 import LightWrapper from "../lights/LightWrapper"; // Import the LightWrapper component
 import { lightStore } from "../store";
 
-import Frame from "../lights/Frame/Frame";
+import FRAME_SOFA from "../lights/Frame/FRAME_SOFA";
+import FRAME_CHAIR from "../lights/Frame/FRAME_CHAIR";
+
 // import FrameBackup from "../lights/Frame/Frame_backup";
 // import Frame2 from "../lights/Frame/ALEX_LI";
 
@@ -21,13 +23,21 @@ export default function SceneContainer() {
     resetLights();
 
     addLights({
-      frame_01: {
-        Component: Frame,
+      frame_sofa: {
+        Component: FRAME_SOFA,
         position: [-6.5, 0, 5.1],
         scale: 1.8,
         distance: [1, 1, 1],
         origin: [0.5, 0.5, -0.5],
         rotation: [0, 2.25, 0],
+      },
+      frame_chair: {
+        Component: FRAME_CHAIR,
+        position: [-1, 0, 8.7],
+        scale: 1.8,
+        distance: [1, 1, 1],
+        origin: [0.5, 0.5, -0.5],
+        rotation: [0, 2.25 + Math.PI / 2, 0],
       },
     });
   }, [addLights, resetLights]);

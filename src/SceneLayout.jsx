@@ -52,18 +52,6 @@ function Stage() {
   const selectedScene = sceneStore((state) => state.selectedScene);
   const setSelectedScene = sceneStore((state) => state.setSelectedScene);
 
-  // useEffect(() => {
-  //   if (sceneName && sceneName !== selectedScene) {
-  //     console.log("sceneName", sceneName);
-
-  //     // Set the selected scene to match the URL
-  //     setSelectedScene(sceneName);
-  //   } else if (!sceneName) {
-  //     // Default to `rootScene` when no sceneName is in the URL
-  //     setSelectedScene(rootScene);
-  //   }
-  // }, [sceneName, selectedScene, setSelectedScene]);
-
   useEffect(() => {
     console.log("sceneName", sceneName);
 
