@@ -82,7 +82,11 @@ export function SplatsView({
     scene.add(viewerGroup);
 
     viewer
-      .addSplatScene(path, { progressiveLoad: false, showLoadingUI: false })
+      .addSplatScene(path, {
+        progressiveLoad: false,
+        showLoadingUI: false,
+        // splatAlphaRemovalThreshold: 100,
+      })
       .then(() => {
         setSplatLoaded(true);
       })

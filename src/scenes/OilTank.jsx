@@ -12,7 +12,7 @@ import LightWrapper from "../lights/LightWrapper"; // Import the LightWrapper co
 
 import { lightStore } from "../store";
 
-const splat = "/splats/OilTank.splat";
+const splat = "/splats/OilTank_compressed.ksplat";
 
 export default function SceneContainer() {
   const { lights, addLights, resetLights } = lightStore();

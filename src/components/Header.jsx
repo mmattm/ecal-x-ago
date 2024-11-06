@@ -31,7 +31,7 @@ export default function Header() {
 
   useEffect(() => {
     const messages = [
-      "Click on a light to get details",
+      "Click on a light to show details",
       "Click & drag to look around",
     ];
     let index = 0;
@@ -77,12 +77,13 @@ export default function Header() {
   };
 
   //console.log(location.pathname);
+  const scene = scenes.find((scene) => scene.value === selectedScene);
 
   return (
     <div className="text-purple">
       {(sceneName || location.pathname != "/") && (
         <>
-          <div className="absolute top-0 right-0 z-30">
+          <div className="absolute top-0 right-0 z-40">
             <div
               onClick={toggleMenu}
               className={`p-4 text-2xl md:text-3xl cursor-pointer ${
@@ -102,6 +103,16 @@ export default function Header() {
                   ECAL × AGO <br /> Seoul Highlights
                 </div>
               </div> */}
+              <div className="absolute top-0 left-0 z-30">
+                <div
+                  onClick={toggleMenu}
+                  className={`p-4 w-2/3 md:w-full text-2xl max-width-32 md:text-3xl cursor-pointer text-white`}
+                >
+                  {scene.location}
+                  <br />
+                  {scene.district}
+                </div>
+              </div>
               <div className="absolute left-0 bottom-0 z-30">
                 <div
                   className={`p-4 text-2xl md:text-3xl text-white animate-pulse`}
