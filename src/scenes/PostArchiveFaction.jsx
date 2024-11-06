@@ -26,16 +26,18 @@ export default function SceneContainer() {
         position: [0.4, 1, 4.25],
         scale: 1,
         rotation: [0, 6.3, 0],
-        distance: [2, 2, 2],
-        origin: [0, 1, 0],
+        distance: [1.1, 0.6, 1.1],
+        origin: [0, 1.1, -0.8],
+        fov: 1.3,
       },
       vertical_serpent: {
         Component: QUILT_01,
-        position: [-0.83, -0.3, -0.2],
+        position: [-0.83, -0.45, -0.2],
         scale: 1,
         rotation: [0, Math.PI * 1, 0],
-        distance: [2, 2, 2],
-        origin: [1, 2, -0.2],
+        distance: [1.3, 3.3, 1.7],
+        origin: [1.2, 2.2, -0.2],
+        fov: 1.1,
       },
     });
   }, [addLights, resetLights]);

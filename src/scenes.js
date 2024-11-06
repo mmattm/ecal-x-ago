@@ -64,7 +64,7 @@ export const scenes = [
     value: "swiss-embassy-outside",
     projectName: "POLE",
     svg: "pole_01",
-    defaultCameraPath: "Oil Tank apparition",
+    defaultCameraPath: "Swiss Embacy apparition",
     menu: true,
     shortDescription: `
       <p><b>by Neitzke Nikita & Matthieu Rigelo</b></p>

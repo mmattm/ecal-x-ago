@@ -104,7 +104,7 @@ export const cameraPaths = [
       [-2.74, 9.84, 6.36], //begin
       //start
 
-      [1.39, 1.33, 2.98], //2
+      [2.01, 1.35, 2.78], //2
     ],
     // target: [1, 1, 0],
     targetPoints: [
@@ -117,6 +117,7 @@ export const cameraPaths = [
     duration: timeShort,
     easing: "power1.in",
   },
+
   {
     id: "Swiss Embacy 1",
     points: [
@@ -209,6 +210,27 @@ export const cameraPaths = [
     fov: 2,
     duration: time,
     easing: "none",
+  },
+  {
+    id: "Swiss Embacy apparition",
+    points: [
+      [-22.28, 15.91, 27.72], //begin
+      [-22.28, 15.91, 27.72], //begin
+      //start
+      [-2.72, 2.19, 4.61],
+
+      [2.86, 0.40, 4.97],//2
+    ],
+    // target: [1, 1, 0],
+    targetPoints: [
+      [0.8, 0.7, 0], //begin
+      [0.8, 0.7, 0], //begin
+      //start
+      [1.53, 0.28, 2.23], //2
+    ],
+    fov: 1,
+    duration: timeShort+1,
+    easing: "power1.in",
   },
   {
     id: "Younhyoun Matterial Library 1",
@@ -550,7 +572,7 @@ export const cameraPaths = [
       [4.39, 2.38, 26.82], //start
       //start
 
-      [4.21, 1.47, 6.6], //0 Between clothes
+      [4.29, 2.50, 7.81], //0 Between clothes
     ],
     // target: [2, 1, 0.5],
     targetPoints: [
@@ -558,7 +580,7 @@ export const cameraPaths = [
       [0.55, 2.42, 4.62], //start Center Snake
       //start
 
-      [0.62, 2.84, 5.58], //0 Top left Snake
+      [0.30, 2.20, 3.70], //0 Middle Right snake
     ],
     fov: 1.3,
     duration: timeShort,
