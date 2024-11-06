@@ -146,15 +146,38 @@ export default function Header() {
               location.pathname != "/" ? "bg-cream text-purple" : "text-white"
             }  z-50`}
           >
-            {" "}
-            <div className="absolute top-0 left-0 z-50">
-              <div
-                onClick={toggleMenu}
-                className="p-4 text-2xl md:text-3xl cursor-pointer"
-              >
-                ECAL × AGO <br /> Seoul Highlights
+            {location.pathname == "/" ? (
+              <>
+                <div className="absolute top-0 left-0 z-50 text-center w-full">
+                  <div className="p-4 text-2xl md:text-3xl w-full">
+                    ECAL × AGO
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 z-50 text-center w-full">
+                  <div className="p-4 text-2xl md:text-3xl w-full">
+                    Seoul Highlights
+                    <br />
+                    서울 하이라이트
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="absolute top-0 left-0 z-50">
+                <div
+                  // onClick={toggleMenu}
+                  onClick={() => {
+                    stopAnimation();
+                    setMenuOpen(false);
+                    setSelectedScene(null);
+                    navigate("/");
+                  }}
+                  className="p-4 text-2xl md:text-3xl cursor-pointer"
+                >
+                  ECAL × AGO <br /> Seoul Highlights
+                </div>
               </div>
-            </div>
+            )}
+
             {location.pathname != "/" && (
               <div className="absolute top-0 right-0 ">
                 <div
