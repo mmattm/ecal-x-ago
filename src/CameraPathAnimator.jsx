@@ -268,11 +268,11 @@ export default function CameraPathAnimator({
       const camera = cameraControlsRef.current.camera; // Access the camera directly
 
       // Log the camera's position in the desired format [-x, y, z]
-      console.log(
-        `[${camera.position.x.toFixed(2)}, ${camera.position.y.toFixed(
-          2
-        )}, ${camera.position.z.toFixed(2)}],`
-      );
+      // console.log(
+      //   `[${camera.position.x.toFixed(2)}, ${camera.position.y.toFixed(
+      //     2
+      //   )}, ${camera.position.z.toFixed(2)}],`
+      // );
 
       // Update camera controls
       cameraControlsRef.current.update(delta);
