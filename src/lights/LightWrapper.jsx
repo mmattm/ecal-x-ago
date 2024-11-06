@@ -22,9 +22,12 @@ export default function LightWrapper({
 
   const selectedLightIndex = lightStore((state) => state.selectedLightIndex);
   const [isActive, setIsActive] = React.useState(false);
-  const [dimmingValue, setDimmingValue] = useState(8);
+  const [dimmingValue, setDimmingValue] = useState(1);
 
-  // Use useSpring with onChange to update dimmingValue
+  const animationComplete = cameraPathsStore(
+    (state) => state.animationComplete
+  );
+
   const { dimming } = useSpring({
     dimming: !isActive ? 0 : 1,
     config: { mass: 1, friction: 10, tension: 20 },
@@ -42,8 +45,10 @@ export default function LightWrapper({
     const lightKeys = Object.keys(lights);
     const selectedIndex = lightKeys.indexOf(id);
 
-    setFocusMode(true);
-    setSelectedLightIndex(selectedIndex); // Définir l'index de la lumière sélectionnée
+    if (animationComplete) {
+      setFocusMode(true);
+      setSelectedLightIndex(selectedIndex); // Définir l'index de la lumière sélectionnée
+    }
   };
 
   useEffect(() => {

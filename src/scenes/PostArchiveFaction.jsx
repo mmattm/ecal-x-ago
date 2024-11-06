@@ -4,8 +4,10 @@ import Scene from "../Scene";
 import CustomDirectionalLight from "../CustomDirectionalLight";
 import { Environment } from "@react-three/drei";
 
-import LongSerpent from "../lights/Quilt/BOLASSI_SERPENT_FINAL";
-import VerticalSerpent from "../lights/Quilt/BOLASSI_VERTICAL_FINAL";
+// import LongSerpent from "../lights/Quilt/BOLASSI_SERPENT_FINAL";
+// import VerticalSerpent from "../lights/Quilt/BOLASSI_VERTICAL_FINAL";
+import QUILT_01 from "../lights/Quilt/QUILT_01";
+import QUILT_02 from "../lights/Quilt/QUILT_02";
 
 import LightWrapper from "../lights/LightWrapper"; // Import the LightWrapper component
 import { lightStore } from "../store"; // Import the lightStore
@@ -20,16 +22,20 @@ export default function SceneContainer() {
 
     addLights({
       long_serpent: {
-        Component: LongSerpent,
+        Component: QUILT_02,
         position: [0.4, 1, 4.25],
         scale: 1,
         rotation: [0, 6.3, 0],
+        distance: [2, 2, 2],
+        origin: [0, 1, 0],
       },
       vertical_serpent: {
-        Component: VerticalSerpent,
+        Component: QUILT_01,
         position: [-0.83, -0.3, -0.2],
         scale: 1,
         rotation: [0, Math.PI * 1, 0],
+        distance: [2, 2, 2],
+        origin: [1, 2, -0.2],
       },
     });
   }, [addLights, resetLights]);

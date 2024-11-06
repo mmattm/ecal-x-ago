@@ -1,6 +1,8 @@
 // other easing options: https://greensock.com/docs/v3/Eases
 const time = 20;
+const timeShort = 4;
 
+export const rootScene = "street-seoul";
 export const editorMode = false;
 
 export const cameraPaths = [
@@ -112,7 +114,7 @@ export const cameraPaths = [
       [0.8, 0.3, 0], //2
     ],
     fov: 1,
-    duration: 4,
+    duration: timeShort,
     easing: "power1.in",
   },
   {
@@ -414,6 +416,31 @@ export const cameraPaths = [
     easing: "none",
   },
   {
+    id: "Simulghwan Botanic Garden Apparition",
+    points: [
+      [-13.66, 2.88, -31.73], //start
+      [-13.66, 2.88, -31.73], //start
+      //start
+      [-5.67, 2.18, -9.75], //0 behind frame
+      [-5.67, 2.18, -9.75], //0 behind frame
+      [-2.03, 1.1, -1.97], //1 behind plants two lamps
+      [-4.16, 1.28, -0.87], //1 two lamps 1 & 2
+    ],
+    // target: [2, 1, 0.5],
+    targetPoints: [
+      [-0.57, 1.09, 2.21], //Center front window
+      [-0.57, 1.09, 2.21], //Center front window
+      //start
+      [-0.39, 0.99, 1.27], //0 Between plante1 & 2
+      [-0.39, 0.99, 1.27], //0 Between plante1 & 2
+      [-0.39, 0.69, 1.27], //1 Between plante1 & 2
+      [0.2, 0.93, 1.73], //3 Plante2 center
+    ],
+    fov: 1,
+    duration: timeShort,
+    easing: "power1.inOut",
+  },
+  {
     id: "Post Archive Faction 1",
     points: [
       [4.39, 2.38, 26.82], //start
@@ -517,6 +544,27 @@ export const cameraPaths = [
     easing: "none",
   },
   {
+    id: "Post Archive Faction apparition",
+    points: [
+      [4.39, 2.38, 26.82], //start
+      [4.39, 2.38, 26.82], //start
+      //start
+
+      [4.21, 1.47, 6.6], //0 Between clothes
+    ],
+    // target: [2, 1, 0.5],
+    targetPoints: [
+      [0.55, 2.42, 4.62], //start Center Snake
+      [0.55, 2.42, 4.62], //start Center Snake
+      //start
+
+      [0.62, 2.84, 5.58], //0 Top left Snake
+    ],
+    fov: 1.3,
+    duration: timeShort,
+    easing: "power1.inOut",
+  },
+  {
     id: "Street Market 1",
     points: [
       [0.92, -0.17, -2.86], //-1 exterieur
@@ -561,6 +609,7 @@ export const cameraPaths = [
       [-0.29, 0.36, -1.27], //street 1
       [2.25, 0.54, 3.45], //street 2
       [10.49, 1.07, 12.72], //street 4
+      [-4.41, 0.05, -4.89],
     ],
     // target: [1, 1, 0],
     targetPoints: [
@@ -570,6 +619,7 @@ export const cameraPaths = [
       [-0.29, 0.36, -1.27], //street 1
       [2.25, 0.54, 3.45], //street 2
       [22.81, 1.95, 26.54], //street 5
+      [0.48, 0.33, 0.18], //street 1
     ],
     fov: 2.5,
     duration: time,

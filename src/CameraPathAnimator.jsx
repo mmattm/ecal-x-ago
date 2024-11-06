@@ -5,6 +5,7 @@ import { CameraControls, Line } from "@react-three/drei";
 import gsap from "gsap";
 import { CatmullRomCurve3, Vector3, MathUtils } from "three";
 import {
+  globalStore,
   useAnimationStore,
   cameraPathsStore,
   fovStore,
@@ -21,6 +22,8 @@ export default function CameraPathAnimator({
 }) {
   // get store state
   const playAnimation = useAnimationStore((state) => state.playAnimation);
+  const stopAnimation = useAnimationStore((state) => state.stopAnimation);
+
   const selectedCameraPathId = cameraPathsStore(
     (state) => state.selectedCameraPathId
   );
@@ -29,7 +32,7 @@ export default function CameraPathAnimator({
   const selectedScene = sceneStore((state) => state.selectedScene);
 
   const cameraPaths = cameraPathsStore((state) => state.cameraPaths);
-  //const setCameraPath = cameraPathsStore((state) => state.setCameraPath);
+  const setCameraPathId = cameraPathsStore((state) => state.setCameraPathId);
 
   const fov = fovStore((state) => state.fov);
   const setFov = fovStore((state) => state.setFov);
@@ -45,6 +48,13 @@ export default function CameraPathAnimator({
 
   const lights = lightStore((state) => state.lights);
   const selectedLightIndex = lightStore((state) => state.selectedLightIndex);
+
+  const splatLoaded = globalStore((state) => state.splatLoaded);
+  const setSplatLoaded = globalStore((state) => state.setSplatLoaded);
+
+  const setAnimationComplete = cameraPathsStore(
+    (state) => state.setAnimationComplete
+  );
 
   // Define the CatmullRomCurve3 using the passed points for camera and target paths
   const cameraCurve = new CatmullRomCurve3(
@@ -66,11 +76,43 @@ export default function CameraPathAnimator({
   const interpolatedTargetPoints = targetCurve.getPoints(50);
 
   useEffect(() => {
-    //console.log(cameraControlsRef.current.distance);
+    setFocusMode(false);
 
+    if (playAnimation && selectedCameraPathId) {
+      const selectedPath = cameraPaths.find(
+        (path) => path.id === selectedCameraPathId
+      );
+      //console.log("Selected Path", selectedPath);
+
+      setFov(selectedPath.fov);
+      startAnim();
+    } else {
+      stopAnim();
+    }
+  }, [playAnimation, selectedCameraPathId]); // Add selectedCameraPathId as a dependency
+
+  useEffect(() => {
+    const scene = scenes.find((s) => s.value === selectedScene);
+
+    //console.log("Selected Scene", scene);
+
+    if (scene) {
+      setCameraPathId(scene.defaultCameraPath);
+      cameraPathsStore.setState({ loop: false });
+      // check for default Loop scene setting
+      if (scene.defaultLoop)
+        cameraPathsStore.setState({ loop: scene.defaultLoop });
+    }
+  }, [selectedScene]);
+
+  useEffect(() => {
     if (cameraControlsRef.current) {
-      //console.log("CameraControls", cameraControlsRef.current);
+      cameraControlsRef.current.zoomTo(fov, true);
+    }
+  }, [fov]);
 
+  useEffect(() => {
+    if (cameraControlsRef.current) {
       cameraControlsRef.current.minDistance = 2; // Prevent zooming too close
       cameraControlsRef.current.maxDistance = 10; // Prevent zooming too far
       cameraControlsRef.current.minPolarAngle = MathUtils.degToRad(0); // Prevent looking below level
@@ -82,47 +124,26 @@ export default function CameraPathAnimator({
   }, [cameraControlsRef]);
 
   useEffect(() => {
-    const scene = scenes.find((s) => s.value === selectedScene);
-
-    if (scene) {
-      //console.log("scene.defaultCameraPath", scene.defaultCameraPath);
-      cameraPathsStore.setState({
-        selectedCameraPath: scene.defaultCameraPath,
-      });
-    }
-  }, [selectedScene]);
-
-  useEffect(() => {
-    stopAnimation();
     const selectedPath = cameraPaths.find(
       (path) => path.id === selectedCameraPathId
     );
 
-    setFov(selectedPath.fov);
-    //console.log("Selected FOV", selectedPath.fov);
-  }, [selectedCameraPathId]);
-
-  useEffect(() => {
-    //console.log("update camera fov to : ", fov);
-    if (cameraControlsRef.current) cameraControlsRef.current.zoomTo(fov);
-  }, [fov]);
-
-  useEffect(() => {
     if (cameraControlsRef.current) {
       if (focusMode) {
         cameraControlsRef.current.mouseButtons.wheel = null;
-        cameraControlsRef.current.mouseButtons.right = null;
+        // cameraControlsRef.current.mouseButtons.right = null;
+        // setFov
+        // setFov(selectedPath.fovFocus || selectedPath.fov);
       } else {
         cameraControlsRef.current.mouseButtons.wheel = 8;
         cameraControlsRef.current.mouseButtons.right = 2;
-        cameraControlsRef.current.mouseButtons.right = null;
+        // cameraControlsRef.current.mouseButtons.right = null;
+        setFov(selectedPath.fov);
       }
     }
   }, [focusMode]);
 
   useEffect(() => {
-    // Récupérer la lumière sélectionnée à partir de l'index
-
     const lightKeys = Object.keys(lights);
     const selectedLight = lights[lightKeys[selectedLightIndex]];
     const selectedLightPosition = selectedLight ? selectedLight.position : null;
@@ -130,23 +151,25 @@ export default function CameraPathAnimator({
     if (cameraControlsRef.current && focusMode && selectedLightPosition) {
       //console.log("Selected Light Position", selectedLightPosition);
 
-      const distance = 1;
+      const distance = selectedLight.distance || [1, 1, 1];
+      const origin = selectedLight.origin || [0, 0, 0];
 
       cameraControlsRef.current.setLookAt(
-        selectedLightPosition[0] + distance,
-        selectedLightPosition[1] + distance,
-        selectedLightPosition[2] + distance,
-        selectedLightPosition[0],
-        selectedLightPosition[1] + 0.5,
-        selectedLightPosition[2],
+        selectedLightPosition[0] + distance[0],
+        selectedLightPosition[1] + distance[1],
+        selectedLightPosition[2] + distance[2],
+        selectedLightPosition[0] + origin[0],
+        selectedLightPosition[1] + origin[1],
+        selectedLightPosition[2] + origin[2],
         true
       );
+      if (selectedLight.fov) setFov(selectedLight.fov);
     } else {
-      moveToStartPoint();
+      moveToLastPoint();
     }
   }, [lights, selectedLightIndex, focusMode]);
 
-  const startAnimation = () => {
+  const startAnim = () => {
     gsap.fromTo(
       animationProgress.current,
       { value: 0 },
@@ -156,29 +179,42 @@ export default function CameraPathAnimator({
         ease: selectedCameraPathId.ease, // Linear easing for constant speed
         onUpdate: () => {
           // Get the current point along the camera curve
-          cameraCurve.getPoint(animationProgress.current.value, tempVec);
+          if (cameraControlsRef.current) {
+            cameraCurve.getPoint(animationProgress.current.value, tempVec);
 
-          // Get the current point along the target curve
-          targetCurve.getPoint(animationProgress.current.value, tempTargetVec);
+            // Get the current point along the target curve
+            targetCurve.getPoint(
+              animationProgress.current.value,
+              tempTargetVec
+            );
 
-          // Use CameraControls to set the camera position and target (lookAt)
-          cameraControlsRef?.current.setLookAt(
-            tempVec.x,
-            tempVec.y,
-            tempVec.z,
-            tempTargetVec.x,
-            tempTargetVec.y,
-            tempTargetVec.z,
-            false // instant change, no smoothing between updates
-          );
+            // Use CameraControls to set the camera position and target (lookAt)
+            cameraControlsRef?.current.setLookAt(
+              tempVec.x,
+              tempVec.y,
+              tempVec.z,
+              tempTargetVec.x,
+              tempTargetVec.y,
+              tempTargetVec.z,
+              false // instant change, no smoothing between updates
+            );
+          } else {
+            gsap.killTweensOf(animationProgress.current); // Stop any ongoing animation
+          }
         },
         onStart: () => {
-          cameraControlsRef.current.enabled = false; // Disable controls during animation
+          setAnimationComplete(false);
+          if (cameraControlsRef.current)
+            cameraControlsRef.current.enabled = false; // Disable controls during animation
         },
         onComplete: () => {
-          cameraControlsRef.current.enabled = true; // Re-enable controls after animation
+          console.log("Animation complete");
+          setAnimationComplete(true);
+
+          if (cameraControlsRef.current)
+            cameraControlsRef.current.enabled = true; // Re-enable controls after animation
           if (loop) {
-            startAnimation(); // Loop the animation if needed
+            startAnim(); // Loop the animation if needed
           }
         },
       }
@@ -199,16 +235,32 @@ export default function CameraPathAnimator({
     );
   };
 
-  const stopAnimation = () => {
+  const moveToLastPoint = () => {
+    cameraCurve.getPoint(1, tempVec);
+    targetCurve.getPoint(1, tempTargetVec);
+    cameraControlsRef.current.setLookAt(
+      tempVec.x,
+      tempVec.y,
+      tempVec.z,
+      tempTargetVec.x,
+      tempTargetVec.y,
+      tempTargetVec.z,
+      true // smooth transition to end point
+    );
+  };
+
+  const stopAnim = () => {
+    stopAnimation();
+
     gsap.killTweensOf(animationProgress.current); // Stop any ongoing animation
     animationProgress.current.value = 0; // Reset progress
     updateCameraFov(); // Reset FOV
-    moveToStartPoint(); // Move camera to the start
+    moveToLastPoint(); // Move camera to the start
     cameraControlsRef.current.enabled = true; // Re-enable controls
   };
 
   const updateCameraFov = () => {
-    cameraControlsRef.current.zoomTo(fov);
+    if (cameraControlsRef.current) cameraControlsRef.current.zoomTo(fov);
   };
 
   useFrame((_, delta) => {
@@ -221,17 +273,6 @@ export default function CameraPathAnimator({
       }
     }
   });
-
-  // Trigger animation when playAnimation changes
-  useEffect(() => {
-    setFocusMode(false);
-
-    if (playAnimation) {
-      startAnimation();
-    } else {
-      stopAnimation();
-    }
-  }, [playAnimation]);
 
   return (
     <>

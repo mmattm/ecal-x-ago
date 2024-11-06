@@ -1,27 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import crossOriginIsolation from "vite-plugin-cross-origin-isolation";
+import mkcert from "vite-plugin-mkcert";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), crossOriginIsolation()],
+  plugins: [react(), crossOriginIsolation(), mkcert()],
 });
-
-// import { defineConfig } from "vite";
-// import react from "@vitejs/plugin-react";
-
-// export default defineConfig({
-//   plugins: [
-//     react(),
-//     {
-//       name: "configure-response-headers",
-//       configureServer: (server) => {
-//         server.middlewares.use((_req, res, next) => {
-//           res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-//           res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-//           next();
-//         });
-//       },
-//     },
-//   ],
-// });

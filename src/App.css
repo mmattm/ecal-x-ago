@@ -30,7 +30,7 @@ html {
 }
 
 p {
-  @apply text-xl;
+  @apply text-lg md:text-xl;
 }
 canvas {
   display: block;

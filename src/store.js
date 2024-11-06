@@ -1,22 +1,30 @@
 // store.js
 import { create } from "zustand";
 import { cameraPaths } from "./config";
-import { scenes } from "./scenes";
 
 //const firstScene = "SimulghwanBotanicGarden";
 //const firstScene = scenes[0].value;
 
 const fistCameraPath = "Oil Tank apparition"; //cameraPaths[0].id;
-const playAnimation = false;
+const playAnimationDefault = false;
 const loop = false;
 const gaussianVisible = true;
 
 export const useAnimationStore = create((set) => ({
-  playAnimation: playAnimation,
-  startAnimation: () => set({ playAnimation: true }),
-  stopAnimation: () => set({ playAnimation: false }),
+  playAnimation: playAnimationDefault,
+  startAnimation: () => {
+    //console.log("startAnimation called");
+    set({ playAnimation: true });
+  },
+  stopAnimation: () => {
+    //console.log("stopAnimation called"); // Log when stopAnimation is called
+    set({ playAnimation: false });
+  },
   toggleAnimation: () =>
-    set((state) => ({ playAnimation: !state.playAnimation })),
+    set((state) => {
+      console.log("toggleAnimation called");
+      return { playAnimation: !state.playAnimation };
+    }),
 }));
 
 export const globalStore = create((set) => ({
@@ -36,6 +44,10 @@ export const globalStore = create((set) => ({
   setSplat3D: (value) => set({ splat3D: value }),
   splatLoaded: false,
   setSplatLoaded: (value) => set({ splatLoaded: value }),
+  menuOpen: false,
+  setMenuOpen: (value) => set({ menuOpen: value }),
+  expandedDesc: false,
+  setExpandedDesc: (value) => set({ expandedDesc: value }),
 }));
 
 export const sceneStore = create((set) => ({
@@ -53,6 +65,8 @@ export const cameraPathsStore = create((set) => ({
   focusMode: false,
   setFocusMode: (mode) => set({ focusMode: mode }),
   loop: loop,
+  animationComplete: false,
+  setAnimationComplete: (value) => set({ animationComplete: value }),
 }));
 
 // Create a separate fovStore

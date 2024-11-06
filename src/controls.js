@@ -3,8 +3,9 @@ import { useControls, button } from "leva";
 import { useState, useRef, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 
-import { Recorder, RecorderStatus, Encoders } from "canvas-record";
-import { AVC } from "media-codecs";
+// import { Recorder, RecorderStatus, Encoders } from "canvas-record";
+// import { AVC } from "media-codecs";
+
 import { scenes } from "./scenes";
 
 import { editorMode } from "./config";
@@ -54,6 +55,7 @@ export function useSceneControls() {
   const grid = globalStore((state) => state.grid);
   const sky = globalStore((state) => state.sky);
 
+  /*  
   // Start functions for recording
   // –––––--------------------------------------------–––––
   const canvasRecorder = useRef(null);
@@ -162,6 +164,7 @@ export function useSceneControls() {
       requestAnimationFrame(tick);
     }
   };
+  */
 
   // Use Leva controls for all the previous logic + recording functionality
   const [, set] = useControls(
@@ -248,20 +251,20 @@ export function useSceneControls() {
         },
       },
 
-      // Use a static key and dynamically change the label inside the button
-      Record: button(
-        () => {
-          if (isRecording) {
-            stopRecording();
-          } else {
-            startRecording();
-          }
-        },
-        {
-          disabled: isRendering,
-          label: isRecording ? "Stop Recording" : "Start Recording",
-        }
-      ), // Static key `recordingButton` ensures it doesn't move
+      // // Use a static key and dynamically change the label inside the button
+      // Record: button(
+      //   () => {
+      //     if (isRecording) {
+      //       stopRecording();
+      //     } else {
+      //       startRecording();
+      //     }
+      //   },
+      //   {
+      //     disabled: isRendering,
+      //     label: isRecording ? "Stop Recording" : "Start Recording",
+      //   }
+      // ), // Static key `recordingButton` ensures it doesn't move
       Play: button(
         () => {
           toggleAnimation();
@@ -274,7 +277,7 @@ export function useSceneControls() {
       //   toggleAnimation();
       // }),
     }),
-    [playAnimation, isRecording, isRendering, selectedScene]
+    [playAnimation, selectedScene]
   );
 
   // Sync the control values with store changes

@@ -17,7 +17,9 @@ export function SplatsView({
   const splat3D = globalStore((state) => state.splat3D);
   const setSplatLoaded = globalStore((state) => state.setSplatLoaded);
   const splatLoaded = globalStore((state) => state.splatLoaded);
+
   const startAnimation = useAnimationStore((state) => state.startAnimation);
+  const stopAnimation = useAnimationStore((state) => state.stopAnimation);
 
   useEffect(() => {
     if (splatLoaded) {
@@ -29,14 +31,17 @@ export function SplatsView({
   useEffect(() => {
     //console.log("Creating splats viewer with sources:", sources);
     setSplatLoaded(false);
+    //stopAnimation();
 
     console.log("Creating splats viewer with path:", path);
 
     const viewer = new GaussianSplats3D.DropInViewer({
       sceneFadeInRateMultiplier: 0.5,
+      // inMemoryCompressionLevel: 2,
       // gpuAcceleratedSort: true,
+      // sharedMemoryForWorkers: true,
       // gpuAcceleratedSort: true,
-      // antialiased: false,
+      // antialiased: true,
       // freeIntermediateSplatData: true,
       // sharedMemoryForWorkers: false,
       // integerBasedSort: false,
@@ -55,7 +60,7 @@ export function SplatsView({
       // sharedMemoryForWorkers: false,
       // format: GaussianSplats3D.SceneFormat.Ply,
       // gpuAcceleratedSort: false,
-      // splatRenderMode: GaussianSplats3D.SplatRenderMode.TwoD,
+      //splatRenderMode: GaussianSplats3D.SplatRenderMode.TwoD,
       // renderMode: GaussianSplats3D.RenderMode.OnChange,
     });
 

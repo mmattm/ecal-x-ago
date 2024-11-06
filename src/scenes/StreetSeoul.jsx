@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import Scene from "../Scene";
-import CustomDirectionalLight from "../CustomDirectionalLight";
 import { Environment, SoftShadows } from "@react-three/drei";
 
-const splat = "/splats/StreetSeoul.splat";
+const splat = "/splats/StreetSeoul.ksplat";
 
 export default function SceneContainer() {
   return (
@@ -18,8 +17,7 @@ export default function SceneContainer() {
       <ambientLight intensity={1} />
       <SoftShadows size={20} samples={16} focus={2} />
 
-      <group position={[0, 0, 0]}>
-      </group>
+      <group position={[0, 0, 0]}></group>
     </>
   );
 }

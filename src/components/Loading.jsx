@@ -16,43 +16,32 @@ export default function Loading() {
   useEffect(() => {
     const shapeInterval = setInterval(() => {
       setCurrentShapeIndex((prevIndex) => (prevIndex + 1) % shapes.length);
-    }, 300);
-
-    const textInterval = setInterval(() => {
-      setShowKoreanText((prevState) => !prevState);
-    }, 2000); // Total cycle duration (fade out + fade in)
+    }, 400);
 
     // Clear the intervals on component unmount
     return () => {
       clearInterval(shapeInterval);
-      clearInterval(textInterval);
     };
   }, [shapes.length]);
 
   return (
-    <div className="fixed w-full h-full flex items-center justify-center z-50 bg-cream text-purple p-4">
-      <h2 className="text-6xl text-center absolute top-10">
-        ECAL × AGO <br /> Seoul Highlights
+    <div className="fixed w-full h-full flex  justify-center items-center z-50 bg-cream text-purple p-4">
+      <h2 className="text-4xl md:text-5xl md:text-6xl text-center mt-10 absolute top-0">
+        ECAL × AGO <br />
       </h2>
 
-      {/* Text Container */}
-      <div className="absolute bottom-10 w-full flex justify-center">
-        {/* Korean Text */}
-        <h2
-          className={`text-6xl text-center absolute bottom-10 transition-opacity duration-1000 ${
-            showKoreanText ? "opacity-100" : "opacity-0"
-          }`}
-        >
+      {/* Centered Korean Text */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <h2 className="text-4xl md:text-5xl text-center">
+          Seoul Highlights <br />
           서울 하이라이트
         </h2>
+      </div>
 
-        {/* Loading Text */}
-        <h2
-          className={`text-6xl text-center absolute bottom-10 transition-opacity duration-1000 ${
-            showKoreanText ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          Loading …
+      {/* Loading Shape */}
+      <div className="absolute bottom-10 w-full flex justify-center">
+        <h2 className="text-4xl md:text-5xl text-center animate-pulse transition-opacity duration-1000">
+          Loading scene...
         </h2>
       </div>
 

@@ -6,6 +6,7 @@ import {
   Grid,
   Stats,
   MeshReflectorMaterial,
+  Splat,
 } from "@react-three/drei";
 import CameraPathAnimator from "./CameraPathAnimator";
 import { SplatsView } from "./SplatsView";
@@ -13,7 +14,6 @@ import { editorMode } from "./config";
 
 import { globalStore, cameraPathsStore } from "./store";
 
-//import { Effect } from "postprocessing";
 import { useSceneControls } from "./controls";
 
 export default function Scene({
@@ -41,6 +41,16 @@ export default function Scene({
 
   useSceneControls();
 
+  // const stopAnimation = useAnimationStore((state) => state.stopAnimation);
+  // const setSplatsLoaded = globalStore((state) => state.setSplatLoaded);
+
+  // // useEffect mount
+  // useEffect(() => {
+  //   console.log("Scene mount");
+  //   stopAnimation();
+  //   setSplatsLoaded(false);
+  // }, []);
+
   return (
     <>
       {grid && editorMode && <Grid args={[50, 50]} position={[0, 0, 0]} />}
@@ -66,7 +76,8 @@ export default function Scene({
           inclination={1}
           azimuth={3}
         /> */}
-          <color attach="background" args={["#EFECD9"]} />
+          {/* <color attach="background" args={["#EFECD9"]} /> */}
+          <color attach="background" args={["#000000"]} />
         </>
       )}
 
@@ -102,30 +113,35 @@ export default function Scene({
         )}
       </mesh>
       {gaussianVisible && (
-        <group
-          rotation={splatRotation}
-          position={splatPosition}
-          scale={splatScale}
-        >
-          <SplatsView
-            path={splat}
-            //key={`${splat3D}-${splatAlphaRemovalThreshold}`}
-            // sources={[splat]}
-            // sources={[
-            //   "https://huggingface.co/datasets/runes/coolsplats/resolve/main/output.splat",
-            // ]}
-            // options={[
-            //   {
-            //     // splatAlphaRemovalThreshold: splatAlphaRemovalThreshold,
-            //     // progressiveLoad: true,
-            //     // splat3D: splat3D,
-            //     showLoadingUI: true,
-            //     // focalAdjustment: 1,
-            //     // selfDrivenMode: false,
-            //   },
-            // ]}
-          ></SplatsView>
-        </group>
+        <>
+          <group
+            rotation={splatRotation}
+            position={splatPosition}
+            scale={splatScale}
+          >
+            <SplatsView
+              path={splat}
+              //key={`${splat3D}-${splatAlphaRemovalThreshold}`}
+              // sources={[splat]}
+              // sources={[
+              //   "https://huggingface.co/datasets/runes/coolsplats/resolve/main/output.splat",
+              // ]}
+              // options={[
+              //   {
+              //     // splatAlphaRemovalThreshold: splatAlphaRemovalThreshold,
+              //     // progressiveLoad: true,
+              //     // splat3D: splat3D,
+              //     showLoadingUI: true,
+              //     // focalAdjustment: 1,
+              //     // selfDrivenMode: false,
+              //   },
+              // ]}
+            ></SplatsView>
+          </group>
+          {/* <group position={[0, 0, 0]} scale={3}>
+            <Splat src={splat} />
+          </group> */}
+        </>
       )}
     </>
   );
