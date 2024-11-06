@@ -37,6 +37,7 @@ export function SplatsView({
 
     const viewer = new GaussianSplats3D.DropInViewer({
       sceneFadeInRateMultiplier: 0.5,
+      gpuAcceleratedSort: false,
       // inMemoryCompressionLevel: 2,
       // gpuAcceleratedSort: true,
       // sharedMemoryForWorkers: true,
@@ -89,6 +90,7 @@ export function SplatsView({
       })
       .then(() => {
         setSplatLoaded(true);
+        console.log(viewer);
       })
       .catch((err) => {
         console.log("Error loading splat scenes:", err);

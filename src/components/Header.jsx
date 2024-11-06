@@ -12,7 +12,14 @@ export default function Header() {
   //const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredScene, setHoveredScene] = useState(null);
   const navigate = useNavigate();
-  const [toggleText, setToggleText] = useState("");
+
+  const messages = [
+    "Select a light to view the details",
+    "Drag to look around",
+    "빛을 선택하여 정보를 확인하세요",
+    "드래그하여 둘러보세요",
+  ];
+  const [toggleText, setToggleText] = useState(messages[0]);
 
   const { selectedScene } = sceneStore((state) => state);
   const setSelectedScene = sceneStore((state) => state.setSelectedScene);
@@ -26,23 +33,26 @@ export default function Header() {
   const setExpandedDesc = globalStore((state) => state.setExpandedDesc);
   const focusMode = cameraPathsStore((state) => state.focusMode);
 
+  const animationComplete = cameraPathsStore(
+    (state) => state.animationComplete
+  );
+
   const { sceneName } = useParams();
   const location = useLocation();
 
+  useEffect(() => {}, []);
+
   useEffect(() => {
-    const messages = [
-      "Click on a light to show details",
-      "Click & drag to look around",
-    ];
-    let index = 0;
+    if (animationComplete) {
+      let index = 0;
 
-    const interval = setInterval(() => {
-      index = (index + 1) % messages.length; // Toggle between 0 and 1
-      setToggleText(messages[index]);
-    }, 2000);
-
-    return () => clearInterval(interval); // Clean up the interval on unmount
-  }, []);
+      const interval = setInterval(() => {
+        index = (index + 1) % messages.length; // Toggle between 0 and 1
+        setToggleText(messages[index]);
+      }, 2000);
+      return () => clearInterval(interval); // Clean up the interval on unmount
+    }
+  }, [animationComplete]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -65,6 +75,7 @@ export default function Header() {
 
     setMenuOpen(false);
     navigate(`/${sceneValue}`);
+    navigate(0);
     //window.location.href = `/${sceneValue}`;
   };
 
@@ -106,20 +117,22 @@ export default function Header() {
               <div className="absolute top-0 left-0 z-30">
                 <div
                   onClick={toggleMenu}
-                  className={`p-4 w-2/3 md:w-full text-2xl max-width-32 md:text-3xl cursor-pointer text-white`}
+                  className={`p-4 w-3/4 md:w-full text-2xl max-width-32 md:text-3xl cursor-pointer text-white`}
                 >
                   {scene.location}
                   <br />
                   {scene.district}
                 </div>
               </div>
-              <div className="absolute left-0 bottom-0 z-30">
-                <div
-                  className={`p-4 text-2xl md:text-3xl text-white animate-pulse`}
-                >
-                  {toggleText}
+              {animationComplete && (
+                <div className="absolute left-0 bottom-0 z-30">
+                  <div
+                    className={`p-4 text-2xl md:text-3xl text-white animate-pulse`}
+                  >
+                    {toggleText}
+                  </div>
                 </div>
-              </div>
+              )}
             </>
           )}
         </>

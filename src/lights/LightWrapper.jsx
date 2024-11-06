@@ -32,7 +32,7 @@ export default function LightWrapper({
 
   const { dimming } = useSpring({
     dimming: !isActive ? 0 : 1,
-    config: { mass: 1, friction: 10, tension: 20 },
+    config: { mass: 5, friction: 20, tension: 20 },
     onChange: ({ value }) => {
       setDimmingValue(value.dimming);
     },

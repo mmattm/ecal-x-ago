@@ -93,7 +93,7 @@ export default function Sidebar() {
                 className="text-2xl md:text-3xl cursor-pointer pt-4"
                 onClick={nextLight}
               >
-                Next
+                Next →
               </p>
             </div>
           )}
