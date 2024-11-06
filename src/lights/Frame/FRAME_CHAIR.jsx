@@ -59,87 +59,87 @@ export default function Model(props) {
             scale={0.577}
           >
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_1.geometry}
               material={materials["Glass Heavy Frost Bright White #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_2.geometry}
               material={materials["Glass Heavy Frost Bright White #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_3.geometry}
               material={materials["Glass Heavy Frost Bright White #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_4.geometry}
               material={materials["HD Black Packing Foam #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_5.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_6.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_7.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_8.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_9.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_10.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_11.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_12.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_13.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_14.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_15.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_16.geometry}
               material={materials["Paint Matte Black #1"]}
             />
             <mesh
-              CastShadow
+              castShadow
               geometry={nodes.AGO_PROBE_FINAL_17.geometry}
               material={materials["Paint Matte Black #1"]}
             />
@@ -151,67 +151,67 @@ export default function Model(props) {
           >
             <group position={[0, -0.33, 0.335]} rotation={[-1.584, 0, 0]}>
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_1"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_2"].geometry}
                 material={materials["Paint Gloss Black #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_3"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_4"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_5"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_6"].geometry}
                 material={materials["Paint Gloss Black #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_7"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_8"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_9"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_10"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_11"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
               <mesh
-                CastShadow
+                castShadow
                 geometry={nodes["0_12"].geometry}
                 material={materials["Fine Grain Wood #1"]}
               />
