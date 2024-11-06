@@ -83,7 +83,7 @@ export default function Header() {
     <div className="text-purple">
       {(sceneName || location.pathname != "/") && (
         <>
-          <div className="absolute top-0 right-0 z-30">
+          <div className="absolute top-0 right-0 z-40">
             <div
               onClick={toggleMenu}
               className={`p-4 text-2xl md:text-3xl cursor-pointer ${
