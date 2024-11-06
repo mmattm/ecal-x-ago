@@ -9,8 +9,8 @@ import {
 } from "../store";
 
 export default function Header() {
-  //const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredScene, setHoveredScene] = useState(null);
+  const [visibleIndex, setVisibleIndex] = useState(0);
   const navigate = useNavigate();
 
   const messages = [
@@ -40,19 +40,22 @@ export default function Header() {
   const { sceneName } = useParams();
   const location = useLocation();
 
-  useEffect(() => {}, []);
+  // Preload SVGs for carousel
+  const svgScenes = scenes
+    .filter((scene) => scene.menu) // Only for scenes with menu set to true
+    .map((scene) => `/svg/${scene.svg}.svg`);
 
   useEffect(() => {
-    if (animationComplete) {
-      let index = 0;
-
+    if (hoveredScene) {
+      // Start cycling SVGs when a scene is hovered
       const interval = setInterval(() => {
-        index = (index + 1) % messages.length; // Toggle between 0 and 1
-        setToggleText(messages[index]);
-      }, 2000);
-      return () => clearInterval(interval); // Clean up the interval on unmount
+        setVisibleIndex((prevIndex) => (prevIndex + 1) % svgScenes.length);
+      }, 1000); // Adjust the interval as desired
+      return () => clearInterval(interval);
+    } else {
+      setVisibleIndex(0); // Reset to the first image
     }
-  }, [animationComplete]);
+  }, [hoveredScene]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -60,7 +63,6 @@ export default function Header() {
   };
 
   const handleSceneClick = (sceneValue) => {
-    // if click current scene hide menu
     if (sceneValue === selectedScene) {
       setMenuOpen(false);
       return;
@@ -72,11 +74,9 @@ export default function Header() {
     setHoveredScene(null);
 
     setSelectedScene(sceneValue);
-
     setMenuOpen(false);
     navigate(`/${sceneValue}`);
     navigate(0);
-    //window.location.href = `/${sceneValue}`;
   };
 
   const handleMouseEnter = (sceneValue) => {
@@ -87,12 +87,11 @@ export default function Header() {
     setHoveredScene(null);
   };
 
-  //console.log(location.pathname);
   const scene = scenes.find((scene) => scene.value === selectedScene);
 
   return (
     <div className="text-purple">
-      {(sceneName || location.pathname != "/") && (
+      {(sceneName || location.pathname !== "/") && (
         <>
           <div className="absolute top-0 right-0 z-40">
             <div
@@ -106,14 +105,6 @@ export default function Header() {
           </div>
           {!focusMode && selectedScene && (
             <>
-              {/* <div className="absolute top-0 left-0 z-30">
-                <div
-                  onClick={toggleMenu}
-                  className={`p-4 text-3xl cursor-pointer text-white`}
-                >
-                  ECAL × AGO <br /> Seoul Highlights
-                </div>
-              </div> */}
               <div className="absolute top-0 left-0 z-30">
                 <div
                   onClick={toggleMenu}
@@ -143,10 +134,10 @@ export default function Header() {
         <>
           <div
             className={`absolute w-full h-full ${
-              location.pathname != "/" ? "bg-cream text-purple" : "text-white"
+              location.pathname !== "/" ? "bg-cream text-purple" : "text-white"
             }  z-50`}
           >
-            {location.pathname == "/" ? (
+            {location.pathname === "/" ? (
               <>
                 <div className="absolute top-0 left-0 z-50 text-center w-full">
                   <div className="p-4 text-2xl md:text-3xl w-full">
@@ -164,7 +155,6 @@ export default function Header() {
             ) : (
               <div className="absolute top-0 left-0 z-50">
                 <div
-                  // onClick={toggleMenu}
                   onClick={() => {
                     stopAnimation();
                     setMenuOpen(false);
@@ -178,7 +168,7 @@ export default function Header() {
               </div>
             )}
 
-            {location.pathname != "/" && (
+            {location.pathname !== "/" && (
               <div className="absolute top-0 right-0 ">
                 <div
                   onClick={toggleMenu}
@@ -188,7 +178,7 @@ export default function Header() {
                 </div>
               </div>
             )}
-            {location.pathname != "/" && (
+            {location.pathname !== "/" && (
               <div className="absolute bottom-0 left-0 ">
                 <Link
                   to="/about"
@@ -206,12 +196,12 @@ export default function Header() {
             )}
             <nav className="flex flex-col items-center justify-center gap-y-6 h-full">
               {scenes
-                .filter((scene) => scene.menu) // Filter scenes with menu: true
+                .filter((scene) => scene.menu)
                 .map((scene) => (
                   <div
                     key={scene.value}
                     onClick={() => handleSceneClick(scene.value)}
-                    onMouseEnter={() => handleMouseEnter(scene.svg)}
+                    onMouseEnter={() => handleMouseEnter(scene.value)}
                     onMouseLeave={handleMouseLeave}
                     className="text-4xl md:text-5xl cursor-pointer relative"
                   >
@@ -221,7 +211,16 @@ export default function Header() {
             </nav>
             {hoveredScene !== null && (
               <div className="fixed inset-0 z-30 flex items-center justify-center pointer-events-none">
-                <img src={"/svg/" + hoveredScene + ".svg"} className="h-4/5" />
+                {svgScenes.map((src, index) => (
+                  <img
+                    key={index}
+                    src={src}
+                    className={`h-4/5 absolute transition-opacity duration-300 ${
+                      index === visibleIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                    alt={`SVG Scene ${index}`}
+                  />
+                ))}
               </div>
             )}
           </div>
