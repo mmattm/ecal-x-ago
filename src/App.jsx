@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
+
 import React from "react";
 
 import About from "./pages/About";
