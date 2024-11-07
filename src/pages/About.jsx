@@ -186,7 +186,7 @@ export default function About() {
                 <p className="mb-4 text-base">
                   <b>Adjoint 조교</b>
                   <br />
-                  Adrien Rovero
+                  Margo Clavier
                 </p>
                 <p className="mb-4 text-base">
                   <b>Assistant 조교</b>
@@ -202,7 +202,7 @@ export default function About() {
                   Charlotte <br />
                   Jobin Alexandre Li
                   <br />
-                  Neitzke Nikita
+                  Nikita Neitzke
                   <br />
                   Abla Bolassi Owoussi
                   <br />

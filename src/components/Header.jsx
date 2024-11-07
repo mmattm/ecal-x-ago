@@ -57,8 +57,6 @@ export default function Header() {
   }, [animationComplete]);
 
   const toggleMenu = () => {
-    console.log("toggleMenu");
-
     setMenuOpen(!menuOpen);
     setHoveredScene(null);
   };
@@ -213,7 +211,7 @@ export default function Header() {
                     }}
                     className="p-4 text-2xl md:text-3xl cursor-pointer inline-block leading-tight"
                   >
-                    About the project
+                    About ECAL x AGO
                   </Link>
                 </div>
               </>
