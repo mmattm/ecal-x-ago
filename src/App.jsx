@@ -10,19 +10,22 @@ import SceneLayout from "./SceneLayout";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <>
-        <Routes>
-          {/* Root path / */}
-          <Route path="/" element={<SceneLayout />} />
+    <>
+      <BrowserRouter>
+        <>
+          <Routes>
+            {/* Root path / */}
+            <Route path="/" element={<SceneLayout />} />
 
-          {/* Dynamic path /:sceneName */}
-          <Route path="/:sceneName" element={<SceneLayout />} />
+            {/* Dynamic path /:sceneName */}
+            <Route path="/:sceneName" element={<SceneLayout />} />
 
-          {/* About page */}
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </>
-    </BrowserRouter>
+            {/* About page */}
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </>
+      </BrowserRouter>
+      <Analytics />
+    </>
   );
 }
