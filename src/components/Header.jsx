@@ -14,7 +14,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const messages = [
-    "Select a light to view the details",
+    "Select a light for more details",
     "Drag to look around",
     "빛을 선택하여 정보를 확인하세요",
     "드래그하여 둘러보세요",
@@ -32,6 +32,8 @@ export default function Header() {
 
   const setExpandedDesc = globalStore((state) => state.setExpandedDesc);
   const focusMode = cameraPathsStore((state) => state.focusMode);
+
+  const splatLoaded = globalStore((state) => state.splatLoaded);
 
   const animationComplete = cameraPathsStore(
     (state) => state.animationComplete
@@ -55,6 +57,8 @@ export default function Header() {
   }, [animationComplete]);
 
   const toggleMenu = () => {
+    console.log("toggleMenu");
+
     setMenuOpen(!menuOpen);
     setHoveredScene(null);
   };
@@ -91,13 +95,13 @@ export default function Header() {
   const scene = scenes.find((scene) => scene.value === selectedScene);
 
   return (
-    <div className="text-purple">
+    <div className="text-purple ">
       {(sceneName || location.pathname != "/") && (
         <>
           <div className="absolute top-0 right-0 z-40">
             <div
               onClick={toggleMenu}
-              className={`p-4 text-2xl md:text-3xl cursor-pointer ${
+              className={`p-4 text-2xl md:text-3xl cursor-pointer leading-tight ${
                 !menuOpen && selectedScene ? "text-white" : ""
               }`}
             >
@@ -114,20 +118,21 @@ export default function Header() {
                   ECAL × AGO <br /> Seoul Highlights
                 </div>
               </div> */}
-              <div className="absolute top-0 left-0 z-30">
+              <div
+                className={`absolute top-0 left-0 z-30 ${
+                  splatLoaded ? "fade-in-delay" : ""
+                }`}
+              >
                 <div
-                  onClick={toggleMenu}
-                  className={`p-4 w-3/4 md:w-full text-2xl max-width-32 md:text-3xl cursor-pointer text-white`}
+                  className={`p-4 w-3/4 md:w-4/5 text-2xl md:text-4xl lg:text-5xl cursor-pointer text-white leading-tight`}
                 >
-                  {scene.location}
-                  <br />
-                  {scene.district}
+                  {scene.location}. {scene.district} District
                 </div>
               </div>
               {animationComplete && (
-                <div className="absolute left-0 bottom-0 z-30">
+                <div className="absolute left-0 bottom-0 z-30 fade-in">
                   <div
-                    className={`p-4 text-2xl md:text-3xl text-white animate-pulse`}
+                    className={`p-4 text-2xl md:text-3xl text-white animate-pulse leading-tight`}
                   >
                     {toggleText}
                   </div>
@@ -154,57 +159,72 @@ export default function Header() {
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 z-50 text-center w-full">
-                  <div className="p-4 text-2xl md:text-3xl w-full">
+                  <Link
+                    to="/about"
+                    onClick={() => {
+                      stopAnimation();
+                      setMenuOpen(false);
+                      setSelectedScene(null);
+                    }}
+                    className="p-4 text-2xl md:text-3xl w-full block"
+                  >
                     Seoul Highlights
                     <br />
                     서울 하이라이트
-                  </div>
+                  </Link>
                 </div>
               </>
             ) : (
               <div className="absolute top-0 left-0 z-50">
-                <div
-                  // onClick={toggleMenu}
+                <Link
+                  to="/"
                   onClick={() => {
                     stopAnimation();
                     setMenuOpen(false);
                     setSelectedScene(null);
-                    navigate("/");
                   }}
-                  className="p-4 text-2xl md:text-3xl cursor-pointer"
+                  className="p-4 text-2xl md:text-3xl cursor-pointer block leading-tight"
                 >
-                  ECAL × AGO <br /> Seoul Highlights
-                </div>
+                  Seoul Highlights
+                  <br />
+                  서울 하이라이트
+                </Link>
               </div>
             )}
 
             {location.pathname != "/" && (
-              <div className="absolute top-0 right-0 ">
-                <div
-                  onClick={toggleMenu}
-                  className={`p-4 text-2xl md:text-3xl cursor-pointer`}
-                >
-                  Close
+              <>
+                <div className="absolute top-0 right-0 leading-tight z-50">
+                  <div
+                    onClick={toggleMenu}
+                    className={`p-4 text-2xl md:text-3xl cursor-pointer leading-tight`}
+                  >
+                    Close
+                  </div>
                 </div>
-              </div>
+                <div className="absolute bottom-0 left-0 z-50">
+                  <Link
+                    to="/about"
+                    onClick={() => {
+                      stopAnimation();
+                      setMenuOpen(false);
+                      setSelectedScene(null);
+                      navigate("/about");
+                    }}
+                    className="p-4 text-2xl md:text-3xl cursor-pointer inline-block leading-tight"
+                  >
+                    About the project
+                  </Link>
+                </div>
+              </>
             )}
-            {location.pathname != "/" && (
-              <div className="absolute bottom-0 left-0 ">
-                <Link
-                  to="/about"
-                  onClick={() => {
-                    stopAnimation();
-                    setMenuOpen(false);
-                    setSelectedScene(null);
-                    navigate("/about");
-                  }}
-                  className="p-4 text-2xl md:text-3xl cursor-pointer inline-block"
-                >
-                  About the project
-                </Link>
-              </div>
-            )}
-            <nav className="flex flex-col items-center justify-center gap-y-6 h-full">
+            <nav
+              className={`flex flex-col items-center justify-center gap-y-6 h-full  ${
+                location.pathname == "/" && splatLoaded
+                  ? "fade-in-delay"
+                  : "fade-in"
+              }`}
+            >
               {scenes
                 .filter((scene) => scene.menu) // Filter scenes with menu: true
                 .map((scene) => (

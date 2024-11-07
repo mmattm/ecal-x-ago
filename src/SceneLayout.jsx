@@ -59,7 +59,7 @@ function Stage() {
   const setSelectedScene = sceneStore((state) => state.setSelectedScene);
 
   useEffect(() => {
-    console.log("sceneName", sceneName);
+    //console.log("sceneName", sceneName);
 
     if (!selectedScene || selectedScene !== sceneName) {
       setSelectedScene(sceneName || rootScene); // Set to `sceneName` or default

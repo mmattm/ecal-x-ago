@@ -7,11 +7,11 @@ export default function About() {
     <>
       <Header />
       <div className="p-4 overflow-y-scroll h-dvh">
-        <h1 className="text-2xl md:text-3xl">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl leading-tight">
           ECAL × AGO <br /> Seoul Highlights <br />
           서울 하이라이트
         </h1>
-        <div className="flex flex-col md:flex-row gap-6 mt-10">
+        <div className="flex flex-col md:flex-row gap-12 mt-10">
           <div className="md:w-1/2 w-full">
             <p className="mb-4">
               We believe that lighting defines spaces. The importance of light
@@ -102,9 +102,66 @@ export default function About() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6 mt-16">
+        <div className="flex flex-col md:flex-row gap-12 mt-12 md:mt-16">
           <div className="md:w-1/2 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <p className="mb-4 text-base">
+                  <b>Biography</b>
+                  <br />
+                  ECAL/University of Art and Design Lausanne is internationally
+                  renowned and featured regularly as one of the world’s top ten
+                  universities of art and design. As part of its industrial
+                  design BA program, ECAL offers its students multiple colla-
+                  boration projects with local and international institutions,
+                  brands and manufacturers. Students are thus led to better
+                  understand the identity and values of a brand, specific
+                  production pro- cesses and know-how, which they have to work
+                  with in order to conceive innovative products.
+                </p>
+                <p className="text-base">
+                  ECAL/로잔 예술 디자인 대학교는 세계 10대 예술 디자인 대학 중
+                  하나로 선정되는 등 국제적 위상을 지니 학교 입니다. ECAL의 산업
+                  디자인 학사 프로그램은 학생들에게 다양한 국내외 기관, 브랜드
+                  및 제조업체와의 협업 프로젝트를 제공하며, 이를 통해 학생들은
+                  브랜드의 정체성과 가치를 깊이 이해하고, 생산 과정과 기술을
+                  파악하여 혁신적인 제품을 구상하게 됩니다.
+                </p>
+              </div>
+              <div>
+                {" "}
+                <p className="mb-4 text-base">
+                  AGO is a Korean lighting company that searches for a balance
+                  between beauty and function. AGO collaborate with designers
+                  who share these values and make their ideas possible through
+                  their dedication to production. AGO is located in an area of
+                  central Seoul named Euljiro, the historic heart of Korea’s
+                  manufacturing industry, where many small factories and
+                  workshops of skilled artisans still remain. Through its close
+                  ties with local workshops and industry, AGO aims to expand in
+                  Korea and reach new international markets through a
+                  well-curated and distinct design language. The name AGO is
+                  actually de- rived from Korean meaning “old friends” – a
+                  reference to the history of the region and the new friendships
+                  to be forged.
+                </p>
+                <p className="text-base">
+                  AGO는 아름다움과 기능의 균형을 추구하는 한국의 조명
+                  브랜드입니다. AGO는 이러한 가치를 공유하는 디자이너들과
+                  협력하여 그들의 아이디어를 실제로 실현합니다. AGO는, 여전히
+                  많은 소규모 공장과 숙련된 장인들의 작업장이 자리하고 있는,
+                  한국 도심 제조업의 중심지였던 서울 을지로에 위치해 있습니다.
+                  AGO는 한국의 지역 산업과의 긴밀한 협력을 바탕으로 정교하게
+                  큐레이션 된 독특한 디자인 언어를 통해 국제 시장으로 확장하고
+                  있습니다. ‘AGO’라는 이름은 ‘옛 친구’를 의미하며, 지역의 역사와
+                  새롭게 형성될 관계을 상징합니다
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="md:w-1/2 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
                 <p className="mb-4 text-base">
                   <b>ECAL Director</b>
@@ -190,65 +247,9 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="md:w-1/2 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <p className="mb-4 text-base">
-                  <b>Biography</b>
-                  <br />
-                  ECAL/University of Art and Design Lausanne is internationally
-                  renowned and featured regularly as one of the world’s top ten
-                  universities of art and design. As part of its industrial
-                  design BA program, ECAL offers its students multiple colla-
-                  boration projects with local and international institutions,
-                  brands and manufacturers. Students are thus led to better
-                  understand the identity and values of a brand, specific
-                  production pro- cesses and know-how, which they have to work
-                  with in order to conceive innovative products.
-                </p>
-                <p className="text-base">
-                  ECAL/로잔 예술 디자인 대학교는 세계 10대 예술 디자인 대학 중
-                  하나로 선정되는 등 국제적 위상을 지니 학교 입니다. ECAL의 산업
-                  디자인 학사 프로그램은 학생들에게 다양한 국내외 기관, 브랜드
-                  및 제조업체와의 협업 프로젝트를 제공하며, 이를 통해 학생들은
-                  브랜드의 정체성과 가치를 깊이 이해하고, 생산 과정과 기술을
-                  파악하여 혁신적인 제품을 구상하게 됩니다.
-                </p>
-              </div>
-              <div>
-                {" "}
-                <p className="mb-4 text-base">
-                  AGO is a Korean lighting company that searches for a balance
-                  between beauty and function. AGO collaborate with designers
-                  who share these values and make their ideas possible through
-                  their dedication to production. AGO is located in an area of
-                  central Seoul named Euljiro, the historic heart of Korea’s
-                  manufacturing industry, where many small factories and
-                  workshops of skilled artisans still remain. Through its close
-                  ties with local workshops and industry, AGO aims to expand in
-                  Korea and reach new international markets through a
-                  well-curated and distinct design language. The name AGO is
-                  actually de- rived from Korean meaning “old friends” – a
-                  reference to the history of the region and the new friendships
-                  to be forged.
-                </p>
-                <p className="text-base">
-                  AGO는 아름다움과 기능의 균형을 추구하는 한국의 조명
-                  브랜드입니다. AGO는 이러한 가치를 공유하는 디자이너들과
-                  협력하여 그들의 아이디어를 실제로 실현합니다. AGO는, 여전히
-                  많은 소규모 공장과 숙련된 장인들의 작업장이 자리하고 있는,
-                  한국 도심 제조업의 중심지였던 서울 을지로에 위치해 있습니다.
-                  AGO는 한국의 지역 산업과의 긴밀한 협력을 바탕으로 정교하게
-                  큐레이션 된 독특한 디자인 언어를 통해 국제 시장으로 확장하고
-                  있습니다. ‘AGO’라는 이름은 ‘옛 친구’를 의미하며, 지역의 역사와
-                  새롭게 형성될 관계을 상징합니다
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6 my-16">
+        <div className="flex flex-col md:flex-row gap-12 my-12 md:my-16">
           <div className="md:w-1/2 w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>

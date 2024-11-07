@@ -16,11 +16,11 @@ export function Model(props) {
 
   return (
     <group {...props} dispose={null}>
-      <group position={[-3.35, 7, 8.7]}>
+      <group position={[-3.3, 7, 8.75]}>
         <EnhancedSpotlight
           position={[0, 1, 0]}
           castShadow={false}
-          scale={7}
+          scale={7.5}
           attenuation={dimmingValue}
           distance={6}
           opacity={1}

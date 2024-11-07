@@ -116,7 +116,7 @@ export default function CameraPathAnimator({
       cameraControlsRef.current.minDistance = 2; // Prevent zooming too close
       cameraControlsRef.current.maxDistance = 10; // Prevent zooming too far
       cameraControlsRef.current.minPolarAngle = MathUtils.degToRad(0); // Prevent looking below level
-      cameraControlsRef.current.maxPolarAngle = MathUtils.degToRad(90); // Allow upward tilt
+      cameraControlsRef.current.maxPolarAngle = MathUtils.degToRad(100); // Allow upward tilt
       cameraControlsRef.current.smoothTime = 0.5; // Smooth the camera movement
 
       cameraControlsRef.current.mouseButtons.right = 0;

@@ -54,7 +54,7 @@ export const scenes = [
       <p>PLANTA is a lighting installation designed to enhance and illuminate tall plants in various indoor spaces. Originally inspired and created for Seoul’s Sikmulgwan PH Botanical Garden located in prime Gangnam District. With AGO’s Alley lamp as its foundation, PLANTA not only provides ambient lighting but also serves to highlight specific plants in the botanical garden, creating a harmonious balance between nature and light. The integrated pot provides stability for the entire lamp, allowing it to be placed in various settings without the need for additional fixture systems.</p>
     `,
     longDescriptionCo: `
-      <p>PLANTA는 다양한 실내 공간에서 조경식물을 돋보이게 하면서 공간을 밝히는 조명 설치물입니다. 이 설치물은 강남구에 위치한 PH§ 식물관을 대상하여 제안되었습니다. AGO의 Alley 조명를 기반으로 한 PLANTA 는 주변을 은은하게 비추면서도 특정 식물을 강조하는 조명으로, 자연과 빛 사이의 조화를 이루는 데 중점을 둡니다. 통합된 화분이 램프를 안정감 있게 지탱해 주어, 추가적인 설치 장치 없이도 어디에나 쉽게 배치할 수 있습니다.</p>
+      <p>PLANTA는 다양한 실내 공간에서 조경식물을 돋보이게 하면서 공간을 밝히는 조명 설치물입니다. 이 설치물은 강남구에 위치한 PH 식물관을 대상하여 제안되었습니다. AGO의 Alley 조명를 기반으로 한 PLANTA 는 주변을 은은하게 비추면서도 특정 식물을 강조하는 조명으로, 자연과 빛 사이의 조화를 이루는 데 중점을 둡니다. 통합된 화분이 램프를 안정감 있게 지탱해 주어, 추가적인 설치 장치 없이도 어디에나 쉽게 배치할 수 있습니다.</p>
     `,
     location: "Sikmulgwan PH Botanical Garden, Atrium",
     district: "Gangnam",

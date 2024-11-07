@@ -90,7 +90,8 @@ export function SplatsView({
       })
       .then(() => {
         setSplatLoaded(true);
-        console.log(viewer);
+        console.log(viewer.viewer);
+        viewer.viewer.splatRenderMode = GaussianSplats3D.SplatRenderMode.TwoD;
       })
       .catch((err) => {
         console.log("Error loading splat scenes:", err);
